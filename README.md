@@ -5,6 +5,15 @@
 [![][logo]][logo-large]
 
 
+## About
+
+The dice app defines a `random` system component which is designed for use by
+all hexagram30 applications for its random number generation. The `random`
+component does not use Clojure's default support for random (i.e.,
+`java.util.Random`), but rather `java.security.SecureRandom` and as such is
+suitable for use in powering in-game economic computations.
+
+
 ## Usage
 
 ### From the command line
