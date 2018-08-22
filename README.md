@@ -25,7 +25,7 @@ TBD
 ### From the REPL
 
 First, we need to start the system:
-```
+```clj
 [hxgm30.dice.repl] λ=> (startup)
 ```
 
@@ -66,8 +66,56 @@ Now we can use the system-based `random` API:
 
 And the `dice` API:
 
+```clj
+[hxgm30.dice.repl] λ=> (dice/d4 (system))
+2
+[hxgm30.dice.repl] λ=> (dice/d6 (system))
+5
+[hxgm30.dice.repl] λ=> (dice/d8 (system))
+7
+[hxgm30.dice.repl] λ=> (dice/d10 (system))
+9
+[hxgm30.dice.repl] λ=> (dice/d12 (system))
+12
+[hxgm30.dice.repl] λ=> (dice/d20 (system))
+17
+[hxgm30.dice.repl] λ=> (dice/d100 (system))
+74
 ```
-TBD
+
+You can also make multiple roles:
+
+```clj
+[hxgm30.dice.repl] λ=> (dice/d6 (system) 3)
+[6 3 5]
+[hxgm30.dice.repl] λ=> (dice/d20 (system) 4)
+[3 6 12 5]
+```
+
+Note that d10 has a special case: if you roll two, the value is interpretted as
+a value between 1 and 100 (inclusive). However, it doesn't do this by calling
+d100; it really rolls two d10 and assembles the resulting values:
+
+```clj
+[hxgm30.dice.repl] λ=> (dice/d10 (system) 2)
+67
+```
+
+Finally, there is a `roll` function where you can specity the types and number
+of die:
+
+```clj
+[hxgm30.dice.repl] λ=> (dice/roll (system) {:d4 3 :d6 2 :d8 4 :d10 2 :d12 5 :d20 6})
+[[1 3 3] [6 5] [2 7 6 8] [5 8] [6 3 6 8 2] [1 1 5 9 7 14]]
+```
+
+If you would like to add the results of multi-die rolls, you can do that too:
+
+```clj
+[hxgm30.dice.repl] λ=> (dice/sum (dice/d20 (system) 4))
+35
+[hxgm30.dice.repl] λ=> (dice/sum (dice/roll (system) {:d4 1 :d6 2 :d8 3 :d10 4 :d20 5}))
+126
 ```
 
 

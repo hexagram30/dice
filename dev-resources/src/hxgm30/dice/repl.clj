@@ -10,6 +10,7 @@
     [hxgm30.dice.components.config :as config]
     [hxgm30.dice.components.core]
     [hxgm30.dice.components.random :as random]
+    [hxgm30.dice.core :as dice]
     [trifl.java :refer [show-methods]])
   (:import
     (java.net URI)

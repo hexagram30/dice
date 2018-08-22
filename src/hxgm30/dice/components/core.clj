@@ -24,11 +24,15 @@
             (random/create-component)
             [:config :logging])})
 
+(def rnd-without-logging
+  {:random (component/using
+            (random/create-component)
+            [:config])})
+
 (defn basic
   [cfg-data]
   (merge (cfg cfg-data)
          log))
-
 
 (defn main
   [cfg-data]
@@ -45,6 +49,13 @@
       basic
       component/map->SystemMap))
 
+(defn initialize-for-testing
+  []
+  (-> (config/build-config)
+      cfg
+      (merge rnd-without-logging)
+      component/map->SystemMap))
+
 (defn initialize
   []
   (-> (config/build-config)
@@ -53,7 +64,8 @@
 
 (def init-lookup
   {:basic #'initialize-bare-bones
-   :main #'initialize})
+   :main #'initialize
+   :testing #'initialize-for-testing})
 
 (defn init
   ([]

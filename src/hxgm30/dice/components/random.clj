@@ -1,7 +1,5 @@
 (ns hxgm30.dice.components.random
   (:require
-    [clojure.core.async :as async]
-    [clojusc.twig :as logger]
     [com.stuartsierra.component :as component]
     [hxgm30.dice.components.config :as config]
     [taoensso.timbre :as log])
