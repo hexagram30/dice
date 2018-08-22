@@ -43,7 +43,7 @@ With the standard output of:
 :running
 ```
 
-Now we can use the system-based API:
+Now we can use the system-based `random` API:
 
 ```clj
 [hxgm30.dice.repl] λ=> (random/int (system))
@@ -63,6 +63,13 @@ Now we can use the system-based API:
 [hxgm30.dice.repl] λ=> (random/nth (system) [:alice :bob :carol :dave :eve :fred])
 :fred
 ```
+
+And the `dice` API:
+
+```
+TBD
+```
+
 
 ## Donating
 
