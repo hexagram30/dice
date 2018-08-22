@@ -9,11 +9,12 @@
     [com.stuartsierra.component :as component]
     [hxgm30.dice.components.config :as config]
     [hxgm30.dice.components.core]
-    [hxgm30.dice.components.timer :as timer]
+    [hxgm30.dice.components.random :as random]
     [trifl.java :refer [show-methods]])
   (:import
     (java.net URI)
-    (java.nio.file Paths)))
+    (java.nio.file Paths)
+    (java.security SecureRandom)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Initial Setup & Utility Functions   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -51,14 +52,3 @@
   []
   (println (slurp (io/resource "text/banner.txt")))
   :ok)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;   XXX   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defn publish
-  ([data]
-    (publish tag/generic data))
-  ([event-type data]
-    (pubsub/publish (system) event-type data)))

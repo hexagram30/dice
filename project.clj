@@ -25,8 +25,7 @@
     [clojusc/system-manager "0.3.0-SNAPSHOT"]
     [clojusc/twig "0.3.3"]
     [hexagram30/common "0.1.0-SNAPSHOT"]
-    [org.clojure/clojure "1.9.0"]
-    [org.clojure/core.async "0.4.474"]]
+    [org.clojure/clojure "1.9.0"]]
   :profiles {
     :ubercompile {
       :aot :all}
@@ -39,7 +38,7 @@
         [venantius/ultra "0.5.2"]]
       :source-paths ["dev-resources/src"]
       :repl-options {
-        :init-ns hxgm30.event.repl
+        :init-ns hxgm30.dice.repl
         :prompt ~get-prompt
         :init ~(println (get-banner))}}
     :lint {
@@ -56,7 +55,7 @@
         [lein-ltest "0.3.0"]]}
       :server {
         :jvm-opts ["-XX:MaxDirectMemorySize=512g"]
-        :main hxgm30.event.server}}
+        :main hxgm30.dice.server}}
   :aliases {
     ;; Dev Aliases
     "repl" ["do"

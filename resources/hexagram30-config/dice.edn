@@ -1,5 +1,8 @@
-{:event-system {
-   :type :core-async}
+{:rng {
+   ;; Legal values for this are :default, :blocking, :non-blocking, :pkcs11,
+   ;; and :sha1prng.
+   :algorithm :non-blocking
+   :seed-bytes 1024}
  :logging {
    :level :debug
-   :nss [io.netty hxgm30]}}
+   :nss [hxgm30]}}

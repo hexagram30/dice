@@ -3,7 +3,7 @@
     [com.stuartsierra.component :as component]
     [hxgm30.dice.components.config :as config]
     [hxgm30.dice.components.logging :as logging]
-    [hxgm30.dice.components.timer :as timer]
+    [hxgm30.dice.components.random :as random]
     [taoensso.timbre :as log]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -19,26 +19,21 @@
              (logging/create-component)
              [:config])})
 
-(def pbsb
-  {:pubsub (component/using
-            (pubsub/create-component tag/subscribers)
+(def rnd
+  {:random (component/using
+            (random/create-component)
             [:config :logging])})
-
-(def tmr
-  {:timer (component/using
-             (timer/create-component)
-             [:config :logging :pubsub])})
 
 (defn basic
   [cfg-data]
   (merge (cfg cfg-data)
          log))
 
+
 (defn main
   [cfg-data]
   (merge (basic cfg-data)
-         pbsb
-         tmr))
+         rnd))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Initializations   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -20,53 +20,17 @@
 ;;;   Config Component API   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn day-divisions
+;; Random Number Generator
+
+(defn rng-algorithm
   [system]
-  (get-in (get-cfg system) [:almanac :event :day :divisions]))
+  (get-in (get-cfg system) [:rng :algorithm]))
 
-(defn day-messages
+(defn rng-seed-bytes
   [system]
-  (get-in (get-cfg system) [:almanac :event :day :messages]))
+  (get-in (get-cfg system) [:rng :see-bytes]))
 
-(defn day-states
-  [system]
-  (get-in (get-cfg system) [:almanac :event :day :states]))
-
-(defn day-transitions
-  [system]
-  (get-in (get-cfg system) [:almanac :event :day :transitions]))
-
-(defn day-transition
-  [system idx]
-  {:state (nth (day-states system) idx)
-   :transition (nth (day-transitions system) idx)
-   :message (nth (day-messages system) idx)})
-
-(defn year-divisions
-  [system]
-  (get-in (get-cfg system) [:almanac :event :year :divisions]))
-
-(defn year-messages
-  [system]
-  (get-in (get-cfg system) [:almanac :event :year :messages]))
-
-(defn year-states
-  [system]
-  (get-in (get-cfg system) [:almanac :event :year :states]))
-
-(defn year-transitions
-  [system]
-  (get-in (get-cfg system) [:almanac :event :year :transitions]))
-
-(defn year-transition
-  [system idx]
-  {:state (nth (year-states system) idx)
-   :transition (nth (year-transitions system) idx)
-   :message (nth (year-messages system) idx)})
-
-(defn time-multiplier
-  [system]
-  (get-in (get-cfg system) [:almanac :time :multiplier]))
+;; Logging
 
 (defn log-level
   [system]
