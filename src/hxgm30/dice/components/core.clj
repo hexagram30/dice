@@ -49,7 +49,7 @@
       basic
       component/map->SystemMap))
 
-(defn initialize-for-testing
+(defn initialize-without-logging
   []
   (-> (config/build-config)
       cfg
@@ -64,11 +64,14 @@
 
 (def init-lookup
   {:basic #'initialize-bare-bones
+   :cli #'initialize-without-logging
    :main #'initialize
-   :testing #'initialize-for-testing})
+   :testing #'initialize-without-logging})
 
 (defn init
   ([]
     (init :main))
   ([mode]
     ((mode init-lookup))))
+
+(def cli #(init :cli))

@@ -2,10 +2,15 @@
   "This namespace is system-based; before making any function calls, a
   system that includes a `:random` component needs to be started."
   (:require
+    [clojure.pprint :as pprint]
     [clojure.string :as string]
+    [clojusc.system-manager.core :as system-manager]
+    [clojusc.twig :as logger]
+    [hxgm30.dice.components.core]
     [hxgm30.dice.components.random :as random])
   (:import
-    (clojure.lang Keyword)))
+    (clojure.lang Keyword))
+  (:gen-class))
 
 (defn sides
   [^Keyword dice]
@@ -21,9 +26,16 @@
 (defn d*
   [system sides rolls]
   (let [results (mapv (fn [_] (inc (random/int system sides))) (range rolls))]
-    (if (= 1 rolls)
-      (first results)
-      results)))
+    (cond (= 1 rolls)
+          (first results)
+
+          (and (= 10 sides) (= 2 rolls))
+          (let [results (map dec results)]
+            (cond (= [0 0] results) 100
+                  (= 0 (first results)) (last results)
+                  :else (Integer/parseInt (string/join "" results))))
+
+          :else results)))
 
 (defn d4
   ([system]
@@ -47,12 +59,7 @@
   ([system]
     (d10 system 1))
   ([system rolls]
-    (if (= 2 rolls)
-      (let [results (map dec (d* system 10 rolls))]
-        (cond (= [0 0] results) 100
-              (= 0 (first results)) (last results)
-              :else (Integer/parseInt (string/join "" results))))
-      (d* system 10 rolls))))
+    (d* system 10 rolls)))
 
 (defn d12
   ([system]
@@ -79,3 +86,20 @@
 (defn sum
   [results]
   (reduce + (flatten results)))
+
+(defn -main
+  [& args]
+  (logger/set-level! '[hxgm30] :error)
+  (system-manager/setup-manager {:init 'hxgm30.dice.components.core/cli})
+  (system-manager/startup)
+  (let [roll-data (->> args
+                       (partition 2)
+                       (map (fn [[k v]] [(keyword k) (Integer/parseInt v)])))
+        results (roll (system-manager/system) roll-data)]
+    (doall
+      (for [[group data] (group-by first (partition 2 (interleave (map first roll-data) results)))]
+        (do
+          (println (str (name group) ":"))
+          (print (str "\t"))
+          (mapv #(print (str (second %) " ")) data)
+          (println "\n"))))))

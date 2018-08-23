@@ -18,8 +18,38 @@ suitable for use in powering in-game economic computations.
 
 ### From the command line
 
+Using the provided `lein` alias `roll`, you may specify as many (or as few) die
+type and die number that you want to roll simultaneously:
+
 ```
-TBD
+$ lein roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
+```
+```
+ __                                                 ______ ______
+|  |--.-----.--.--.---.-.-----.----.---.-.--------.|__    |      |
+|     |  -__|_   _|  _  |  _  |   _|  _  |        ||__    |  --  |
+|__|__|_____|__.__|___._|___  |__| |___._|__|__|__||______|______|
+
+........................................  d i c e  ...............
+
+
+d10:
+    30 50 [4 2 6 2]
+
+d20:
+    [19 18 20 10 20]
+
+d4:
+    [3 4 3 3 1 4]
+
+d8:
+    [2 3]
+
+d100:
+    5
+
+d12:
+    [12 7 3]
 ```
 
 ### From the REPL

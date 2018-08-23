@@ -37,6 +37,7 @@
         [lein-shell "0.5.0"]
         [venantius/ultra "0.5.2"]]
       :source-paths ["dev-resources/src"]
+      :main hxgm30.dice.core
       :repl-options {
         :init-ns hxgm30.dice.repl
         :prompt ~get-prompt
@@ -86,5 +87,7 @@
       ["check-vers"]
       ["lint"]
       ["ltest" ":all"]
-      ["uberjar"]]})
+      ["uberjar"]]
+    ;; Script Aliases
+    "roll" ["run"]})
 
