@@ -32,7 +32,7 @@
           (and (= 10 sides) (= 2 rolls))
           (let [results (map dec results)]
             (cond (= [0 0] results) 100
-                  (= 0 (first results)) (last results)
+                  (zero? (first results)) (last results)
                   :else (Integer/parseInt (string/join "" results))))
 
           :else results)))
