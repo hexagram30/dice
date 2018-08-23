@@ -4,6 +4,7 @@
     [hxgm30.dice.components.config :as config]
     [hxgm30.dice.components.logging :as logging]
     [hxgm30.dice.components.random :as random]
+    [hxgm30.dice.components.udp :as udp]
     [taoensso.timbre :as log]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -24,6 +25,11 @@
             (random/create-component)
             [:config :logging])})
 
+(def cli-server
+  {:udp (component/using
+         (udp/create-component)
+         [:config :logging :random])})
+
 (def rnd-without-logging
   {:random (component/using
             (random/create-component)
@@ -37,7 +43,8 @@
 (defn main
   [cfg-data]
   (merge (basic cfg-data)
-         rnd))
+         rnd
+         cli-server))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Initializations   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -2,7 +2,11 @@
    ;; Legal values for this are :default, :blocking, :non-blocking, :pkcs11,
    ;; and :sha1prng.
    :algorithm :non-blocking
-   :seed-bytes 1024}
+   :seed-bytes 1024
+   :udp-server {
+     ;; (reduce + (map int "Hexagram30 Dice UDP CLI Server"))
+     :port 2493
+    }}
  :logging {
    :level :debug
    :nss [hxgm30]}}
