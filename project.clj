@@ -108,7 +108,8 @@
       ["check-vers"]
       ["lint"]
       ["ltest" ":all"]
-      ["uberjar"]]
+      ["uberjar"]
+      ["build-cli"]]
     "clean-cljs" ["with-profile" "+cljs" "do"
       ["clean"]
       ["shell" "rm" "-f" "bin/roll"]]
