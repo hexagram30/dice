@@ -27,6 +27,7 @@
     [hexagram30/common "0.1.0-SNAPSHOT"]
     [org.clojure/clojure "1.9.0"]
     [systems.billo/async-udp-cli "0.1.0-SNAPSHOT"]]
+  :source-paths ["src/clj" "src/cljc"]
   :profiles {
     :ubercompile {
       :aot :all}
@@ -55,9 +56,28 @@
     :test {
       :plugins [
         [lein-ltest "0.3.0"]]}
-      :server {
-        :jvm-opts ["-XX:MaxDirectMemorySize=512g"]
-        :main hxgm30.dice.server}}
+    :server {
+      :jvm-opts ["-XX:MaxDirectMemorySize=512g"]
+      :main hxgm30.dice.server}
+    :cljs {
+      :source-paths ["src/cljs"]
+      :dependencies [
+        [org.clojure/clojurescript "1.10.339"]]
+      :plugins [
+        [lein-cljsbuild "1.1.7"]
+        [lein-shell "0.5.0"]]
+      :cljsbuild {
+        :builds
+          [{:id "cli"
+            :source-paths ["src/cljs"]
+            :compiler {
+              :output-to "bin/roll"
+              :output-dir "target/cljs/hxgm30"
+              :optimizations :simple
+              :pretty-print true
+              :main hxgm30.dice.cli
+              :target :nodejs
+              :verbose true}}]}}}
   :aliases {
     ;; Dev Aliases
     "repl" ["do"
@@ -89,6 +109,15 @@
       ["lint"]
       ["ltest" ":all"]
       ["uberjar"]]
+    "clean-cljs" ["with-profile" "+cljs" "do"
+      ["clean"]
+      ["shell" "rm" "-f" "bin/roll"]]
+    "build-cli" ["with-profile" "+cljs" "do"
+      ["cljsbuild" "once" "cli"]
+      ["shell" "chmod" "755" "bin/roll"]]
+    "clean-build-cli" ["with-profile" "+cljs" "do"
+      ["clean-cljs"]
+      ["build-cli"]]
     ;; Script Aliases
     "roll" ["run"]})
 

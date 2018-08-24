@@ -18,11 +18,22 @@ suitable for use in powering in-game economic computations.
 
 ### From the command line
 
-Using the provided `lein` alias `roll`, you may specify as many (or as few) die
+In order to use the roller from the command line, you'll need to build it"
+
+```
+$ lein build-cli
+```
+
+The reason that a build step is necessary is that the CLI tool is written in
+ClojureScript to avoid long startup times of the JVM. To accomplish this,
+`./bin/roll` acts as a UDP client that connects to hexagram30/dice's UDP
+service.
+
+Using the newly-built CLI tool, you may specify as many (or as few) die
 type and die number that you want to roll simultaneously:
 
 ```
-$ lein roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
+$ ./bin/roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
 ```
 ```
  __                                                 ______ ______
@@ -34,23 +45,31 @@ $ lein roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
 
 
 d10:
-    30 50 [4 2 6 2]
-
+    39 15 [9 8 5 5 :sum 27]
 d20:
-    [19 18 20 10 20]
-
+    [13 5 3 19 14 :sum 54]
 d4:
-    [3 4 3 3 1 4]
-
+    [4 2 3 4 2 4 :sum 19]
 d8:
-    [2 3]
-
+    [5 8 :sum 13]
 d100:
-    5
-
+    84
 d12:
-    [12 7 3]
+    [9 4 2 :sum 15]
+
 ```
+
+Note that the results are grouped by dice type, with results given in the order
+first seen.
+
+
+If, for whatever reason, you want to use the JVM with the CLI, you can do so
+with the `lein` alias:
+
+```
+$ lein roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
+```
+
 
 ### From the REPL
 

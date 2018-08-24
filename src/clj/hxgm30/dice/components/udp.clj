@@ -3,7 +3,9 @@
     [billo.udp.server.core :as server]
     [clojusc.twig :as logger]
     [com.stuartsierra.component :as component]
+    [hxgm30.dice.cli.util :as util]
     [hxgm30.dice.components.config :as config]
+    [hxgm30.dice.roller :as roller]
     [taoensso.timbre :as log]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -11,10 +13,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn cli-parser
-  [data options]
-  (log/info "Simple CLI parser got data: " data)
-  (log/info "And options: " options)
-  (str "Simple cli-parser echoing back data: " data))
+  [args options]
+  (let [data (util/args->data args)]
+    (log/debug "Parsed args from UDP client: " (vec data))
+    (format "%s" (roller/roll (:system options) data))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Lifecycle Implementation   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -28,7 +30,7 @@
     (log/infof "Starting dice UDP CLI server component on port %s..." port)
     (let [options {:port port
                    :parser-fn cli-parser
-                   :parser-opts {}}
+                   :parser-opts {:system this}}
           server (server/run options)]
     (log/trace "Using server options:" options)
     (log/debug "Started dice UDP CLI server component.")

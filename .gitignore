@@ -6,3 +6,4 @@ pom.*
 *.class
 /.lein-*
 /.nrepl-port
+/bin
