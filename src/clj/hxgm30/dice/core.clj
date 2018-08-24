@@ -9,11 +9,30 @@
     [hxgm30.dice.roller :as roller])
   (:gen-class))
 
+(def d4 #'roller/d4)
+(def d6 #'roller/d6)
+(def d8 #'roller/d8)
+(def d10 #'roller/d10)
+(def d12 #'roller/d12)
+(def d20 #'roller/d20)
+(def d100 #'roller/d100)
+
+(defn batch-roll
+  [system args]
+  (->> args
+       (roller/roll system)
+       (util/format-results args)))
+
+(defn roll
+  [system & raw-args]
+  (println "\nResults:\n")
+  (batch-roll system (partition 2 raw-args))
+  :ok)
+
 (defn -main
   [& args]
   (logger/set-level! '[hxgm30] :error)
   (system-manager/setup-manager {:init 'hxgm30.dice.components.core/cli})
   (system-manager/startup)
-  (let [roll-data (util/args->data args)
-        results (roller/roll (system-manager/system) roll-data)]
-    (util/format-results roll-data results)))
+  (batch-roll (system-manager/system)
+              (util/args->data args)))
