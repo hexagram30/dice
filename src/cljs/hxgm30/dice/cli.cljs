@@ -19,7 +19,7 @@
 
 (defn handle-receive
   [client args buffer]
-  (let [results (read-string (.toString buffer))]
+  (let [results (read-string (str buffer))]
     (log/debug "Received data.")
     (log/trace "Data: " results)
     (dice-util/format-results (dice-util/args->data args) results)
