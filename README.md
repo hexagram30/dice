@@ -132,10 +132,12 @@ You can also make multiple roles:
 
 ```clj
 [hxgm30.dice.repl] λ=> (dice/d6 (system) 3)
-[6 3 5]
+[2 1 2 :sum 5]
 [hxgm30.dice.repl] λ=> (dice/d20 (system) 4)
-[3 6 12 5]
+[7 19 16 13 :sum 55]
 ```
+
+Both the individual rolls are shown as well as their sum.
 
 Note that d10 has a special case: if you roll two, the value is interpretted as
 a value between 1 and 100 (inclusive). However, it doesn't do this by calling
@@ -147,21 +149,31 @@ d100; it really rolls two d10 and assembles the resulting values:
 ```
 
 Finally, there is a `roll` function where you can specity the types and number
-of die:
+of die, just like with the command line tool:
 
 ```clj
-[hxgm30.dice.repl] λ=> (dice/roll (system) {:d4 3 :d6 2 :d8 4 :d10 2 :d12 5 :d20 6})
-[[1 3 3] [6 5] [2 7 6 8] [5 8] [6 3 6 8 2] [1 1 5 9 7 14]]
+[hxgm30.dice.repl] λ=> (dice/roll (system) :d10 2 :d20 5 :d4 6 :d8 2 :d10 2 :d10 4 :d100 1 :d12 3)
+
+Results:
+
+d10:
+    47 24 [9 6 9 7 :sum 31]
+d20:
+    [8 9 16 8 7 :sum 48]
+d4:
+    [4 2 3 4 1 1 :sum 15]
+d8:
+    [4 5 :sum 9]
+d100:
+    78
+d12:
+    [10 11 6 :sum 27]
+
+
+:ok
 ```
 
-If you would like to add the results of multi-die rolls, you can do that too:
-
-```clj
-[hxgm30.dice.repl] λ=> (dice/sum (dice/d20 (system) 4))
-35
-[hxgm30.dice.repl] λ=> (dice/sum (dice/roll (system) {:d4 1 :d6 2 :d8 3 :d10 4 :d20 5}))
-126
-```
+The results are given in the same order as the
 
 
 ## Donating
