@@ -7,23 +7,27 @@
 
 (use-fixtures :once test-system/with-system)
 
+(def remove-sum (comp set butlast butlast))
+
 (deftest d4
   (is (= #{1 2 3 4}
          (set (mapv (fn [_] (roller/d4 (system))) (range 1000)))))
   (is (= #{1 2 3 4}
-         (apply set/union (mapv (fn [_] (set (roller/d4 (system) 100))) (range 1000))))))
+         (->> (range 1000)
+              (mapv (fn [_] (remove-sum (roller/d4 (system) 100))))
+              (apply set/union)))))
 
 (deftest d6
   (is (= #{1 2 3 4 5 6}
          (set (mapv (fn [_] (roller/d6 (system))) (range 1000)))))
   (is (= #{1 2 3 4 5 6}
-         (apply set/union (mapv (fn [_] (set (roller/d6 (system) 100))) (range 1000))))))
+         (apply set/union (mapv (fn [_] (remove-sum (roller/d6 (system) 100))) (range 1000))))))
 
 (deftest d8
   (is (= #{1 2 3 4 5 6 7 8}
          (set (mapv (fn [_] (roller/d8 (system))) (range 1000)))))
   (is (= #{1 2 3 4 5 6 7 8}
-         (apply set/union (mapv (fn [_] (set (roller/d8 (system) 100))) (range 1000))))))
+         (apply set/union (mapv (fn [_] (remove-sum (roller/d8 (system) 100))) (range 1000))))))
 
 (deftest d10
   (is (= #{1 2 3 4 5 6 7 8 9 10}
@@ -40,16 +44,16 @@
            91 92 93 94 95 96 97 98 99 100}
          (set (mapv (fn [_] (roller/d10 (system) 2)) (range 10000)))))
   (is (= #{1 2 3 4 5 6 7 8 9 10}
-         (apply set/union (mapv (fn [_] (set (roller/d10 (system) 100))) (range 1000))))))
+         (apply set/union (mapv (fn [_] (remove-sum (roller/d10 (system) 100))) (range 1000))))))
 
 (deftest d12
   (is (= #{1 2 3 4 5 6 7 8 9 10 11 12}
          (set (mapv (fn [_] (roller/d12 (system))) (range 1000)))))
   (is (= #{1 2 3 4 5 6 7 8 9 10 11 12}
-         (apply set/union (mapv (fn [_] (set (roller/d12 (system) 100))) (range 1000))))))
+         (apply set/union (mapv (fn [_] (remove-sum (roller/d12 (system) 100))) (range 1000))))))
 
 (deftest d20
   (is (= #{1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20}
          (set (mapv (fn [_] (roller/d20 (system))) (range 1000)))))
   (is (= #{1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20}
-         (apply set/union (mapv (fn [_] (set (roller/d20 (system) 100))) (range 1000))))))
+         (apply set/union (mapv (fn [_] (remove-sum (roller/d20 (system) 100))) (range 1000))))))
