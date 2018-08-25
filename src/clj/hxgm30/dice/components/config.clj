@@ -28,7 +28,7 @@
 
 (defn rng-seed-bytes
   [system]
-  (get-in (get-cfg system) [:rng :see-bytes]))
+  (get-in (get-cfg system) [:rng :seed-bytes]))
 
 (defn rng-udp-server-port
   [system]
