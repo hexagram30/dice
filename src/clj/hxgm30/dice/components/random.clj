@@ -17,6 +17,7 @@
     :non-blocking "NativePRNGNonBlocking"
     :blocking "NativePRNGBlocking"
     :pkcs11 "PKCS11"
+    :sha1prng "SHA1PRNG"
     :default "NativePRNG"
     :unsupported-secure-random-algorithm))
 
