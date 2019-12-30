@@ -21,11 +21,20 @@
   :license {
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :exclusions [
+    ;; JDK version issues overrides
+    [org.clojure/clojure]
+    [org.clojure/core.incubator]
+    [org.clojure/core.rrb-vector]]
   :dependencies [
+    ;; JDK version issues overrides
+    [org.clojure/core.incubator "0.1.4"]
+    [org.clojure/core.rrb-vector "0.1.1"]
+    ;; Regular dependencies
     [clojusc/system-manager "0.3.0"]
-    [clojusc/twig "0.4.0"]
+    [clojusc/twig "0.4.1"]
     [hexagram30/common "0.1.0-SNAPSHOT"]
-    [org.clojure/clojure "1.10.0"]
+    [org.clojure/clojure "1.10.1"]
     [systems.billo/async-udp-cli "0.1.0-SNAPSHOT"]]
   :source-paths ["src/clj" "src/cljc"]
   :profiles {
@@ -34,10 +43,12 @@
     :dev {
       :dependencies [
         [clojusc/trifl "0.4.2"]
-        [org.clojure/tools.namespace "0.2.11"]]
+        [org.clojure/tools.namespace "0.3.1"]]
+      :middleware [ultra.plugin/middleware]
       :plugins [
         [lein-shell "0.5.0"]
-        [venantius/ultra "0.5.2"]]
+        [org.clojure/core.rrb-vector "0.1.1"]
+        [venantius/ultra "0.6.0"]]
       :source-paths ["dev-resources/src"]
       :main hxgm30.dice.core
       :repl-options {
@@ -48,21 +59,20 @@
       :source-paths ^:replace ["src"]
       :test-paths ^:replace []
       :plugins [
-        [jonase/eastwood "0.3.4"]
+        [jonase/eastwood "0.3.6"]
         [lein-ancient "0.6.15"]
-        [lein-bikeshed "0.5.1"]
-        [lein-kibit "0.1.6"]
-        [venantius/yagni "0.1.7"]]}
+        [lein-bikeshed "0.5.2"]
+        [lein-kibit "0.1.8"]]}
     :test {
       :plugins [
-        [lein-ltest "0.3.0"]]}
+        [lein-ltest "0.4.0"]]}
     :server {
       :jvm-opts ["-XX:MaxDirectMemorySize=512g"]
       :main hxgm30.dice.server}
     :cljs {
       :source-paths ["src/cljs"]
       :dependencies [
-        [org.clojure/clojurescript "1.10.439"]]
+        [org.clojure/clojurescript "1.10.597"]]
       :plugins [
         [lein-cljsbuild "1.1.7"]
         [lein-shell "0.5.0"]]
