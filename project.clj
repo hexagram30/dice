@@ -47,14 +47,9 @@
       :middleware [ultra.plugin/middleware]
       :plugins [
         [lein-shell "0.5.0"]
-        [org.clojure/core.rrb-vector "0.1.1"]
-        [venantius/ultra "0.6.0"]]
+        [org.clojure/core.rrb-vector "0.1.1"]]
       :source-paths ["dev-resources/src"]
-      :main hxgm30.dice.core
-      :repl-options {
-        :init-ns hxgm30.dice.repl
-        :prompt ~get-prompt
-        :init ~(println (get-banner))}}
+      :main hxgm30.dice.core}
     :lint {
       :source-paths ^:replace ["src"]
       :test-paths ^:replace []
@@ -63,6 +58,13 @@
         [lein-ancient "0.6.15"]
         [lein-bikeshed "0.5.2"]
         [lein-kibit "0.1.8"]]}
+    :repl {
+      :repl-options {
+        :init-ns hxgm30.dice.repl
+        :prompt ~get-prompt
+        :init ~(println (get-banner))}
+      :plugins [
+        [venantius/ultra "0.6.0"]]}
     :test {
       :plugins [
         [lein-ltest "0.4.0"]]}
@@ -92,7 +94,7 @@
     ;; Dev Aliases
     "repl" ["do"
       ["clean"]
-      ["repl"]]
+      ["with-profile" "+dev,+repl" "repl"]]
     "ubercompile" ["do"
       ["clean"]
       ["with-profile" "+ubercompile" "compile"]]
