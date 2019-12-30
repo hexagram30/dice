@@ -2,7 +2,7 @@ language: clojure
 script:
 - lein build
 jdk:
-- oraclejdk8
+- openjdk11
 notifications:
   slack:
     rooms:
