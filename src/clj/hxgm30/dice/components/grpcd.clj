@@ -17,7 +17,9 @@
 (defn make-service []
   (proxy [hxgm30.dice.pb.api.ServiceAPIGrpc$ServiceAPIImplBase] []
     (ping [^PingRequest ping reply]
-      (let [builder (-> (PingReply/newBuilder))]
+      (log/debug "Got ping request!")
+      (let [builder (-> (PingReply/newBuilder)
+                        (.setData "PONG"))]
         (.onNext reply (.build builder))
         (.onCompleted reply)))))
 
