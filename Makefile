@@ -20,26 +20,9 @@ GRADLE_BUILD_DIR = ./build
 # export GOBIN=~/go/bin
 # export PATH=$PATH:$GOBIN
 
-GO_VERSION = 1.12.13
-GO_PLATFORM = linux-amd64
-PACKAGE_NAME = go$(GO_VERSION).$(GO_PLATFORM).tar.gz
-GO_LOCAL = /tmp/go.tar.gz
-GO_ROOT = $(HOME)/.go
-TRAVIS_GO_PATH = $(HOME)/go
-
-go-travis: go-linux-install lint test build
-
-go-linux-install:
-	@echo ">> Downloading Go ..."
-	@curl -o $(GO_LOCAL) https://storage.googleapis.com/golang/$(PACKAGE_NAME)
-	@mkdir -p $(GO_ROOT)
-	@tar -C "$(GOROOT)" --strip-components=1 -xzf /tmp/go.tar.gz
-	@mkdir -p $(TRAVIS_GO_PATH)/{src,pkg,bin}
-	@rm -f /tmp/go.tar.gz
-
 go-deps:
-	@GO111MODULE=off go get github.com/golang/protobuf/protoc-gen-go
-	@GO111MODULE=off go install github.com/golang/protobuf/protoc-gen-go
+	@GO111MODULE=off $(GO) get github.com/golang/protobuf/protoc-gen-go
+	@GO111MODULE=off $(GO) install github.com/golang/protobuf/protoc-gen-go
 
 java-deps:
 	@brew install gradle
@@ -69,6 +52,23 @@ clean-protobuf:
 #############################################################################
 ###   Golang Support   ######################################################
 #############################################################################
+
+GO_VERSION = 1.12.14
+GO_PLATFORM = linux-amd64
+PACKAGE_NAME = go$(GO_VERSION).$(GO_PLATFORM).tar.gz
+GO_LOCAL = /tmp/go.tar.gz
+GOROOT = $(HOME)/.go
+TRAVIS_GO_PATH = $(HOME)/go
+
+go-travis: go-deps lint-simple test build
+
+go-linux-install:
+	@echo ">> Downloading Go ..."
+	@curl -o $(GO_LOCAL) https://storage.googleapis.com/golang/$(PACKAGE_NAME)
+	@mkdir -p $(GOROOT)
+	@tar -C "$(GOROOT)" --strip-components=1 -xzf /tmp/go.tar.gz
+	@mkdir -p $(TRAVIS_GO_PATH)/{src,pkg,bin}
+	@rm -f /tmp/go.tar.gz
 
 # export GOPATH=~/go:~/lab/hexagram30/go
 # export GOBIN=~/go/bin:~/lab/hexagram30/go/bin
@@ -104,7 +104,7 @@ GODA = $(DEFAULT_GOBIN)/goda
 $(GOLANGCI_LINT):
 	@echo ">> Couldn't find $(GOLANGCI_LINT); installing ..."
 	curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
-	sh -s -- -b $(DEFAULT_GOBIN) v1.21.0
+	sh -s -- -b $(DEFAULT_GOBIN) v1.22.2
 
 $(RICH_GO):
 	@echo ">> Couldn't find $(RICH_GO); installing ..."
@@ -140,9 +140,17 @@ lint-silent: $(GOLANGCI_LINT)
 	--out-format=colored-line-number \
 	run ./...
 
+lint-simple-silent: $(GOLANGCI_LINT)
+	@$(GOLANGCI_LINT) \
+	run ./...
+
 lint:
 	@echo '>> Linting source code'
 	@GO111MODULE=on $(MAKE) lint-silent
+
+lint-simple:
+	@echo '>> Linting source code'
+	@GO111MODULE=on $(MAKE) lint-simple-silent
 
 test: $(RICH_GO)
 	@echo '>> Running all tests'
@@ -167,7 +175,7 @@ check-modules:
 	@GO111MODULE=on $(GO) mod verify
 
 update-modules:
-	@GO111MODULE=on go get -u ./...
+	@GO111MODULE=on $(GO) get -u ./...
 
 #############################################################################
 ###   Release Process   #####################################################
@@ -203,4 +211,4 @@ list:
 	awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | \
 	sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
-.PHONY: default build go-travis
+.PHONY: default build go-travis test lint

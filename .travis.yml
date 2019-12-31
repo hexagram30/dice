@@ -1,9 +1,38 @@
 language: clojure
 script:
 - lein build
-- make go-travis
+- env
+- make go-linux-install
+- ${GO} version
+- ${GO} vet ./...
+- ${GO} test -v ./...
+- ${GO} build -v ./...
 jdk:
 - openjdk11
+env:
+  GOARCH=amd64
+  GOPATH=~/go
+  GOBIN=~/go/bin
+  GOHOSTARCH=amd64
+  GOHOSTOS=linux
+  GOOS=linux
+  GOROOT=~/.go/
+  GOTOOLDIR=~/.go/pkg/tool/linux_amd64
+  GCCGO=gccgo
+  CC=gcc
+  CXX=g++
+  CGO_ENABLED=1
+  CGO_CFLAGS="-g -O2"
+  CGO_CXXFLAGS="-g -O2"
+  CGO_FFLAGS="-g -O2"
+  CGO_LDFLAGS="-g -O2"
+  PKG_CONFIG=pkg-config
+  GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build698695726=/tmp/go-build -gno-record-gcc-switches"
+  GOPACKAGESPRINTGOLISTERRORS=1
+  GL_DEBUG=linters_output
+  GOMOD=on
+  GO111MODULE=on
+  GO=~/.go/bin/go
 notifications:
   slack:
     rooms:
