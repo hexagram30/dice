@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "hxgm30.dice.pb.api";
+option java_outer_classname = "DiceAPIProto";
+
+package api;
+
+service ServiceAPI {
+    // Return "pong" for "ping"
+    rpc Ping(PingRequest) returns (PingReply) {}
+    // Get version data
+    rpc Version(VersionRequest) returns (VersionReply) {}
+}
+
+// PingRequest ...
+message PingRequest {
+    string data = 1;
+}
+
+// PingReply ...
+message PingReply {
+    string data = 1;
+}
+
+// VersionRequest ...
+message VersionRequest {
+    string data = 1;
+}
+
+// VersionReply ...
+message VersionReply {
+    string version = 1;
+    string buildDate = 2;
+    string gitCommit = 3;
+    string gitBranch = 4;
+    string gitSummary = 5;
+}
