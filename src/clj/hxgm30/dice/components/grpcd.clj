@@ -18,8 +18,7 @@
   (proxy [hxgm30.dice.pb.api.ServiceAPIGrpc$ServiceAPIImplBase] []
     (ping [^PingRequest ping reply]
       (log/debug "Got ping request!")
-      (let [builder (-> (PingReply/newBuilder)
-                        (.setData "PONG"))]
+      (let [builder (.setData (PingReply/newBuilder) "PONG")]
         (.onNext reply (.build builder))
         (.onCompleted reply)))))
 
