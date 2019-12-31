@@ -32,8 +32,8 @@
   (try
     ;; NOTE: `setSeed` works on Linux but not Mac OS X for non-blocking ...
     (.setSeed rand-gen (byte-array (config/rng-seed-bytes system)))
-    (catch java.security.ProviderException ex
-      (log/warn (str "Cound't set seed (is this running on Mac OS X?); "
+    (catch ProviderException ex
+      (log/warn (str "Couldn't set seed (is this running on Mac OS X?); "
                      "using default seed."))
       (log/warn "Exception message:" (.getMessage ex))
       (log/trace ex))))
