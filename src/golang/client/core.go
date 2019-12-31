@@ -1,24 +1,24 @@
 package client
 
 import (
-    "context"
-    "time"
+	"context"
+	"time"
 
-    "github.com/golang/protobuf/proto"
-    "github.com/hexagram30/dice/src/golang/api"
-    log "github.com/sirupsen/logrus"
+	"github.com/hexagram30/dice/src/golang/api"
+	log "github.com/sirupsen/logrus"
 
-    "google.golang.org/grpc"
+	"google.golang.org/grpc"
 )
 
 const (
 	shortTimeout = (20 * time.Millisecond) + 1*time.Minute
 )
 
+// Client ...
 type Client struct {
-    ConnectionString string
-    Conn   *grpc.ClientConn
-	Client api.ServiceAPIClient
+	ConnectionString string
+	Conn             *grpc.ClientConn
+	Client           api.ServiceAPIClient
 }
 
 // New ...
@@ -51,7 +51,7 @@ func (c *Client) Ping() string {
 	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
 	defer cancel()
 
-	r, err := c.Client.Ping(ctx, &pb.PingRequest{})
+	r, err := c.Client.Ping(ctx, &api.PingRequest{})
 	if err != nil {
 		log.Fatalf("Could not get ping reply: %v", err)
 	}
