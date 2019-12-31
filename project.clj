@@ -33,10 +33,18 @@
     ;; Regular dependencies
     [clojusc/system-manager "0.3.0"]
     [clojusc/twig "0.4.1"]
+    [com.google.protobuf/protobuf-java-util "3.11.1"]
     [hexagram30/common "0.1.0-SNAPSHOT"]
+    [io.grpc/grpc-netty "1.26.0"]
+    [io.grpc/grpc-protobuf "1.26.0"]
+    [io.grpc/grpc-stub "1.26.0"]
+    [javax.annotation/javax.annotation-api "1.3.2"]
     [org.clojure/clojure "1.10.1"]
     [systems.billo/async-udp-cli "0.1.0-SNAPSHOT"]]
+  :plugins [
+    [org.xolstice.maven.plugins/protobuf-maven-plugin "0.6.1"]]
   :source-paths ["src/clj" "src/cljc"]
+  :java-source-paths ["src/java"]
   :profiles {
     :ubercompile {
       :aot :all}
