@@ -44,7 +44,6 @@
       :dependencies [
         [clojusc/trifl "0.4.2"]
         [org.clojure/tools.namespace "0.3.1"]]
-      :middleware [ultra.plugin/middleware]
       :plugins [
         [lein-shell "0.5.0"]
         [org.clojure/core.rrb-vector "0.1.1"]]
@@ -63,6 +62,7 @@
         :init-ns hxgm30.dice.repl
         :prompt ~get-prompt
         :init ~(println (get-banner))}
+      :middleware [ultra.plugin/middleware]
       :plugins [
         [venantius/ultra "0.6.0"]]}
     :test {
@@ -132,5 +132,6 @@
       ["clean-cljs"]
       ["build-cli"]]
     ;; Script Aliases
+    "run" ["with-profile" "+server" "run"]
     "roll" ["run"]})
 
