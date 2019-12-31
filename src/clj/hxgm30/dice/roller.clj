@@ -30,7 +30,7 @@
                   (zero? (first results)) (last results)
                   :else (Integer/parseInt (string/join "" results))))
 
-          :else (conj results :sum (reduce + results)))))
+          :else results)))
 
 (defn d4
   ([system]
@@ -75,9 +75,32 @@
     (d* system 100 rolls)))
 
 (defn roll
+  "Usage:
+
+    (roller/roll system {:d6 10})
+    (roller/roll system {:d4 2 :d6 2 :d8 4 :d20 1})
+  "
   [system roll-data]
   (mapv #(apply d* %) (map (fn [[s r]] [system (sides s) r]) roll-data)))
 
-(defn sum
+(defn stats
   [results]
-  (reduce + (flatten results)))
+  (let [s (reduce + results)
+        c (count results)]
+    {:sum s
+     :count c
+     :low (apply min results)
+     :high (apply max results)
+     :avg (float (/ s c))}))
+
+(defn metaroll
+  "Usage:
+
+    (roller/metaroll (system) {:d4 20 :d6 12 :d8 18 :d20 1})
+  "
+  [system roll-data]
+  (let [results (roll system roll-data)]
+    (mapv (fn [r] (if (coll? r)
+                    {:rolls r :stats (stats r)}
+                    {:roll r}))
+          results)))

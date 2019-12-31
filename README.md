@@ -45,17 +45,17 @@ $ ./bin/roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
 
 
 d10:
-    39 15 [9 8 5 5 :sum 27]
+    39 15 [9 8 5 5]
 d20:
-    [13 5 3 19 14 :sum 54]
+    [13 5 3 19 14]
 d4:
-    [4 2 3 4 2 4 :sum 19]
+    [4 2 3 4 2 4]
 d8:
-    [5 8 :sum 13]
+    [5 8]
 d100:
     84
 d12:
-    [9 4 2 :sum 15]
+    [9 4 2]
 
 ```
 
@@ -109,7 +109,7 @@ Now we can use the system-based `random` API:
 :fred
 ```
 
-And the `dice` API:
+And the `dice` (`hxgm30.dice.core`) API:
 
 ```clj
 [hxgm30.dice.repl] λ=> (dice/d4 (system))
@@ -132,12 +132,11 @@ You can also make multiple roles:
 
 ```clj
 [hxgm30.dice.repl] λ=> (dice/d6 (system) 3)
-[2 1 2 :sum 5]
+[2 1 2]
 [hxgm30.dice.repl] λ=> (dice/d20 (system) 4)
-[7 19 16 13 :sum 55]
+[7 19 16 13]
 ```
 
-Both the individual rolls are shown as well as their sum.
 
 Note that d10 has a special case: if you roll two, the value is interpretted as
 a value between 1 and 100 (inclusive). However, it doesn't do this by calling
@@ -148,7 +147,7 @@ d100; it really rolls two d10 and assembles the resulting values:
 67
 ```
 
-Finally, there is a `roll` function where you can specity the types and number
+Finally, there is a `roll` function where you can specify the types and number
 of die, just like with the command line tool:
 
 ```clj
@@ -157,23 +156,57 @@ of die, just like with the command line tool:
 Results:
 
 d10:
-    47 24 [9 6 9 7 :sum 31]
+    47 24 [9 6 9 7]
 d20:
-    [8 9 16 8 7 :sum 48]
+    [8 9 16 8 7]
 d4:
-    [4 2 3 4 1 1 :sum 15]
+    [4 2 3 4 1 1]
 d8:
-    [4 5 :sum 9]
+    [4 5]
 d100:
     78
 d12:
-    [10 11 6 :sum 27]
+    [10 11 6]
 
 
 :ok
 ```
 
-The results are given in the same order as the
+The results are presented in the same order as they are entered.
+
+Note that this API is a wrapper for the more data-oriented `hxgm30.dice.roller`
+API. The differences are most obvious when doing multiple rolls at
+once:
+
+```clj
+(roller/roll (system) {:d10 2 :d20 5 :d4 6 :d8 2 :d100 1 :d12 3})
+[47 [9 2 2 5 3] [2 3 4 2 1 3] [1 1] 81 [9 8 9]]
+```
+
+Some functions are only available in the `roller` API ...
+
+For larger roll counts, the `stats` function maybe be useful:
+
+```clj
+[hxgm30.dice.repl] λ=> (def rs (dice/d6 (system) 10))
+[hxgm30.dice.repl] λ=> rs
+[2 6 5 3 6 1 5 2 5 6]
+[hxgm30.dice.repl] λ=> (dice/stats rs)
+{:avg 4.1 :high 6 :low 1 :sum 41}
+```
+
+The stats may also be returned when doing multiple roles with the 
+`metaroll` function:
+```clj
+[hxgm30.dice.repl] λ=> (roller/metaroll (system) {:d4 20 :d6 12 :d8 18 :d20 1})
+[{:rolls [1 1 1 2 2 1 3 2 2 2 3 4 2 3 4 2 3 4 2 4]
+  :stats {:avg 2.4 :high 4 :low 1 :sum 48}}
+ {:rolls [1 5 3 6 4 2 1 5 5 2 5 1]
+  :stats {:avg 3.3333333 :high 6 :low 1 :sum 40}}
+ {:rolls [3 2 5 6 6 1 8 2 6 7 5 7 7 3 7 5 7 8]
+  :stats {:avg 5.2777777 :high 8 :low 1 :sum 95}}
+ {:roll 8}]
+```
 
 
 ## Donating

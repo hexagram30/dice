@@ -54,3 +54,12 @@
   []
   (println (slurp (io/resource "text/banner.txt")))
   :ok)
+
+(comment
+ (startup)
+ (roller/roll (system) {:d20 2})
+ (roller/roll (system) {:d4 2 :d6 2 :d8 4 :d20 1})
+ (def rs (roller/roll (system) {:d6 10}))
+ (roller/stats rs)
+ (roller/metaroll (system) {:d4 20 :d6 12 :d8 18 :d20 1})
+)
