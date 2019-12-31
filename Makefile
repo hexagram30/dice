@@ -1,5 +1,10 @@
 VERSION = $(lastword $(subst ",, $(shell grep defproject project.clj)))
 
+default: all
+
+all: lint test build
+	@lein build
+
 #############################################################################
 ###   Protobuf Support   ####################################################
 #############################################################################
@@ -66,6 +71,10 @@ GOLANGCI_LINT=$(DEFAULT_GOBIN)/golangci-lint
 RICH_GO = $(DEFAULT_GOBIN)/richgo
 
 GODOC=godoc -index -links=true -notes="BUG|TODO|XXX|ISSUE"
+
+build:
+	@echo ">> Compiling Go libraries ..."
+	@$(GO) build ./...
 
 #############################################################################
 ###   Golang Custom Installs   ##############################################
