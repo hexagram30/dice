@@ -2,6 +2,7 @@
   (:require
     [com.stuartsierra.component :as component]
     [hxgm30.dice.components.config :as config]
+    [hxgm30.dice.components.grpcd :as grpcd]
     [hxgm30.dice.components.logging :as logging]
     [hxgm30.dice.components.random :as random]
     [hxgm30.dice.components.udp :as udp]
@@ -30,6 +31,11 @@
          (udp/create-component)
          [:config :logging :random])})
 
+(def grpc-server
+  {:server (component/using
+            (grpcd/create-component)
+            [:config :logging :random])})
+
 (def rnd-without-logging
   {:random (component/using
             (random/create-component)
@@ -44,7 +50,8 @@
   [cfg-data]
   (merge (basic cfg-data)
          rnd
-         cli-server))
+         cli-server
+         grpc-server))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Initializations   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

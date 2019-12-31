@@ -44,6 +44,16 @@
   [system]
   (get-in (get-cfg system) [:logging :nss]))
 
+;; gRPC Server
+
+(defn grpcd-host
+  [system]
+  (get-in (get-cfg system) [:grpcd :host]))
+
+(defn grpcd-port
+  [system]
+  (get-in (get-cfg system) [:grpcd :port]))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Component Lifecycle Implementation   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
