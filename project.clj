@@ -78,26 +78,7 @@
         [lein-ltest "0.4.0"]]}
     :server {
       :jvm-opts ["-XX:MaxDirectMemorySize=512g"]
-      :main hxgm30.dice.server}
-    :cljs {
-      :source-paths ["src/cljs"]
-      :dependencies [
-        [org.clojure/clojurescript "1.10.597"]]
-      :plugins [
-        [lein-cljsbuild "1.1.7"]
-        [lein-shell "0.5.0"]]
-      :cljsbuild {
-        :builds
-          [{:id "cli"
-            :source-paths ["src/cljs"]
-            :compiler {
-              :output-to "bin/roll"
-              :output-dir "target/cljs/hxgm30"
-              :optimizations :simple
-              :pretty-print true
-              :main hxgm30.dice.cli
-              :target :nodejs
-              :verbose true}}]}}}
+      :main hxgm30.dice.server}}
   :aliases {
     ;; Dev Aliases
     "repl" ["do"
@@ -128,17 +109,7 @@
       ["check-vers"]
       ["lint"]
       ["ltest" ":all"]
-      ["uberjar"]
-      ["build-cli"]]
-    "clean-cljs" ["with-profile" "+cljs" "do"
-      ["clean"]
-      ["shell" "rm" "-f" "bin/roll"]]
-    "build-cli" ["with-profile" "+cljs" "do"
-      ["cljsbuild" "once" "cli"]
-      ["shell" "chmod" "755" "bin/roll"]]
-    "clean-build-cli" ["with-profile" "+cljs" "do"
-      ["clean-cljs"]
-      ["build-cli"]]
+      ["uberjar"]]
     ;; Script Aliases
     "run" ["with-profile" "+server" "run"]
     "roll" ["run"]})
