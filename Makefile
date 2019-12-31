@@ -53,9 +53,9 @@ clean-protobuf:
 ###   Golang Support   ######################################################
 #############################################################################
 
-# export GOPATH=~/go:
-# export GOBIN=~/go/bin:
-# export PATH=$PATH:$GOBIN:
+# export GOPATH=~/go:~/lab/hexagram30/go
+# export GOBIN=~/go/bin:~/lab/hexagram30/go/bin
+# export PATH=$PATH:$GOBIN
 
 GO ?= go
 GOFMT ?= $(GO)fmt
@@ -136,6 +136,23 @@ test-nocolor:
 	@GO111MODULE=on $(GO) test ./... -v
 
 #############################################################################
+###   Golang Misc   #########################################################
+#############################################################################
+
+clean-cache:
+	@echo '>> Purging Go mod cahce ...'
+	@$(GO) clean -cache
+	@$(GO) clean -modcache
+
+check-modules:
+	@echo '>> Checking modules ...'
+	@GO111MODULE=on $(GO) mod tidy
+	@GO111MODULE=on $(GO) mod verify
+
+update-modules:
+	@GO111MODULE=on go get -u ./...
+
+#############################################################################
 ###   Release Process   #####################################################
 #############################################################################
 
@@ -156,3 +173,17 @@ tag-delete: VERSION ?= 0.0.0
 tag-delete:
 	@git tag --delete v$(VERSION)
 	@git push --delete origin v$(VERSION)
+
+#############################################################################
+###   Misc   ################################################################
+#############################################################################
+
+commit-id:
+	@echo $(COMMIT_ID)
+
+list:
+	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | \
+	awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | \
+	sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
+
+.PHONY: default build
