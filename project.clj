@@ -109,6 +109,8 @@
       ["check-vers"]
       ["lint"]
       ["ltest" ":all"]
+      ["ubercompile"]
+      ["clean"]
       ["uberjar"]]
     ;; Script Aliases
     "run" ["with-profile" "+server" "run"]
