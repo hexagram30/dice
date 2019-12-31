@@ -20,6 +20,23 @@ GRADLE_BUILD_DIR = ./build
 # export GOBIN=~/go/bin
 # export PATH=$PATH:$GOBIN
 
+GO_VERSION = 1.12.13
+GO_PLATFORM = linux-amd64
+PACKAGE_NAME = go$(GO_VERSION).$(GO_PLATFORM).tar.gz
+GO_LOCAL = /tmp/go.tar.gz
+GO_ROOT = $(HOME)/.go
+TRAVIS_GO_PATH = $(HOME)/go
+
+go-travis: go-linux-install lint test build
+
+go-linux-install:
+	@echo ">> Downloading Go ..."
+	@curl -o $(GO_LOCAL) https://storage.googleapis.com/golang/$(PACKAGE_NAME)
+	@mkdir -p $(GO_ROOT)
+	@tar -C "$(GOROOT)" --strip-components=1 -xzf /tmp/go.tar.gz
+	@mkdir -p $(TRAVIS_GO_PATH)/{src,pkg,bin}
+	@rm -f /tmp/go.tar.gz
+
 go-deps:
 	@GO111MODULE=off go get github.com/golang/protobuf/protoc-gen-go
 	@GO111MODULE=off go install github.com/golang/protobuf/protoc-gen-go
@@ -186,4 +203,4 @@ list:
 	awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | \
 	sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
-.PHONY: default build
+.PHONY: default build go-travis

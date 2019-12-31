@@ -1,6 +1,7 @@
 language: clojure
 script:
 - lein build
+- make go-travis
 jdk:
 - openjdk11
 notifications:
