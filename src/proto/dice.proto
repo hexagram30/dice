@@ -9,7 +9,14 @@ package api;
 service ServiceAPI {
     // Return "pong" for "ping"
     rpc Ping(PingRequest) returns (PingReply) {}
-    // Dice-rolling API
+    // Dice-rolling API: some notes on the API methods:
+    // * Roll - a single roll
+    // * RollN - multiple roles of a single type of dice
+    // * RollVarious - multiple rolls supporting different types of dice
+    // * RollNMeta - multiple rolls of a single type of dice with stats
+    //   included in the results
+    // * RollVariousMeta - multiple rolls supporting different types of
+    //   dice with stats included in the results
     rpc Roll(RollRequest) returns (DiceRoll) {}
     rpc RollN(RollsRequest) returns (DiceRolls) {}
     rpc RollVarious(RollVariousRequest) returns (VariousDiceRolls) {}
