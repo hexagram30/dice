@@ -5,7 +5,6 @@
     [hxgm30.dice.components.grpcd :as grpcd]
     [hxgm30.dice.components.logging :as logging]
     [hxgm30.dice.components.random :as random]
-    [hxgm30.dice.components.udp :as udp]
     [taoensso.timbre :as log]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -26,11 +25,6 @@
             (random/create-component)
             [:config :logging])})
 
-(def cli-server
-  {:udp (component/using
-         (udp/create-component)
-         [:config :logging :random])})
-
 (def grpc-server
   {:server (component/using
             (grpcd/create-component)
@@ -50,7 +44,6 @@
   [cfg-data]
   (merge (basic cfg-data)
          rnd
-         cli-server
          grpc-server))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

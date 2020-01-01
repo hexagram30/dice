@@ -1,10 +1,10 @@
 (ns hxgm30.dice.version)
 
 (def version "0.1.1-SNAPSHOT")
-(def build-date "2020-01-01T02:12:25Z")
-(def git-commit "7d32a4b")
-(def git-branch "feature/8/grpc-support")
-(def git-summary "v0.1.1-SNAPSHOT-7-g7d32a4b-dirty")
+(def build-date "2020-01-01T08:14:28Z")
+(def git-commit "81b8fa4")
+(def git-branch "feature/9/dice-roll-api")
+(def git-summary "81b8fa4-dirty")
 
 (defn build-info
   []

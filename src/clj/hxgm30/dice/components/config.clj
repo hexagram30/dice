@@ -30,10 +30,6 @@
   [system]
   (get-in (get-cfg system) [:rng :seed-bytes]))
 
-(defn rng-udp-server-port
-  [system]
-  (get-in (get-cfg system) [:rng :udp-server :port]))
-
 ;; Logging
 
 (defn log-level

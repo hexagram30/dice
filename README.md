@@ -18,32 +18,17 @@ suitable for use in powering in-game economic computations.
 
 ### From the command line
 
-In order to use the roller from the command line, you'll need to build it"
+In order to use the roller from the command line, you'll need use the `hxgm30`
+command-line interface tool. That is actually a [separate project][hxgm30-cli],
+but we'll go over the dice-roll specifics here :-)
+
+For installation or build of the `hxgm30` CLI tool, see the project page linked
+above, but here are some usage examles:
 
 ```
-$ lein build-cli
-```
-
-The reason that a build step is necessary is that the CLI tool is written in
-ClojureScript to avoid long startup times of the JVM. To accomplish this,
-`./bin/roll` acts as a UDP client that connects to hexagram30/dice's UDP
-service.
-
-Using the newly-built CLI tool, you may specify as many (or as few) die
-type and die number that you want to roll simultaneously:
-
-```
-$ ./bin/roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
+$ ./bin/hxgm30 roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
 ```
 ```
- __                                                 ______ ______
-|  |--.-----.--.--.---.-.-----.----.---.-.--------.|__    |      |
-|     |  -__|_   _|  _  |  _  |   _|  _  |        ||__    |  --  |
-|__|__|_____|__.__|___._|___  |__| |___._|__|__|__||______|______|
-
-........................................  d i c e  ...............
-
-
 d10:
     39 15 [9 8 5 5]
 d20:
@@ -80,10 +65,10 @@ First, we need to start the system:
 
 With the standard output of:
 ```
-2018-08-22T21:45:49.813 [nREPL-worker-0] INFO hxgm30.dice.components.config:55 - Starting config component ...
-2018-08-22T21:45:49.870 [nREPL-worker-0] INFO hxgm30.dice.components.logging:22 - Starting logging component ...
-2018-08-22T21:45:49.874 [nREPL-worker-0] INFO hxgm30.dice.components.random:63 - Starting random component ...
-2018-08-22T21:45:49.877 [nREPL-worker-0] INFO hxgm30.dice.components.udp:28 - Starting dice UDP CLI server component on port 2493...
+2020-01-01T02:13:18.902 [nREPL-worker-0] INFO hxgm30.dice.components.config:61 - Starting config component ...
+2020-01-01T02:13:18.970 [nREPL-worker-0] INFO hxgm30.dice.components.logging:22 - Starting logging component ...
+2020-01-01T02:13:18.974 [nREPL-worker-0] INFO hxgm30.dice.components.random:71 - Starting random component ...
+2020-01-01T02:13:19.261 [nREPL-worker-0] INFO hxgm30.dice.components.grpcd:51 - Starting dice gRPC server component on port 2344...
 :running
 
 ```
@@ -195,7 +180,7 @@ For larger roll counts, the `stats` function maybe be useful:
 {:avg 4.1 :high 6 :low 1 :sum 41}
 ```
 
-The stats may also be returned when doing multiple roles with the 
+The stats may also be returned when doing multiple roles with the
 `metaroll` function:
 ```clj
 [hxgm30.dice.repl] λ=> (roller/metaroll (system) {:d4 20 :d6 12 :d8 18 :d20 1})
@@ -236,3 +221,4 @@ Apache License, Version 2.0
 [logo]: https://raw.githubusercontent.com/hexagram30/resources/master/branding/logo/h30-logo-2-long-with-text-x695.png
 [logo-large]: https://raw.githubusercontent.com/hexagram30/resources/master/branding/logo/h30-logo-2-long-with-text-x3440.png
 [comp-event]: https://github.com/hexagram30/hexagramMUSH/blob/master/src/hexagram30/mush/components/event.clj
+[hxgm30-cli]: https://github.com/hexagram30/cli

@@ -39,8 +39,7 @@
     [io.grpc/grpc-protobuf "1.26.0"]
     [io.grpc/grpc-stub "1.26.0"]
     [javax.annotation/javax.annotation-api "1.3.2"]
-    [org.clojure/clojure "1.10.1"]
-    [systems.billo/async-udp-cli "0.1.0-SNAPSHOT"]]
+    [org.clojure/clojure "1.10.1"]]
   :plugins [
     [org.xolstice.maven.plugins/protobuf-maven-plugin "0.6.1"]]
   :source-paths ["src/clj" "src/cljc"]

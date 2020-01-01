@@ -1,6 +1,5 @@
 (ns hxgm30.dice.components.grpcd
   (:require
-   [billo.udp.server.core :as server]
    [clojusc.twig :as logger]
    [com.stuartsierra.component :as component]
    [hxgm30.dice.cli.util :as util]

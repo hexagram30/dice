@@ -1,15 +1,12 @@
 {:grpcd {
-  :host "localhost"
-  ;; (reduce + (map int "Hexagram30 Dice gRPC Server"))
-  :port 2344}
+   :host "localhost"
+   ;; (reduce + (map int "Hexagram30 Dice gRPC Server"))
+   :port 2344}
  :logging {
-  :level :debug
-  :nss [hxgm30]}
+   :level :debug
+   :nss [hxgm30]}
  :rng {
-  ;; Legal values for this are :default, :blocking, :non-blocking, :pkcs11,
-  ;; and :sha1prng.
-  :algorithm :non-blocking
-  :seed-bytes 1024}
- :udp-server {
-  ;; (reduce + (map int "Hexagram30 Dice UDP CLI Server"))
-  :port 2493}}
+   ;; Legal values for this are :default, :blocking, :non-blocking, :pkcs11,
+   ;; and :sha1prng.
+   :algorithm :non-blocking
+   :seed-bytes 1024}}
