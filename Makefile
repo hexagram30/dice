@@ -2,8 +2,15 @@ VERSION = $(lastword $(subst ",, $(shell grep defproject project.clj)))
 
 default: all
 
-all: lint test build
+all: lint test build clojure-version
 	@lein build
+
+#############################################################################
+###   Clojure Support   #####################################################
+#############################################################################
+
+clojure-version:
+	@./resources/scripts/generate-clj-version-ns.sh
 
 #############################################################################
 ###   Protobuf Support   ####################################################
