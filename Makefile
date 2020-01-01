@@ -67,7 +67,12 @@ GO_LOCAL = /tmp/go.tar.gz
 GOROOT = $(HOME)/.go
 TRAVIS_GO_PATH = $(HOME)/go
 
-go-travis: go-deps lint-simple test build
+go-travis: go-linux-install
+	@env
+	@$(GO) version
+	@$(GO) vet ./...
+	@$(GO) test -v ./...
+	@$(GO) build -v ./...
 
 go-linux-install:
 	@echo ">> Downloading Go ..."

@@ -1,12 +1,7 @@
 language: clojure
 script:
 - lein build
-- env
-- make go-linux-install
-- ${GO} version
-- ${GO} vet ./...
-- ${GO} test -v ./...
-- ${GO} build -v ./...
+- make go-travis
 jdk:
 - openjdk11
 env:
