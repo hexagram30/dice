@@ -35,14 +35,14 @@ java-deps:
 	@brew install gradle
 	@gradle wrapper --gradle-version 6.0.1
 
-protoc-gen: protoc-gen-go protoc-gen-java
+protoc-gen: clean-protobuf protoc-gen-go protoc-gen-java
 
 protoc-gen-go: go-deps $(PROTOBUF_GO)/*.pb.go
 protoc-gen-java: java-deps
 	@./gradlew build
-	@mv $(GRADLE_GRPC_DIR)/hxgm30 $(PROTOBUF_JAVA)
-	@cp -r $(GRADLE_JAVA_DIR)/* $(PROTOBUF_JAVA)
-	@rm -rf $(GRADLE_GRPC_DIR) $(PROTOBUF_JAVA)/test $(GRADLE_BUILD_DIR)
+	@cp -r $(GRADLE_GRPC_DIR)/* $(PROTOBUF_JAVA)/
+	@cp -r $(GRADLE_JAVA_DIR)/* $(PROTOBUF_JAVA)/
+	@rm -rf $(GRADLE_JAVA_DIR) $(GRADLE_GRPC_DIR) $(PROTOBUF_JAVA)/test $(GRADLE_BUILD_DIR) $(PROTOBUF_JAVA)/java
 
 $(PROTOBUF_GO)/%.pb.go: $(PROTOBUF_SRC)/%.proto
 	@protoc -I $(PROTOBUF_SRC) --go_out=plugins=grpc:$(PROTOBUF_GO) $<
