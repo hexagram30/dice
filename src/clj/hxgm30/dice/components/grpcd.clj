@@ -6,19 +6,32 @@
    [hxgm30.dice.cli.util :as util]
    [hxgm30.dice.components.config :as config]
    [hxgm30.dice.roller :as roller]
+   [hxgm30.dice.version :as version]
    [taoensso.timbre :as log])
   (:import
    (hxgm30.dice.pb.api PingReply
                        PingRequest
                        ServiceAPIGrpc
-                       ServiceAPIGrpc$ServiceAPIImplBase)
+                       ServiceAPIGrpc$ServiceAPIImplBase
+                       VersionReply
+                       VersionRequest)
    (io.grpc Server ServerBuilder)))
 
 (defn make-service []
   (proxy [hxgm30.dice.pb.api.ServiceAPIGrpc$ServiceAPIImplBase] []
     (ping [^PingRequest ping reply]
-      (log/debug "Got ping request!")
+      (log/debug "Got ping request")
       (let [builder (.setData (PingReply/newBuilder) "PONG")]
+        (.onNext reply (.build builder))
+        (.onCompleted reply)))
+    (version [^VersionRequest version reply]
+      (log/debug "Got version request")
+      (let [builder (-> (VersionReply/newBuilder)
+                        (.setVersion version/version)
+                        (.setBuildDate version/build-date)
+                        (.setGitCommit version/git-commit)
+                        (.setGitBranch version/git-branch)
+                        (.setGitSummary version/git-summary))]
         (.onNext reply (.build builder))
         (.onCompleted reply)))))
 
