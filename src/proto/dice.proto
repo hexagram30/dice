@@ -9,6 +9,12 @@ package api;
 service ServiceAPI {
     // Return "pong" for "ping"
     rpc Ping(PingRequest) returns (PingReply) {}
+    // Dice-rolling API
+    rpc Roll(RollRequest) returns (DiceRoll) {}
+    rpc RollN(RollsRequest) returns (DiceRolls) {}
+    rpc RollVarious(RollVariousRequest) returns (VariousDiceRolls) {}
+    rpc RollNMeta(RollsRequest) returns (MetaRoll) {}
+    rpc RollVariousMeta(RollVariousRequest) returns (MetaRolls) {}
     // Get version data
     rpc Version(VersionRequest) returns (VersionReply) {}
 }
@@ -21,6 +27,57 @@ message PingRequest {
 // PingReply ...
 message PingReply {
     string data = 1;
+}
+
+// RollRequest
+message RollRequest {
+    string diceType = 1;
+}
+
+// RollsRequest
+message RollsRequest {
+    string diceType = 1;
+    int32 rollCount = 2;
+}
+
+// RollVariousRequest
+message RollVariousRequest {
+    repeated RollsRequest rolls = 1;
+}
+
+// DiceRoll
+message DiceRoll {
+    int32 result = 1;
+}
+
+// DiceRolls
+message DiceRolls {
+    repeated DiceRoll results = 1;
+}
+
+// VariousDiceRolls
+message VariousDiceRolls {
+    repeated DiceRolls results = 1;
+}
+
+// DiceRollStats
+message DiceRollStats {
+    float average = 1;
+    int32 high = 2;
+    int32 low = 3;
+    int32 sum = 4;
+}
+
+// MetaRoll
+message MetaRoll {
+    DiceRoll roll = 1;
+    DiceRolls rolls = 2;
+    DiceRollStats stats = 3;
+}
+
+// MetaRolls
+message MetaRolls {
+    repeated MetaRoll results = 1;
 }
 
 // VersionRequest ...
