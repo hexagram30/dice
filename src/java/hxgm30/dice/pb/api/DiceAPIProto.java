@@ -25,6 +25,51 @@ public final class DiceAPIProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_api_PingReply_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_RollRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_RollRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_RollsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_RollsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_RollVariousRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_RollVariousRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_DiceRoll_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_DiceRoll_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_DiceRolls_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_DiceRolls_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_VariousDiceRolls_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_VariousDiceRolls_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_DiceRollStats_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_DiceRollStats_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_MetaRoll_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_MetaRoll_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_MetaRolls_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_api_MetaRolls_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_api_VersionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -44,12 +89,31 @@ public final class DiceAPIProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\ndice.proto\022\003api\"\033\n\013PingRequest\022\014\n\004data" +
-      "\030\001 \001(\t\"\031\n\tPingReply\022\014\n\004data\030\001 \001(\t\"\036\n\016Ver" +
-      "sionRequest\022\014\n\004data\030\001 \001(\t\"l\n\014VersionRepl" +
-      "y\022\017\n\007version\030\001 \001(\t\022\021\n\tbuildDate\030\002 \001(\t\022\021\n" +
-      "\tgitCommit\030\003 \001(\t\022\021\n\tgitBranch\030\004 \001(\t\022\022\n\ng" +
-      "itSummary\030\005 \001(\t2m\n\nServiceAPI\022*\n\004Ping\022\020." +
-      "api.PingRequest\032\016.api.PingReply\"\000\0223\n\007Ver" +
+      "\030\001 \001(\t\"\031\n\tPingReply\022\014\n\004data\030\001 \001(\t\"\037\n\013Rol" +
+      "lRequest\022\020\n\010diceType\030\001 \001(\t\"3\n\014RollsReque" +
+      "st\022\020\n\010diceType\030\001 \001(\t\022\021\n\trollCount\030\002 \001(\005\"" +
+      "6\n\022RollVariousRequest\022 \n\005rolls\030\001 \003(\0132\021.a" +
+      "pi.RollsRequest\"\032\n\010DiceRoll\022\016\n\006result\030\001 " +
+      "\001(\005\"+\n\tDiceRolls\022\036\n\007results\030\001 \003(\0132\r.api." +
+      "DiceRoll\"3\n\020VariousDiceRolls\022\037\n\007results\030" +
+      "\001 \003(\0132\016.api.DiceRolls\"H\n\rDiceRollStats\022\017" +
+      "\n\007average\030\001 \001(\002\022\014\n\004high\030\002 \001(\005\022\013\n\003low\030\003 \001" +
+      "(\005\022\013\n\003sum\030\004 \001(\005\"i\n\010MetaRoll\022\033\n\004roll\030\001 \001(" +
+      "\0132\r.api.DiceRoll\022\035\n\005rolls\030\002 \001(\0132\016.api.Di" +
+      "ceRolls\022!\n\005stats\030\003 \001(\0132\022.api.DiceRollSta" +
+      "ts\"+\n\tMetaRolls\022\036\n\007results\030\001 \003(\0132\r.api.M" +
+      "etaRoll\"\036\n\016VersionRequest\022\014\n\004data\030\001 \001(\t\"" +
+      "l\n\014VersionReply\022\017\n\007version\030\001 \001(\t\022\021\n\tbuil" +
+      "dDate\030\002 \001(\t\022\021\n\tgitCommit\030\003 \001(\t\022\021\n\tgitBra" +
+      "nch\030\004 \001(\t\022\022\n\ngitSummary\030\005 \001(\t2\366\002\n\nServic" +
+      "eAPI\022*\n\004Ping\022\020.api.PingRequest\032\016.api.Pin" +
+      "gReply\"\000\022)\n\004Roll\022\020.api.RollRequest\032\r.api" +
+      ".DiceRoll\"\000\022,\n\005RollN\022\021.api.RollsRequest\032" +
+      "\016.api.DiceRolls\"\000\022?\n\013RollVarious\022\027.api.R" +
+      "ollVariousRequest\032\025.api.VariousDiceRolls" +
+      "\"\000\022/\n\tRollNMeta\022\021.api.RollsRequest\032\r.api" +
+      ".MetaRoll\"\000\022<\n\017RollVariousMeta\022\027.api.Rol" +
+      "lVariousRequest\032\016.api.MetaRolls\"\000\0223\n\007Ver" +
       "sion\022\023.api.VersionRequest\032\021.api.VersionR" +
       "eply\"\000B$\n\022hxgm30.dice.pb.apiB\014DiceAPIPro" +
       "toP\001b\006proto3"
@@ -70,14 +134,68 @@ public final class DiceAPIProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_PingReply_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_api_VersionRequest_descriptor =
+    internal_static_api_RollRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_api_RollRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_RollRequest_descriptor,
+        new java.lang.String[] { "DiceType", });
+    internal_static_api_RollsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_api_RollsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_RollsRequest_descriptor,
+        new java.lang.String[] { "DiceType", "RollCount", });
+    internal_static_api_RollVariousRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_api_RollVariousRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_RollVariousRequest_descriptor,
+        new java.lang.String[] { "Rolls", });
+    internal_static_api_DiceRoll_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_api_DiceRoll_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_DiceRoll_descriptor,
+        new java.lang.String[] { "Result", });
+    internal_static_api_DiceRolls_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_api_DiceRolls_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_DiceRolls_descriptor,
+        new java.lang.String[] { "Results", });
+    internal_static_api_VariousDiceRolls_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_api_VariousDiceRolls_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_VariousDiceRolls_descriptor,
+        new java.lang.String[] { "Results", });
+    internal_static_api_DiceRollStats_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_api_DiceRollStats_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_DiceRollStats_descriptor,
+        new java.lang.String[] { "Average", "High", "Low", "Sum", });
+    internal_static_api_MetaRoll_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_api_MetaRoll_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_MetaRoll_descriptor,
+        new java.lang.String[] { "Roll", "Rolls", "Stats", });
+    internal_static_api_MetaRolls_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_api_MetaRolls_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_api_MetaRolls_descriptor,
+        new java.lang.String[] { "Results", });
+    internal_static_api_VersionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_api_VersionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_VersionRequest_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_api_VersionReply_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_api_VersionReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_VersionReply_descriptor,

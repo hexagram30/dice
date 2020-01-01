@@ -104,6 +104,414 @@ func (m *PingReply) GetData() string {
 	return ""
 }
 
+// RollRequest
+type RollRequest struct {
+	DiceType             string   `protobuf:"bytes,1,opt,name=diceType,proto3" json:"diceType,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RollRequest) Reset()         { *m = RollRequest{} }
+func (m *RollRequest) String() string { return proto.CompactTextString(m) }
+func (*RollRequest) ProtoMessage()    {}
+func (*RollRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{2}
+}
+
+func (m *RollRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RollRequest.Unmarshal(m, b)
+}
+func (m *RollRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RollRequest.Marshal(b, m, deterministic)
+}
+func (m *RollRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RollRequest.Merge(m, src)
+}
+func (m *RollRequest) XXX_Size() int {
+	return xxx_messageInfo_RollRequest.Size(m)
+}
+func (m *RollRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RollRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RollRequest proto.InternalMessageInfo
+
+func (m *RollRequest) GetDiceType() string {
+	if m != nil {
+		return m.DiceType
+	}
+	return ""
+}
+
+// RollsRequest
+type RollsRequest struct {
+	DiceType             string   `protobuf:"bytes,1,opt,name=diceType,proto3" json:"diceType,omitempty"`
+	RollCount            int32    `protobuf:"varint,2,opt,name=rollCount,proto3" json:"rollCount,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RollsRequest) Reset()         { *m = RollsRequest{} }
+func (m *RollsRequest) String() string { return proto.CompactTextString(m) }
+func (*RollsRequest) ProtoMessage()    {}
+func (*RollsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{3}
+}
+
+func (m *RollsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RollsRequest.Unmarshal(m, b)
+}
+func (m *RollsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RollsRequest.Marshal(b, m, deterministic)
+}
+func (m *RollsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RollsRequest.Merge(m, src)
+}
+func (m *RollsRequest) XXX_Size() int {
+	return xxx_messageInfo_RollsRequest.Size(m)
+}
+func (m *RollsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RollsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RollsRequest proto.InternalMessageInfo
+
+func (m *RollsRequest) GetDiceType() string {
+	if m != nil {
+		return m.DiceType
+	}
+	return ""
+}
+
+func (m *RollsRequest) GetRollCount() int32 {
+	if m != nil {
+		return m.RollCount
+	}
+	return 0
+}
+
+// RollVariousRequest
+type RollVariousRequest struct {
+	Rolls                []*RollsRequest `protobuf:"bytes,1,rep,name=rolls,proto3" json:"rolls,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *RollVariousRequest) Reset()         { *m = RollVariousRequest{} }
+func (m *RollVariousRequest) String() string { return proto.CompactTextString(m) }
+func (*RollVariousRequest) ProtoMessage()    {}
+func (*RollVariousRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{4}
+}
+
+func (m *RollVariousRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RollVariousRequest.Unmarshal(m, b)
+}
+func (m *RollVariousRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RollVariousRequest.Marshal(b, m, deterministic)
+}
+func (m *RollVariousRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RollVariousRequest.Merge(m, src)
+}
+func (m *RollVariousRequest) XXX_Size() int {
+	return xxx_messageInfo_RollVariousRequest.Size(m)
+}
+func (m *RollVariousRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RollVariousRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RollVariousRequest proto.InternalMessageInfo
+
+func (m *RollVariousRequest) GetRolls() []*RollsRequest {
+	if m != nil {
+		return m.Rolls
+	}
+	return nil
+}
+
+// DiceRoll
+type DiceRoll struct {
+	Result               int32    `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DiceRoll) Reset()         { *m = DiceRoll{} }
+func (m *DiceRoll) String() string { return proto.CompactTextString(m) }
+func (*DiceRoll) ProtoMessage()    {}
+func (*DiceRoll) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{5}
+}
+
+func (m *DiceRoll) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DiceRoll.Unmarshal(m, b)
+}
+func (m *DiceRoll) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DiceRoll.Marshal(b, m, deterministic)
+}
+func (m *DiceRoll) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DiceRoll.Merge(m, src)
+}
+func (m *DiceRoll) XXX_Size() int {
+	return xxx_messageInfo_DiceRoll.Size(m)
+}
+func (m *DiceRoll) XXX_DiscardUnknown() {
+	xxx_messageInfo_DiceRoll.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DiceRoll proto.InternalMessageInfo
+
+func (m *DiceRoll) GetResult() int32 {
+	if m != nil {
+		return m.Result
+	}
+	return 0
+}
+
+// DiceRolls
+type DiceRolls struct {
+	Results              []*DiceRoll `protobuf:"bytes,1,rep,name=results,proto3" json:"results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *DiceRolls) Reset()         { *m = DiceRolls{} }
+func (m *DiceRolls) String() string { return proto.CompactTextString(m) }
+func (*DiceRolls) ProtoMessage()    {}
+func (*DiceRolls) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{6}
+}
+
+func (m *DiceRolls) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DiceRolls.Unmarshal(m, b)
+}
+func (m *DiceRolls) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DiceRolls.Marshal(b, m, deterministic)
+}
+func (m *DiceRolls) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DiceRolls.Merge(m, src)
+}
+func (m *DiceRolls) XXX_Size() int {
+	return xxx_messageInfo_DiceRolls.Size(m)
+}
+func (m *DiceRolls) XXX_DiscardUnknown() {
+	xxx_messageInfo_DiceRolls.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DiceRolls proto.InternalMessageInfo
+
+func (m *DiceRolls) GetResults() []*DiceRoll {
+	if m != nil {
+		return m.Results
+	}
+	return nil
+}
+
+// VariousDiceRolls
+type VariousDiceRolls struct {
+	Results              []*DiceRolls `protobuf:"bytes,1,rep,name=results,proto3" json:"results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *VariousDiceRolls) Reset()         { *m = VariousDiceRolls{} }
+func (m *VariousDiceRolls) String() string { return proto.CompactTextString(m) }
+func (*VariousDiceRolls) ProtoMessage()    {}
+func (*VariousDiceRolls) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{7}
+}
+
+func (m *VariousDiceRolls) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_VariousDiceRolls.Unmarshal(m, b)
+}
+func (m *VariousDiceRolls) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_VariousDiceRolls.Marshal(b, m, deterministic)
+}
+func (m *VariousDiceRolls) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_VariousDiceRolls.Merge(m, src)
+}
+func (m *VariousDiceRolls) XXX_Size() int {
+	return xxx_messageInfo_VariousDiceRolls.Size(m)
+}
+func (m *VariousDiceRolls) XXX_DiscardUnknown() {
+	xxx_messageInfo_VariousDiceRolls.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_VariousDiceRolls proto.InternalMessageInfo
+
+func (m *VariousDiceRolls) GetResults() []*DiceRolls {
+	if m != nil {
+		return m.Results
+	}
+	return nil
+}
+
+// DiceRollStats
+type DiceRollStats struct {
+	Average              float32  `protobuf:"fixed32,1,opt,name=average,proto3" json:"average,omitempty"`
+	High                 int32    `protobuf:"varint,2,opt,name=high,proto3" json:"high,omitempty"`
+	Low                  int32    `protobuf:"varint,3,opt,name=low,proto3" json:"low,omitempty"`
+	Sum                  int32    `protobuf:"varint,4,opt,name=sum,proto3" json:"sum,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DiceRollStats) Reset()         { *m = DiceRollStats{} }
+func (m *DiceRollStats) String() string { return proto.CompactTextString(m) }
+func (*DiceRollStats) ProtoMessage()    {}
+func (*DiceRollStats) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{8}
+}
+
+func (m *DiceRollStats) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DiceRollStats.Unmarshal(m, b)
+}
+func (m *DiceRollStats) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DiceRollStats.Marshal(b, m, deterministic)
+}
+func (m *DiceRollStats) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DiceRollStats.Merge(m, src)
+}
+func (m *DiceRollStats) XXX_Size() int {
+	return xxx_messageInfo_DiceRollStats.Size(m)
+}
+func (m *DiceRollStats) XXX_DiscardUnknown() {
+	xxx_messageInfo_DiceRollStats.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DiceRollStats proto.InternalMessageInfo
+
+func (m *DiceRollStats) GetAverage() float32 {
+	if m != nil {
+		return m.Average
+	}
+	return 0
+}
+
+func (m *DiceRollStats) GetHigh() int32 {
+	if m != nil {
+		return m.High
+	}
+	return 0
+}
+
+func (m *DiceRollStats) GetLow() int32 {
+	if m != nil {
+		return m.Low
+	}
+	return 0
+}
+
+func (m *DiceRollStats) GetSum() int32 {
+	if m != nil {
+		return m.Sum
+	}
+	return 0
+}
+
+// MetaRoll
+type MetaRoll struct {
+	Roll                 *DiceRoll      `protobuf:"bytes,1,opt,name=roll,proto3" json:"roll,omitempty"`
+	Rolls                *DiceRolls     `protobuf:"bytes,2,opt,name=rolls,proto3" json:"rolls,omitempty"`
+	Stats                *DiceRollStats `protobuf:"bytes,3,opt,name=stats,proto3" json:"stats,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *MetaRoll) Reset()         { *m = MetaRoll{} }
+func (m *MetaRoll) String() string { return proto.CompactTextString(m) }
+func (*MetaRoll) ProtoMessage()    {}
+func (*MetaRoll) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{9}
+}
+
+func (m *MetaRoll) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MetaRoll.Unmarshal(m, b)
+}
+func (m *MetaRoll) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MetaRoll.Marshal(b, m, deterministic)
+}
+func (m *MetaRoll) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MetaRoll.Merge(m, src)
+}
+func (m *MetaRoll) XXX_Size() int {
+	return xxx_messageInfo_MetaRoll.Size(m)
+}
+func (m *MetaRoll) XXX_DiscardUnknown() {
+	xxx_messageInfo_MetaRoll.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MetaRoll proto.InternalMessageInfo
+
+func (m *MetaRoll) GetRoll() *DiceRoll {
+	if m != nil {
+		return m.Roll
+	}
+	return nil
+}
+
+func (m *MetaRoll) GetRolls() *DiceRolls {
+	if m != nil {
+		return m.Rolls
+	}
+	return nil
+}
+
+func (m *MetaRoll) GetStats() *DiceRollStats {
+	if m != nil {
+		return m.Stats
+	}
+	return nil
+}
+
+// MetaRolls
+type MetaRolls struct {
+	Results              []*MetaRoll `protobuf:"bytes,1,rep,name=results,proto3" json:"results,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *MetaRolls) Reset()         { *m = MetaRolls{} }
+func (m *MetaRolls) String() string { return proto.CompactTextString(m) }
+func (*MetaRolls) ProtoMessage()    {}
+func (*MetaRolls) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b290fdc790cf24c0, []int{10}
+}
+
+func (m *MetaRolls) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_MetaRolls.Unmarshal(m, b)
+}
+func (m *MetaRolls) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_MetaRolls.Marshal(b, m, deterministic)
+}
+func (m *MetaRolls) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MetaRolls.Merge(m, src)
+}
+func (m *MetaRolls) XXX_Size() int {
+	return xxx_messageInfo_MetaRolls.Size(m)
+}
+func (m *MetaRolls) XXX_DiscardUnknown() {
+	xxx_messageInfo_MetaRolls.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MetaRolls proto.InternalMessageInfo
+
+func (m *MetaRolls) GetResults() []*MetaRoll {
+	if m != nil {
+		return m.Results
+	}
+	return nil
+}
+
 // VersionRequest ...
 type VersionRequest struct {
 	Data                 string   `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -116,7 +524,7 @@ func (m *VersionRequest) Reset()         { *m = VersionRequest{} }
 func (m *VersionRequest) String() string { return proto.CompactTextString(m) }
 func (*VersionRequest) ProtoMessage()    {}
 func (*VersionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{2}
+	return fileDescriptor_b290fdc790cf24c0, []int{11}
 }
 
 func (m *VersionRequest) XXX_Unmarshal(b []byte) error {
@@ -160,7 +568,7 @@ func (m *VersionReply) Reset()         { *m = VersionReply{} }
 func (m *VersionReply) String() string { return proto.CompactTextString(m) }
 func (*VersionReply) ProtoMessage()    {}
 func (*VersionReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{3}
+	return fileDescriptor_b290fdc790cf24c0, []int{12}
 }
 
 func (m *VersionReply) XXX_Unmarshal(b []byte) error {
@@ -219,6 +627,15 @@ func (m *VersionReply) GetGitSummary() string {
 func init() {
 	proto.RegisterType((*PingRequest)(nil), "api.PingRequest")
 	proto.RegisterType((*PingReply)(nil), "api.PingReply")
+	proto.RegisterType((*RollRequest)(nil), "api.RollRequest")
+	proto.RegisterType((*RollsRequest)(nil), "api.RollsRequest")
+	proto.RegisterType((*RollVariousRequest)(nil), "api.RollVariousRequest")
+	proto.RegisterType((*DiceRoll)(nil), "api.DiceRoll")
+	proto.RegisterType((*DiceRolls)(nil), "api.DiceRolls")
+	proto.RegisterType((*VariousDiceRolls)(nil), "api.VariousDiceRolls")
+	proto.RegisterType((*DiceRollStats)(nil), "api.DiceRollStats")
+	proto.RegisterType((*MetaRoll)(nil), "api.MetaRoll")
+	proto.RegisterType((*MetaRolls)(nil), "api.MetaRolls")
 	proto.RegisterType((*VersionRequest)(nil), "api.VersionRequest")
 	proto.RegisterType((*VersionReply)(nil), "api.VersionReply")
 }
@@ -226,24 +643,44 @@ func init() {
 func init() { proto.RegisterFile("dice.proto", fileDescriptor_b290fdc790cf24c0) }
 
 var fileDescriptor_b290fdc790cf24c0 = []byte{
-	// 267 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x91, 0xcf, 0x4e, 0x83, 0x40,
-	0x10, 0x87, 0xc5, 0xa2, 0x0d, 0x63, 0xd3, 0xe8, 0x78, 0xd9, 0x34, 0xc6, 0x3f, 0xa4, 0x07, 0xe3,
-	0x81, 0x18, 0x79, 0x02, 0xb1, 0x17, 0x6f, 0xa4, 0x4d, 0xbc, 0x2f, 0xb0, 0xa1, 0x93, 0xb0, 0x80,
-	0x74, 0x69, 0xe4, 0x75, 0x7c, 0x52, 0xb3, 0xbb, 0x88, 0x34, 0x31, 0xbd, 0x31, 0xdf, 0xf7, 0x63,
-	0x36, 0x33, 0x03, 0x90, 0x51, 0x2a, 0x82, 0xba, 0xa9, 0x54, 0x85, 0x13, 0x5e, 0x93, 0xff, 0x00,
-	0x17, 0x31, 0x95, 0xf9, 0x5a, 0x7c, 0xb6, 0x62, 0xa7, 0x10, 0xc1, 0xcd, 0xb8, 0xe2, 0xcc, 0xb9,
-	0x77, 0x1e, 0xbd, 0xb5, 0xf9, 0xf6, 0xef, 0xc0, 0xb3, 0x91, 0xba, 0xe8, 0xfe, 0x0d, 0x2c, 0x61,
-	0xfe, 0x21, 0x9a, 0x1d, 0x55, 0xe5, 0xb1, 0x36, 0xdf, 0x0e, 0xcc, 0x86, 0x98, 0x6e, 0xc5, 0x60,
-	0xba, 0xb7, 0x75, 0x9f, 0xfb, 0x2d, 0xf1, 0x06, 0xbc, 0xa4, 0xa5, 0x22, 0x5b, 0x71, 0x25, 0xd8,
-	0xa9, 0x71, 0x7f, 0x40, 0xdb, 0x9c, 0xd4, 0x5b, 0x25, 0x25, 0x29, 0x36, 0xb1, 0x76, 0x00, 0xbd,
-	0x8d, 0x1a, 0x5e, 0xa6, 0x5b, 0xe6, 0x0e, 0xd6, 0x02, 0xbc, 0x05, 0xc8, 0x49, 0x6d, 0x5a, 0x29,
-	0x79, 0xd3, 0xb1, 0x33, 0xa3, 0x47, 0xe4, 0x45, 0x02, 0x6c, 0x44, 0xb3, 0xa7, 0x54, 0xbc, 0xc6,
-	0xef, 0xf8, 0x04, 0xae, 0x9e, 0x1c, 0x2f, 0x03, 0x5e, 0x53, 0x30, 0xda, 0xd3, 0x62, 0x3e, 0x22,
-	0x75, 0xd1, 0xf9, 0x27, 0x18, 0xc2, 0xb4, 0x9f, 0x0e, 0xaf, 0x8d, 0x3c, 0x5c, 0xc9, 0xe2, 0xea,
-	0x10, 0x9a, 0x9f, 0xa2, 0x25, 0xe0, 0xf6, 0x2b, 0x97, 0xe1, 0x73, 0x60, 0xef, 0x92, 0xe8, 0x50,
-	0x34, 0x5b, 0xd9, 0xf7, 0x63, 0x7d, 0xa6, 0xd8, 0x49, 0xce, 0xcd, 0xbd, 0xc2, 0x9f, 0x00, 0x00,
-	0x00, 0xff, 0xff, 0xb3, 0x36, 0x02, 0x5b, 0xbd, 0x01, 0x00, 0x00,
+	// 583 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0xcf, 0x8f, 0xd2, 0x40,
+	0x14, 0xa6, 0x40, 0x97, 0xed, 0x83, 0x45, 0xf6, 0x19, 0xb5, 0x21, 0x46, 0xd9, 0x09, 0xc9, 0xb2,
+	0xc6, 0xa0, 0x01, 0x8f, 0x6b, 0x8c, 0x2c, 0x07, 0x3d, 0x68, 0x48, 0x31, 0x7b, 0x1f, 0x60, 0x52,
+	0x26, 0x69, 0x69, 0x6d, 0xa7, 0x28, 0x07, 0xff, 0x19, 0xff, 0x48, 0xcf, 0x66, 0x66, 0x3a, 0x94,
+	0xb2, 0xbb, 0xc6, 0xdb, 0xcc, 0xf7, 0x7d, 0xef, 0xbd, 0x79, 0xbf, 0x06, 0x60, 0xc5, 0x97, 0x6c,
+	0x18, 0x27, 0x91, 0x88, 0xb0, 0x46, 0x63, 0x4e, 0x2e, 0xa0, 0x39, 0xe3, 0x1b, 0xdf, 0x63, 0xdf,
+	0x33, 0x96, 0x0a, 0x44, 0xa8, 0xaf, 0xa8, 0xa0, 0xae, 0xd5, 0xb3, 0x06, 0x8e, 0xa7, 0xce, 0xe4,
+	0x25, 0x38, 0x5a, 0x12, 0x07, 0xbb, 0x7b, 0x05, 0x57, 0xd0, 0xf4, 0xa2, 0x20, 0x30, 0x3e, 0xba,
+	0x70, 0x2a, 0xa3, 0x7c, 0xdb, 0xc5, 0x2c, 0x97, 0xed, 0xef, 0xe4, 0x13, 0xb4, 0xa4, 0x34, 0xfd,
+	0x0f, 0x2d, 0x3e, 0x07, 0x27, 0x89, 0x82, 0xe0, 0x26, 0xca, 0x36, 0xc2, 0xad, 0xf6, 0xac, 0x81,
+	0xed, 0x15, 0x00, 0x79, 0x0f, 0x28, 0x3d, 0xdd, 0xd2, 0x84, 0x47, 0xd9, 0xde, 0xdf, 0x25, 0xd8,
+	0x52, 0x92, 0xba, 0x56, 0xaf, 0x36, 0x68, 0x8e, 0xce, 0x87, 0x34, 0xe6, 0xc3, 0xc3, 0x88, 0x9e,
+	0xe6, 0x09, 0x81, 0xd3, 0x29, 0x5f, 0x32, 0x49, 0xe1, 0x53, 0x38, 0x49, 0x58, 0x9a, 0x05, 0x42,
+	0x3d, 0xc1, 0xf6, 0xf2, 0x1b, 0x79, 0x07, 0x8e, 0xd1, 0xa4, 0x78, 0x09, 0x0d, 0x0d, 0x1b, 0xdf,
+	0x67, 0xca, 0xb7, 0x11, 0x78, 0x86, 0x25, 0xd7, 0xd0, 0xc9, 0x1f, 0x55, 0x18, 0x0f, 0x8e, 0x8d,
+	0xdb, 0x25, 0xe3, 0xb4, 0xb0, 0xa6, 0x70, 0x66, 0xd0, 0xb9, 0xa0, 0x22, 0x45, 0x17, 0x1a, 0x74,
+	0xcb, 0x12, 0xea, 0xeb, 0x02, 0x55, 0x3d, 0x73, 0x95, 0xad, 0x58, 0x73, 0x7f, 0x9d, 0x97, 0x46,
+	0x9d, 0xb1, 0x03, 0xb5, 0x20, 0xfa, 0xe1, 0xd6, 0x14, 0x24, 0x8f, 0x12, 0x49, 0xb3, 0xd0, 0xad,
+	0x6b, 0x24, 0xcd, 0x42, 0xf2, 0x0b, 0x4e, 0xbf, 0x30, 0x41, 0x55, 0xea, 0x17, 0x50, 0x97, 0xf5,
+	0x50, 0xae, 0xef, 0xa4, 0xa4, 0x28, 0xec, 0x9b, 0x92, 0x56, 0x95, 0xe6, 0xf8, 0xe5, 0x9a, 0xc4,
+	0x01, 0xd8, 0xa9, 0x7c, 0xaf, 0x0a, 0xdd, 0x1c, 0x61, 0x49, 0xa5, 0x32, 0xf1, 0xb4, 0x40, 0x56,
+	0xd5, 0x84, 0x7f, 0xb0, 0xaa, 0x46, 0x50, 0xd4, 0xa5, 0x0f, 0xed, 0x5b, 0x96, 0xa4, 0x3c, 0xda,
+	0xfc, 0x6b, 0x54, 0x7f, 0x5b, 0xd0, 0xda, 0xcb, 0xe4, 0xb8, 0xba, 0xd0, 0xd8, 0xea, 0x7b, 0xae,
+	0x33, 0x57, 0x39, 0x5d, 0x8b, 0x8c, 0x07, 0xab, 0x29, 0x15, 0x4c, 0xa5, 0xe6, 0x78, 0x05, 0x20,
+	0x59, 0x9f, 0x8b, 0x9b, 0x28, 0x0c, 0xb9, 0x50, 0x29, 0x39, 0x5e, 0x01, 0xe4, 0xec, 0x24, 0xa1,
+	0x9b, 0xe5, 0x5a, 0x55, 0x56, 0xb3, 0x1a, 0xc0, 0x17, 0x00, 0x3e, 0x17, 0xf3, 0x2c, 0x0c, 0x69,
+	0xb2, 0x73, 0x6d, 0x45, 0x1f, 0x20, 0xa3, 0x3f, 0x55, 0x80, 0x39, 0x4b, 0xb6, 0x7c, 0xc9, 0x3e,
+	0xce, 0x3e, 0xe3, 0x2b, 0xa8, 0xcb, 0xf5, 0xc2, 0x8e, 0xca, 0xfc, 0x60, 0x19, 0xbb, 0xed, 0x03,
+	0x24, 0x0e, 0x76, 0xa4, 0x82, 0x57, 0x50, 0x57, 0x6d, 0xeb, 0xec, 0xe7, 0xda, 0x68, 0xcb, 0xad,
+	0x23, 0x15, 0x7c, 0x0d, 0xb6, 0x3c, 0x7d, 0xc5, 0xbb, 0x3b, 0xd0, 0x3d, 0xea, 0x21, 0xa9, 0xe0,
+	0x07, 0xbd, 0xc2, 0xf9, 0xe0, 0xe2, 0xb3, 0xbd, 0x4d, 0x79, 0xbf, 0xba, 0x4f, 0x14, 0x71, 0x3c,
+	0xdf, 0xa4, 0x82, 0x6f, 0xc0, 0x51, 0xe1, 0x64, 0xe7, 0xee, 0x0b, 0x59, 0xee, 0x2b, 0xa9, 0xe0,
+	0x35, 0x3c, 0x3a, 0xf0, 0xaf, 0xcc, 0x1e, 0x8c, 0xda, 0x2e, 0x19, 0xcb, 0x70, 0x63, 0x68, 0xe4,
+	0x7d, 0xc6, 0xc7, 0xfa, 0x49, 0xa5, 0xe1, 0xe8, 0x9e, 0x97, 0x41, 0x55, 0xbd, 0x49, 0x1f, 0x70,
+	0xfd, 0xd3, 0x0f, 0xc7, 0x6f, 0x87, 0xfa, 0x17, 0x5c, 0x48, 0xd1, 0xa4, 0x35, 0xd5, 0x8d, 0x98,
+	0xc9, 0x4f, 0x71, 0x66, 0x2d, 0x4e, 0xd4, 0xef, 0x38, 0xfe, 0x1b, 0x00, 0x00, 0xff, 0xff, 0xcc,
+	0x3c, 0xc6, 0x58, 0x2b, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -260,6 +697,12 @@ const _ = grpc.SupportPackageIsVersion4
 type ServiceAPIClient interface {
 	// Return "pong" for "ping"
 	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error)
+	// Dice-rolling API
+	Roll(ctx context.Context, in *RollRequest, opts ...grpc.CallOption) (*DiceRoll, error)
+	RollN(ctx context.Context, in *RollsRequest, opts ...grpc.CallOption) (*DiceRolls, error)
+	RollVarious(ctx context.Context, in *RollVariousRequest, opts ...grpc.CallOption) (*VariousDiceRolls, error)
+	RollNMeta(ctx context.Context, in *RollsRequest, opts ...grpc.CallOption) (*MetaRoll, error)
+	RollVariousMeta(ctx context.Context, in *RollVariousRequest, opts ...grpc.CallOption) (*MetaRolls, error)
 	// Get version data
 	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionReply, error)
 }
@@ -281,6 +724,51 @@ func (c *serviceAPIClient) Ping(ctx context.Context, in *PingRequest, opts ...gr
 	return out, nil
 }
 
+func (c *serviceAPIClient) Roll(ctx context.Context, in *RollRequest, opts ...grpc.CallOption) (*DiceRoll, error) {
+	out := new(DiceRoll)
+	err := c.cc.Invoke(ctx, "/api.ServiceAPI/Roll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceAPIClient) RollN(ctx context.Context, in *RollsRequest, opts ...grpc.CallOption) (*DiceRolls, error) {
+	out := new(DiceRolls)
+	err := c.cc.Invoke(ctx, "/api.ServiceAPI/RollN", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceAPIClient) RollVarious(ctx context.Context, in *RollVariousRequest, opts ...grpc.CallOption) (*VariousDiceRolls, error) {
+	out := new(VariousDiceRolls)
+	err := c.cc.Invoke(ctx, "/api.ServiceAPI/RollVarious", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceAPIClient) RollNMeta(ctx context.Context, in *RollsRequest, opts ...grpc.CallOption) (*MetaRoll, error) {
+	out := new(MetaRoll)
+	err := c.cc.Invoke(ctx, "/api.ServiceAPI/RollNMeta", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceAPIClient) RollVariousMeta(ctx context.Context, in *RollVariousRequest, opts ...grpc.CallOption) (*MetaRolls, error) {
+	out := new(MetaRolls)
+	err := c.cc.Invoke(ctx, "/api.ServiceAPI/RollVariousMeta", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceAPIClient) Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionReply, error) {
 	out := new(VersionReply)
 	err := c.cc.Invoke(ctx, "/api.ServiceAPI/Version", in, out, opts...)
@@ -294,6 +782,12 @@ func (c *serviceAPIClient) Version(ctx context.Context, in *VersionRequest, opts
 type ServiceAPIServer interface {
 	// Return "pong" for "ping"
 	Ping(context.Context, *PingRequest) (*PingReply, error)
+	// Dice-rolling API
+	Roll(context.Context, *RollRequest) (*DiceRoll, error)
+	RollN(context.Context, *RollsRequest) (*DiceRolls, error)
+	RollVarious(context.Context, *RollVariousRequest) (*VariousDiceRolls, error)
+	RollNMeta(context.Context, *RollsRequest) (*MetaRoll, error)
+	RollVariousMeta(context.Context, *RollVariousRequest) (*MetaRolls, error)
 	// Get version data
 	Version(context.Context, *VersionRequest) (*VersionReply, error)
 }
@@ -304,6 +798,21 @@ type UnimplementedServiceAPIServer struct {
 
 func (*UnimplementedServiceAPIServer) Ping(ctx context.Context, req *PingRequest) (*PingReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
+}
+func (*UnimplementedServiceAPIServer) Roll(ctx context.Context, req *RollRequest) (*DiceRoll, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Roll not implemented")
+}
+func (*UnimplementedServiceAPIServer) RollN(ctx context.Context, req *RollsRequest) (*DiceRolls, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollN not implemented")
+}
+func (*UnimplementedServiceAPIServer) RollVarious(ctx context.Context, req *RollVariousRequest) (*VariousDiceRolls, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollVarious not implemented")
+}
+func (*UnimplementedServiceAPIServer) RollNMeta(ctx context.Context, req *RollsRequest) (*MetaRoll, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollNMeta not implemented")
+}
+func (*UnimplementedServiceAPIServer) RollVariousMeta(ctx context.Context, req *RollVariousRequest) (*MetaRolls, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollVariousMeta not implemented")
 }
 func (*UnimplementedServiceAPIServer) Version(ctx context.Context, req *VersionRequest) (*VersionReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
@@ -327,6 +836,96 @@ func _ServiceAPI_Ping_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceAPIServer).Ping(ctx, req.(*PingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceAPI_Roll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RollRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceAPIServer).Roll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.ServiceAPI/Roll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceAPIServer).Roll(ctx, req.(*RollRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceAPI_RollN_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RollsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceAPIServer).RollN(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.ServiceAPI/RollN",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceAPIServer).RollN(ctx, req.(*RollsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceAPI_RollVarious_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RollVariousRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceAPIServer).RollVarious(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.ServiceAPI/RollVarious",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceAPIServer).RollVarious(ctx, req.(*RollVariousRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceAPI_RollNMeta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RollsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceAPIServer).RollNMeta(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.ServiceAPI/RollNMeta",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceAPIServer).RollNMeta(ctx, req.(*RollsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServiceAPI_RollVariousMeta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RollVariousRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceAPIServer).RollVariousMeta(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.ServiceAPI/RollVariousMeta",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceAPIServer).RollVariousMeta(ctx, req.(*RollVariousRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -356,6 +955,26 @@ var _ServiceAPI_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Ping",
 			Handler:    _ServiceAPI_Ping_Handler,
+		},
+		{
+			MethodName: "Roll",
+			Handler:    _ServiceAPI_Roll_Handler,
+		},
+		{
+			MethodName: "RollN",
+			Handler:    _ServiceAPI_RollN_Handler,
+		},
+		{
+			MethodName: "RollVarious",
+			Handler:    _ServiceAPI_RollVarious_Handler,
+		},
+		{
+			MethodName: "RollNMeta",
+			Handler:    _ServiceAPI_RollNMeta_Handler,
+		},
+		{
+			MethodName: "RollVariousMeta",
+			Handler:    _ServiceAPI_RollVariousMeta_Handler,
 		},
 		{
 			MethodName: "Version",
