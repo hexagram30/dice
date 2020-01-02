@@ -54,7 +54,8 @@ message RollVariousRequest {
 
 // DiceRoll
 message DiceRoll {
-    int32 result = 1;
+    string diceType = 1;
+    int32 result = 2;
 }
 
 // DiceRolls

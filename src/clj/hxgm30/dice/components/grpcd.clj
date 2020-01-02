@@ -16,6 +16,26 @@
                        VersionRequest)
    (io.grpc Server ServerBuilder)))
 
+(defn do-single-roll
+  [die]
+  (log/warnf "Got die type: %s" die))
+
+(defn do-repeated-rolls
+  [die count]
+  )
+
+(defn do-various-rolls
+  [die-count-tuples]
+  )
+
+(defn do-repeated-meta-rolls
+  [die-count]
+  )
+
+(defn do-repeated-various-rolls
+  [die-count-tuples]
+  )
+
 (defn make-service []
   (proxy [hxgm30.dice.pb.api.ServiceAPIGrpc$ServiceAPIImplBase] []
     (ping [^PingRequest ping reply]
@@ -23,6 +43,25 @@
       (let [builder (.setData (PingReply/newBuilder) "PONG")]
         (.onNext reply (.build builder))
         (.onCompleted reply)))
+    ;; do-single-roll
+    (roll [^RollRequest roll-req reply]
+      (let [die (keyword (.getDiceType roll-req))
+            builder (-> (DiceRoll/newBuilder)
+                        (.setResult (do-single-roll die)
+                        (.setDiceType (name die))))]
+        (.onNext reply (.build builder))
+        (.onCompleted reply)))
+    ;; do-repeated-rolls
+    (rollN [^RollRequest roll-req reply]
+      (let [die (keyword (.getDiceType roll-req))
+            n (.getRollCount roll-req)
+            builder (.setResult (DiceRolls/newBuilder)
+                                (do-single-roll die))]
+        (.onNext reply (.build builder))
+        (.onCompleted reply)))
+    ;; do-various-rolls
+    ;; do-repeated-meta-rolls
+    ;; do-repeated-various-rolls
     (version [^VersionRequest version reply]
       (log/debug "Got version request")
       (let [builder (-> (VersionReply/newBuilder)
