@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private DiceRoll() {
+    diceType_ = "";
   }
 
   @java.lang.Override
@@ -52,7 +53,13 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            diceType_ = s;
+            break;
+          }
+          case 16: {
 
             result_ = input.readInt32();
             break;
@@ -89,10 +96,46 @@ private static final long serialVersionUID = 0L;
             hxgm30.dice.pb.api.DiceRoll.class, hxgm30.dice.pb.api.DiceRoll.Builder.class);
   }
 
-  public static final int RESULT_FIELD_NUMBER = 1;
+  public static final int DICETYPE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object diceType_;
+  /**
+   * <code>string diceType = 1;</code>
+   * @return The diceType.
+   */
+  public java.lang.String getDiceType() {
+    java.lang.Object ref = diceType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      diceType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string diceType = 1;</code>
+   * @return The bytes for diceType.
+   */
+  public com.google.protobuf.ByteString
+      getDiceTypeBytes() {
+    java.lang.Object ref = diceType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      diceType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int RESULT_FIELD_NUMBER = 2;
   private int result_;
   /**
-   * <code>int32 result = 1;</code>
+   * <code>int32 result = 2;</code>
    * @return The result.
    */
   public int getResult() {
@@ -113,8 +156,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!getDiceTypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, diceType_);
+    }
     if (result_ != 0) {
-      output.writeInt32(1, result_);
+      output.writeInt32(2, result_);
     }
     unknownFields.writeTo(output);
   }
@@ -125,9 +171,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!getDiceTypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, diceType_);
+    }
     if (result_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, result_);
+        .computeInt32Size(2, result_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -144,6 +193,8 @@ private static final long serialVersionUID = 0L;
     }
     hxgm30.dice.pb.api.DiceRoll other = (hxgm30.dice.pb.api.DiceRoll) obj;
 
+    if (!getDiceType()
+        .equals(other.getDiceType())) return false;
     if (getResult()
         != other.getResult()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -157,6 +208,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + DICETYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getDiceType().hashCode();
     hash = (37 * hash) + RESULT_FIELD_NUMBER;
     hash = (53 * hash) + getResult();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -296,6 +349,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      diceType_ = "";
+
       result_ = 0;
 
       return this;
@@ -324,6 +379,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public hxgm30.dice.pb.api.DiceRoll buildPartial() {
       hxgm30.dice.pb.api.DiceRoll result = new hxgm30.dice.pb.api.DiceRoll(this);
+      result.diceType_ = diceType_;
       result.result_ = result_;
       onBuilt();
       return result;
@@ -373,6 +429,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(hxgm30.dice.pb.api.DiceRoll other) {
       if (other == hxgm30.dice.pb.api.DiceRoll.getDefaultInstance()) return this;
+      if (!other.getDiceType().isEmpty()) {
+        diceType_ = other.diceType_;
+        onChanged();
+      }
       if (other.getResult() != 0) {
         setResult(other.getResult());
       }
@@ -405,16 +465,92 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object diceType_ = "";
+    /**
+     * <code>string diceType = 1;</code>
+     * @return The diceType.
+     */
+    public java.lang.String getDiceType() {
+      java.lang.Object ref = diceType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        diceType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string diceType = 1;</code>
+     * @return The bytes for diceType.
+     */
+    public com.google.protobuf.ByteString
+        getDiceTypeBytes() {
+      java.lang.Object ref = diceType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        diceType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string diceType = 1;</code>
+     * @param value The diceType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDiceType(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      diceType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string diceType = 1;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDiceType() {
+      
+      diceType_ = getDefaultInstance().getDiceType();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string diceType = 1;</code>
+     * @param value The bytes for diceType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDiceTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      diceType_ = value;
+      onChanged();
+      return this;
+    }
+
     private int result_ ;
     /**
-     * <code>int32 result = 1;</code>
+     * <code>int32 result = 2;</code>
      * @return The result.
      */
     public int getResult() {
       return result_;
     }
     /**
-     * <code>int32 result = 1;</code>
+     * <code>int32 result = 2;</code>
      * @param value The result to set.
      * @return This builder for chaining.
      */
@@ -425,7 +561,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 result = 1;</code>
+     * <code>int32 result = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearResult() {

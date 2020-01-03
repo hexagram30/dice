@@ -2,7 +2,7 @@
   (:require
     [clojure.set :as set]
     [clojure.test :refer :all]
-    [hxgm30.dice.roller :as roller]
+    [hxgm30.dice.components.roller :as roller]
     [hxgm30.dice.testing.system :as test-system :refer [system]]))
 
 (use-fixtures :once test-system/with-system)
