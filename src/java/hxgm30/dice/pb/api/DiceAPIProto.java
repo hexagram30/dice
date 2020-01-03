@@ -93,30 +93,31 @@ public final class DiceAPIProto {
       "lRequest\022\020\n\010diceType\030\001 \001(\t\"3\n\014RollsReque" +
       "st\022\020\n\010diceType\030\001 \001(\t\022\021\n\trollCount\030\002 \001(\005\"" +
       "6\n\022RollVariousRequest\022 \n\005rolls\030\001 \003(\0132\021.a" +
-      "pi.RollsRequest\"\032\n\010DiceRoll\022\016\n\006result\030\001 " +
-      "\001(\005\"+\n\tDiceRolls\022\036\n\007results\030\001 \003(\0132\r.api." +
-      "DiceRoll\"3\n\020VariousDiceRolls\022\037\n\007results\030" +
-      "\001 \003(\0132\016.api.DiceRolls\"H\n\rDiceRollStats\022\017" +
-      "\n\007average\030\001 \001(\002\022\014\n\004high\030\002 \001(\005\022\013\n\003low\030\003 \001" +
-      "(\005\022\013\n\003sum\030\004 \001(\005\"i\n\010MetaRoll\022\033\n\004roll\030\001 \001(" +
-      "\0132\r.api.DiceRoll\022\035\n\005rolls\030\002 \001(\0132\016.api.Di" +
-      "ceRolls\022!\n\005stats\030\003 \001(\0132\022.api.DiceRollSta" +
-      "ts\"+\n\tMetaRolls\022\036\n\007results\030\001 \003(\0132\r.api.M" +
-      "etaRoll\"\036\n\016VersionRequest\022\014\n\004data\030\001 \001(\t\"" +
-      "l\n\014VersionReply\022\017\n\007version\030\001 \001(\t\022\021\n\tbuil" +
-      "dDate\030\002 \001(\t\022\021\n\tgitCommit\030\003 \001(\t\022\021\n\tgitBra" +
-      "nch\030\004 \001(\t\022\022\n\ngitSummary\030\005 \001(\t2\366\002\n\nServic" +
-      "eAPI\022*\n\004Ping\022\020.api.PingRequest\032\016.api.Pin" +
-      "gReply\"\000\022)\n\004Roll\022\020.api.RollRequest\032\r.api" +
-      ".DiceRoll\"\000\022,\n\005RollN\022\021.api.RollsRequest\032" +
-      "\016.api.DiceRolls\"\000\022?\n\013RollVarious\022\027.api.R" +
-      "ollVariousRequest\032\025.api.VariousDiceRolls" +
-      "\"\000\022/\n\tRollNMeta\022\021.api.RollsRequest\032\r.api" +
-      ".MetaRoll\"\000\022<\n\017RollVariousMeta\022\027.api.Rol" +
-      "lVariousRequest\032\016.api.MetaRolls\"\000\0223\n\007Ver" +
-      "sion\022\023.api.VersionRequest\032\021.api.VersionR" +
-      "eply\"\000B$\n\022hxgm30.dice.pb.apiB\014DiceAPIPro" +
-      "toP\001b\006proto3"
+      "pi.RollsRequest\",\n\010DiceRoll\022\020\n\010diceType\030" +
+      "\001 \001(\t\022\016\n\006result\030\002 \001(\005\"+\n\tDiceRolls\022\036\n\007re" +
+      "sults\030\001 \003(\0132\r.api.DiceRoll\"3\n\020VariousDic" +
+      "eRolls\022\037\n\007results\030\001 \003(\0132\016.api.DiceRolls\"" +
+      "H\n\rDiceRollStats\022\017\n\007average\030\001 \001(\002\022\014\n\004hig" +
+      "h\030\002 \001(\005\022\013\n\003low\030\003 \001(\005\022\013\n\003sum\030\004 \001(\005\"i\n\010Met" +
+      "aRoll\022\033\n\004roll\030\001 \001(\0132\r.api.DiceRoll\022\035\n\005ro" +
+      "lls\030\002 \001(\0132\016.api.DiceRolls\022!\n\005stats\030\003 \001(\013" +
+      "2\022.api.DiceRollStats\"+\n\tMetaRolls\022\036\n\007res" +
+      "ults\030\001 \003(\0132\r.api.MetaRoll\"\036\n\016VersionRequ" +
+      "est\022\014\n\004data\030\001 \001(\t\"l\n\014VersionReply\022\017\n\007ver" +
+      "sion\030\001 \001(\t\022\021\n\tbuildDate\030\002 \001(\t\022\021\n\tgitComm" +
+      "it\030\003 \001(\t\022\021\n\tgitBranch\030\004 \001(\t\022\022\n\ngitSummar" +
+      "y\030\005 \001(\t2\210\003\n\nServiceAPI\022*\n\004Ping\022\020.api.Pin" +
+      "gRequest\032\016.api.PingReply\"\000\022-\n\010RollOnce\022\020" +
+      ".api.RollRequest\032\r.api.DiceRoll\"\000\0223\n\014Rol" +
+      "lRepeated\022\021.api.RollsRequest\032\016.api.DiceR" +
+      "olls\"\000\022?\n\013RollVarious\022\027.api.RollVariousR" +
+      "equest\032\025.api.VariousDiceRolls\"\000\0226\n\020RollM" +
+      "etaRepeated\022\021.api.RollsRequest\032\r.api.Met" +
+      "aRoll\"\000\022<\n\017RollMetaVarious\022\027.api.RollVar" +
+      "iousRequest\032\016.api.MetaRolls\"\000\0223\n\007Version" +
+      "\022\023.api.VersionRequest\032\021.api.VersionReply" +
+      "\"\000B$\n\022hxgm30.dice.pb.apiB\014DiceAPIProtoP\001" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -157,7 +158,7 @@ public final class DiceAPIProto {
     internal_static_api_DiceRoll_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_DiceRoll_descriptor,
-        new java.lang.String[] { "Result", });
+        new java.lang.String[] { "DiceType", "Result", });
     internal_static_api_DiceRolls_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_api_DiceRolls_fieldAccessorTable = new

@@ -17,11 +17,11 @@ service ServiceAPI {
     //   included in the results
     // * RollVariousMeta - multiple rolls supporting different types of
     //   dice with stats included in the results
-    rpc Roll(RollRequest) returns (DiceRoll) {}
-    rpc RollN(RollsRequest) returns (DiceRolls) {}
+    rpc RollOnce(RollRequest) returns (DiceRoll) {}
+    rpc RollRepeated(RollsRequest) returns (DiceRolls) {}
     rpc RollVarious(RollVariousRequest) returns (VariousDiceRolls) {}
-    rpc RollNMeta(RollsRequest) returns (MetaRoll) {}
-    rpc RollVariousMeta(RollVariousRequest) returns (MetaRolls) {}
+    rpc RollMetaRepeated(RollsRequest) returns (MetaRoll) {}
+    rpc RollMetaVarious(RollVariousRequest) returns (MetaRolls) {}
     // Get version data
     rpc Version(VersionRequest) returns (VersionReply) {}
 }

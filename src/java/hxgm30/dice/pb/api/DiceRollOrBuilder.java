@@ -8,7 +8,19 @@ public interface DiceRollOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 result = 1;</code>
+   * <code>string diceType = 1;</code>
+   * @return The diceType.
+   */
+  java.lang.String getDiceType();
+  /**
+   * <code>string diceType = 1;</code>
+   * @return The bytes for diceType.
+   */
+  com.google.protobuf.ByteString
+      getDiceTypeBytes();
+
+  /**
+   * <code>int32 result = 2;</code>
    * @return The result.
    */
   int getResult();
