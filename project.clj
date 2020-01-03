@@ -15,7 +15,7 @@
        ns
        "\u001B[35m]\u001B[33m λ\u001B[m=> "))
 
-(defproject hexagram30/dice "0.1.2-SNAPSHOT"
+(defproject hexagram30/dice "0.1.3-SNAPSHOT"
   :description "An entropy manager, random number generator/seed tracker, and dice-roller for hexagram30 projects"
   :url "https://github.com/hexagram30/dice"
   :license {

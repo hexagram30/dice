@@ -47,7 +47,6 @@ func (c *Client) SetupConnection() {
 
 // Ping ...
 func (c *Client) Ping() string {
-
 	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
 	defer cancel()
 
@@ -59,9 +58,29 @@ func (c *Client) Ping() string {
 	return r.GetData()
 }
 
+// RollOnce ...
+func (c *Client) RollOnce(die string) *api.DiceRoll {
+
+	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
+	defer cancel()
+
+	r, err := c.Client.RollOnce(ctx, &api.RollRequest{
+		DiceType: die,
+	})
+	if err != nil {
+		log.Fatalf("Could not get roll reply: %v", err)
+	}
+
+	return r
+}
+
+// RollRepeated ...
+// RollVarious ...
+// RollMetaRepeated ...
+// RollMetaVarious ...
+
 // Version ...
 func (c *Client) Version() *api.VersionReply {
-
 	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
 	defer cancel()
 

@@ -116,7 +116,7 @@
   [this ^RollRequest request ^DiceRoll reply]
   (log/debug "Got roll-once request")
   (built->reply
-    (roll-once-builder (system) (keyword (.getDiceType request)))
+    (roll-once-builder (system this) (keyword (.getDiceType request)))
     reply))
 
 (defn -rollRepeated
