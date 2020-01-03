@@ -5,8 +5,8 @@
     [clojusc.system-manager.core :as system-manager]
     [clojusc.twig :as logger]
     [hxgm30.dice.components.core]
-    [hxgm30.dice.cli.util :as util]
-    [hxgm30.dice.roller :as roller])
+    [hxgm30.dice.components.roller :as roller]
+    [hxgm30.dice.cli.util :as util])
   (:gen-class))
 
 (def d4 #'roller/d4)

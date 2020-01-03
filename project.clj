@@ -15,7 +15,7 @@
        ns
        "\u001B[35m]\u001B[33m λ\u001B[m=> "))
 
-(defproject hexagram30/dice "0.1.1-SNAPSHOT"
+(defproject hexagram30/dice "0.1.2-SNAPSHOT"
   :description "An entropy manager, random number generator/seed tracker, and dice-roller for hexagram30 projects"
   :url "https://github.com/hexagram30/dice"
   :license {
@@ -44,6 +44,9 @@
     [org.xolstice.maven.plugins/protobuf-maven-plugin "0.6.1"]]
   :source-paths ["src/clj" "src/cljc"]
   :java-source-paths ["src/java"]
+  :aot [
+    hxgm30.dice.grpc.api
+  ]
   :profiles {
     :ubercompile {
       :aot :all}
