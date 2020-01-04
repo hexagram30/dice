@@ -1,12 +1,9 @@
 syntax = "proto3";
 
-// option go_package  = "github.com/hexagram30/dice/src/golang";
-// option go_package  = "github.com/hexagram30/protocols/src/proto";
 option java_multiple_files = true;
 option java_package = "hxgm30.dice.pb.api";
 option java_outer_classname = "DiceAPIProto";
 
-// import "github.com/hexagram30/protocols/src/golang/common";
 import "github.com/hexagram30/protocols/src/proto/common.proto";
 
 package api;
@@ -23,8 +20,8 @@ service ServiceAPI {
     // * RollVariousMeta - multiple rolls supporting different types of
     //   dice with stats included in the results
     rpc RollOnce(RollRequest) returns (DiceRoll) {}
-    rpc RollRepeated(RollsRequest) returns (DiceRolls) {}
-    rpc RollVarious(RollVariousRequest) returns (VariousDiceRolls) {}
+    rpc RollRepeated(RollsRequest) returns (DiceRepeatedRolls) {}
+    rpc RollVarious(RollVariousRequest) returns (DiceVariousRolls) {}
     rpc RollMetaRepeated(RollsRequest) returns (MetaRoll) {}
     rpc RollMetaVarious(RollVariousRequest) returns (MetaRolls) {}
     // Get version data
@@ -53,14 +50,15 @@ message DiceRoll {
     int32 result = 2;
 }
 
-// DiceRolls
-message DiceRolls {
-    repeated DiceRoll results = 1;
+// DiceRepeatedRolls
+message DiceRepeatedRolls {
+    string diceType = 1;
+    repeated int32 results = 2;
 }
 
-// VariousDiceRolls
-message VariousDiceRolls {
-    repeated DiceRolls results = 1;
+// DiceVariousRolls
+message DiceVariousRolls {
+    repeated DiceRoll results = 1;
 }
 
 // DiceRollStats
@@ -74,7 +72,7 @@ message DiceRollStats {
 // MetaRoll
 message MetaRoll {
     DiceRoll roll = 1;
-    DiceRolls rolls = 2;
+    DiceRepeatedRolls rolls = 2;
     DiceRollStats stats = 3;
 }
 

@@ -7,15 +7,16 @@
   (:import
    (clojure.lang Keyword)
    (hxgm30.dice.pb.api DiceRoll
-                       DiceRolls
+                       DiceRepeatedRolls
+                       DiceRollStats
+                       DiceVariousRolls
                        MetaRoll
                        MetaRolls
                        RollRequest
                        RollsRequest
                        RollVariousRequest
                        ServiceAPIGrpc
-                       ServiceAPIGrpc$ServiceAPIImplBase
-                       VariousDiceRolls)
+                       ServiceAPIGrpc$ServiceAPIImplBase)
    (hxgm30.proto.buf.common PingReply
                             PingRequest
                             VersionReply
@@ -84,14 +85,13 @@
       (.setDiceType (name die))
       (.build)))
 
-; (defn roll-repeated-builder
-;   [system ^Keyword die n]
-;   (let [rolls (roller/roll-repeated system die n))
-;     ;; XXX gather the results ...
-;     (-> (DiceRolls/newBuilder)
-;         (.setResult )
-;         (.setDiceType (name die))
-;         (.build))))
+(defn roll-repeated-builder
+  [system ^Keyword die n]
+  (let [rolls (roller/roll-repeated system die n)]
+    (-> (DiceRepeatedRolls/newBuilder)
+        (.setResults rolls)
+        (.setDiceType (name die))
+        (.build))))
 
 (defn version-builder
   []
@@ -116,12 +116,18 @@
   [this ^RollRequest request ^DiceRoll reply]
   (log/debug "Got roll-once request")
   (built->reply
-    (roll-once-builder (system this) (keyword (.getDiceType request)))
+    (roll-once-builder (system this) 
+                       (keyword (.getDiceType request)))
     reply))
 
 (defn -rollRepeated
-  [this]
-  )
+  [this ^RollsRequest request ^DiceRepeatedRolls reply]
+  (log/debug "Got roll-repeated request")
+  (built->reply
+    (roll-repeated-builder (system this) 
+                           (keyword (.getDiceType request))
+                           (.getRollCount request))
+    reply))
 
 (defn -rollVarious
   [this]

@@ -23,19 +23,19 @@ public interface MetaRollOrBuilder extends
   hxgm30.dice.pb.api.DiceRollOrBuilder getRollOrBuilder();
 
   /**
-   * <code>.api.DiceRolls rolls = 2;</code>
+   * <code>.api.DiceRepeatedRolls rolls = 2;</code>
    * @return Whether the rolls field is set.
    */
   boolean hasRolls();
   /**
-   * <code>.api.DiceRolls rolls = 2;</code>
+   * <code>.api.DiceRepeatedRolls rolls = 2;</code>
    * @return The rolls.
    */
-  hxgm30.dice.pb.api.DiceRolls getRolls();
+  hxgm30.dice.pb.api.DiceRepeatedRolls getRolls();
   /**
-   * <code>.api.DiceRolls rolls = 2;</code>
+   * <code>.api.DiceRepeatedRolls rolls = 2;</code>
    */
-  hxgm30.dice.pb.api.DiceRollsOrBuilder getRollsOrBuilder();
+  hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder getRollsOrBuilder();
 
   /**
    * <code>.api.DiceRollStats stats = 3;</code>

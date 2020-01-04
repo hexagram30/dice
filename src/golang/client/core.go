@@ -76,6 +76,22 @@ func (c *Client) RollOnce(die string) *api.DiceRoll {
 }
 
 // RollRepeated ...
+func (c *Client) RollRepeated(die string, count int32) *api.DiceRepeatedRolls {
+
+	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
+	defer cancel()
+
+	r, err := c.Client.RollRepeated(ctx, &api.RollsRequest{
+		DiceType: die,
+		RollCount: count,
+	})
+	if err != nil {
+		log.Fatalf("Could not get rolls reply: %v", err)
+	}
+
+	return r
+}
+
 // RollVarious ...
 // RollMetaRepeated ...
 // RollMetaVarious ...
