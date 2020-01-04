@@ -52,7 +52,7 @@ $(PROTOBUF_GO)/%.pb.go: $(PROTOBUF_SRC)/%.proto
 PROTO_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/$(PROTOBUF_SRC)
 GOLANG_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/src/golang/common
 fix-pb-go-import:
-	sed -i.bak 's|$(PROTO_DEP_IMPORT)|$(GOLANG_DEP_IMPORT)|g' $(PROTOBUF_GO)/*.go && \
+	@sed -i.bak 's|$(PROTO_DEP_IMPORT)|$(GOLANG_DEP_IMPORT)|g' $(PROTOBUF_GO)/*.go && \
 	rm $(PROTOBUF_GO)/*.go.bak
 
 protoc-gen-java: java-deps
