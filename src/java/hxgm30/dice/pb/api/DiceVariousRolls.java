@@ -5,21 +5,21 @@ package hxgm30.dice.pb.api;
 
 /**
  * <pre>
- * VariousDiceRolls
+ * DiceVariousRolls
  * </pre>
  *
- * Protobuf type {@code api.VariousDiceRolls}
+ * Protobuf type {@code api.DiceVariousRolls}
  */
-public  final class VariousDiceRolls extends
+public  final class DiceVariousRolls extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:api.VariousDiceRolls)
-    VariousDiceRollsOrBuilder {
+    // @@protoc_insertion_point(message_implements:api.DiceVariousRolls)
+    DiceVariousRollsOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VariousDiceRolls.newBuilder() to construct.
-  private VariousDiceRolls(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DiceVariousRolls.newBuilder() to construct.
+  private DiceVariousRolls(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VariousDiceRolls() {
+  private DiceVariousRolls() {
     results_ = java.util.Collections.emptyList();
   }
 
@@ -27,7 +27,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VariousDiceRolls();
+    return new DiceVariousRolls();
   }
 
   @java.lang.Override
@@ -35,7 +35,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VariousDiceRolls(
+  private DiceVariousRolls(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -56,11 +56,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRolls>();
+              results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRoll>();
               mutable_bitField0_ |= 0x00000001;
             }
             results_.add(
-                input.readMessage(hxgm30.dice.pb.api.DiceRolls.parser(), extensionRegistry));
+                input.readMessage(hxgm30.dice.pb.api.DiceRoll.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -87,48 +87,48 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_VariousDiceRolls_descriptor;
+    return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_DiceVariousRolls_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_VariousDiceRolls_fieldAccessorTable
+    return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_DiceVariousRolls_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            hxgm30.dice.pb.api.VariousDiceRolls.class, hxgm30.dice.pb.api.VariousDiceRolls.Builder.class);
+            hxgm30.dice.pb.api.DiceVariousRolls.class, hxgm30.dice.pb.api.DiceVariousRolls.Builder.class);
   }
 
   public static final int RESULTS_FIELD_NUMBER = 1;
-  private java.util.List<hxgm30.dice.pb.api.DiceRolls> results_;
+  private java.util.List<hxgm30.dice.pb.api.DiceRoll> results_;
   /**
-   * <code>repeated .api.DiceRolls results = 1;</code>
+   * <code>repeated .api.DiceRoll results = 1;</code>
    */
-  public java.util.List<hxgm30.dice.pb.api.DiceRolls> getResultsList() {
+  public java.util.List<hxgm30.dice.pb.api.DiceRoll> getResultsList() {
     return results_;
   }
   /**
-   * <code>repeated .api.DiceRolls results = 1;</code>
+   * <code>repeated .api.DiceRoll results = 1;</code>
    */
-  public java.util.List<? extends hxgm30.dice.pb.api.DiceRollsOrBuilder> 
+  public java.util.List<? extends hxgm30.dice.pb.api.DiceRollOrBuilder> 
       getResultsOrBuilderList() {
     return results_;
   }
   /**
-   * <code>repeated .api.DiceRolls results = 1;</code>
+   * <code>repeated .api.DiceRoll results = 1;</code>
    */
   public int getResultsCount() {
     return results_.size();
   }
   /**
-   * <code>repeated .api.DiceRolls results = 1;</code>
+   * <code>repeated .api.DiceRoll results = 1;</code>
    */
-  public hxgm30.dice.pb.api.DiceRolls getResults(int index) {
+  public hxgm30.dice.pb.api.DiceRoll getResults(int index) {
     return results_.get(index);
   }
   /**
-   * <code>repeated .api.DiceRolls results = 1;</code>
+   * <code>repeated .api.DiceRoll results = 1;</code>
    */
-  public hxgm30.dice.pb.api.DiceRollsOrBuilder getResultsOrBuilder(
+  public hxgm30.dice.pb.api.DiceRollOrBuilder getResultsOrBuilder(
       int index) {
     return results_.get(index);
   }
@@ -173,10 +173,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof hxgm30.dice.pb.api.VariousDiceRolls)) {
+    if (!(obj instanceof hxgm30.dice.pb.api.DiceVariousRolls)) {
       return super.equals(obj);
     }
-    hxgm30.dice.pb.api.VariousDiceRolls other = (hxgm30.dice.pb.api.VariousDiceRolls) obj;
+    hxgm30.dice.pb.api.DiceVariousRolls other = (hxgm30.dice.pb.api.DiceVariousRolls) obj;
 
     if (!getResultsList()
         .equals(other.getResultsList())) return false;
@@ -200,69 +200,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(byte[] data)
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(java.io.InputStream input)
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseDelimitedFrom(java.io.InputStream input)
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseDelimitedFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static hxgm30.dice.pb.api.VariousDiceRolls parseFrom(
+  public static hxgm30.dice.pb.api.DiceVariousRolls parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -275,7 +275,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(hxgm30.dice.pb.api.VariousDiceRolls prototype) {
+  public static Builder newBuilder(hxgm30.dice.pb.api.DiceVariousRolls prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -292,29 +292,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * VariousDiceRolls
+   * DiceVariousRolls
    * </pre>
    *
-   * Protobuf type {@code api.VariousDiceRolls}
+   * Protobuf type {@code api.DiceVariousRolls}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:api.VariousDiceRolls)
-      hxgm30.dice.pb.api.VariousDiceRollsOrBuilder {
+      // @@protoc_insertion_point(builder_implements:api.DiceVariousRolls)
+      hxgm30.dice.pb.api.DiceVariousRollsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_VariousDiceRolls_descriptor;
+      return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_DiceVariousRolls_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_VariousDiceRolls_fieldAccessorTable
+      return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_DiceVariousRolls_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              hxgm30.dice.pb.api.VariousDiceRolls.class, hxgm30.dice.pb.api.VariousDiceRolls.Builder.class);
+              hxgm30.dice.pb.api.DiceVariousRolls.class, hxgm30.dice.pb.api.DiceVariousRolls.Builder.class);
     }
 
-    // Construct using hxgm30.dice.pb.api.VariousDiceRolls.newBuilder()
+    // Construct using hxgm30.dice.pb.api.DiceVariousRolls.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -345,17 +345,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_VariousDiceRolls_descriptor;
+      return hxgm30.dice.pb.api.DiceAPIProto.internal_static_api_DiceVariousRolls_descriptor;
     }
 
     @java.lang.Override
-    public hxgm30.dice.pb.api.VariousDiceRolls getDefaultInstanceForType() {
-      return hxgm30.dice.pb.api.VariousDiceRolls.getDefaultInstance();
+    public hxgm30.dice.pb.api.DiceVariousRolls getDefaultInstanceForType() {
+      return hxgm30.dice.pb.api.DiceVariousRolls.getDefaultInstance();
     }
 
     @java.lang.Override
-    public hxgm30.dice.pb.api.VariousDiceRolls build() {
-      hxgm30.dice.pb.api.VariousDiceRolls result = buildPartial();
+    public hxgm30.dice.pb.api.DiceVariousRolls build() {
+      hxgm30.dice.pb.api.DiceVariousRolls result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -363,8 +363,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public hxgm30.dice.pb.api.VariousDiceRolls buildPartial() {
-      hxgm30.dice.pb.api.VariousDiceRolls result = new hxgm30.dice.pb.api.VariousDiceRolls(this);
+    public hxgm30.dice.pb.api.DiceVariousRolls buildPartial() {
+      hxgm30.dice.pb.api.DiceVariousRolls result = new hxgm30.dice.pb.api.DiceVariousRolls(this);
       int from_bitField0_ = bitField0_;
       if (resultsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -413,16 +413,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof hxgm30.dice.pb.api.VariousDiceRolls) {
-        return mergeFrom((hxgm30.dice.pb.api.VariousDiceRolls)other);
+      if (other instanceof hxgm30.dice.pb.api.DiceVariousRolls) {
+        return mergeFrom((hxgm30.dice.pb.api.DiceVariousRolls)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(hxgm30.dice.pb.api.VariousDiceRolls other) {
-      if (other == hxgm30.dice.pb.api.VariousDiceRolls.getDefaultInstance()) return this;
+    public Builder mergeFrom(hxgm30.dice.pb.api.DiceVariousRolls other) {
+      if (other == hxgm30.dice.pb.api.DiceVariousRolls.getDefaultInstance()) return this;
       if (resultsBuilder_ == null) {
         if (!other.results_.isEmpty()) {
           if (results_.isEmpty()) {
@@ -464,11 +464,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      hxgm30.dice.pb.api.VariousDiceRolls parsedMessage = null;
+      hxgm30.dice.pb.api.DiceVariousRolls parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (hxgm30.dice.pb.api.VariousDiceRolls) e.getUnfinishedMessage();
+        parsedMessage = (hxgm30.dice.pb.api.DiceVariousRolls) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -479,22 +479,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<hxgm30.dice.pb.api.DiceRolls> results_ =
+    private java.util.List<hxgm30.dice.pb.api.DiceRoll> results_ =
       java.util.Collections.emptyList();
     private void ensureResultsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRolls>(results_);
+        results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRoll>(results_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        hxgm30.dice.pb.api.DiceRolls, hxgm30.dice.pb.api.DiceRolls.Builder, hxgm30.dice.pb.api.DiceRollsOrBuilder> resultsBuilder_;
+        hxgm30.dice.pb.api.DiceRoll, hxgm30.dice.pb.api.DiceRoll.Builder, hxgm30.dice.pb.api.DiceRollOrBuilder> resultsBuilder_;
 
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public java.util.List<hxgm30.dice.pb.api.DiceRolls> getResultsList() {
+    public java.util.List<hxgm30.dice.pb.api.DiceRoll> getResultsList() {
       if (resultsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(results_);
       } else {
@@ -502,7 +502,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public int getResultsCount() {
       if (resultsBuilder_ == null) {
@@ -512,9 +512,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRolls getResults(int index) {
+    public hxgm30.dice.pb.api.DiceRoll getResults(int index) {
       if (resultsBuilder_ == null) {
         return results_.get(index);
       } else {
@@ -522,10 +522,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder setResults(
-        int index, hxgm30.dice.pb.api.DiceRolls value) {
+        int index, hxgm30.dice.pb.api.DiceRoll value) {
       if (resultsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -539,10 +539,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder setResults(
-        int index, hxgm30.dice.pb.api.DiceRolls.Builder builderForValue) {
+        int index, hxgm30.dice.pb.api.DiceRoll.Builder builderForValue) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         results_.set(index, builderForValue.build());
@@ -553,9 +553,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public Builder addResults(hxgm30.dice.pb.api.DiceRolls value) {
+    public Builder addResults(hxgm30.dice.pb.api.DiceRoll value) {
       if (resultsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -569,10 +569,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder addResults(
-        int index, hxgm30.dice.pb.api.DiceRolls value) {
+        int index, hxgm30.dice.pb.api.DiceRoll value) {
       if (resultsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -586,10 +586,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder addResults(
-        hxgm30.dice.pb.api.DiceRolls.Builder builderForValue) {
+        hxgm30.dice.pb.api.DiceRoll.Builder builderForValue) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         results_.add(builderForValue.build());
@@ -600,10 +600,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder addResults(
-        int index, hxgm30.dice.pb.api.DiceRolls.Builder builderForValue) {
+        int index, hxgm30.dice.pb.api.DiceRoll.Builder builderForValue) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         results_.add(index, builderForValue.build());
@@ -614,10 +614,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder addAllResults(
-        java.lang.Iterable<? extends hxgm30.dice.pb.api.DiceRolls> values) {
+        java.lang.Iterable<? extends hxgm30.dice.pb.api.DiceRoll> values) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -629,7 +629,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder clearResults() {
       if (resultsBuilder_ == null) {
@@ -642,7 +642,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
     public Builder removeResults(int index) {
       if (resultsBuilder_ == null) {
@@ -655,16 +655,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRolls.Builder getResultsBuilder(
+    public hxgm30.dice.pb.api.DiceRoll.Builder getResultsBuilder(
         int index) {
       return getResultsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRollsOrBuilder getResultsOrBuilder(
+    public hxgm30.dice.pb.api.DiceRollOrBuilder getResultsOrBuilder(
         int index) {
       if (resultsBuilder_ == null) {
         return results_.get(index);  } else {
@@ -672,9 +672,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public java.util.List<? extends hxgm30.dice.pb.api.DiceRollsOrBuilder> 
+    public java.util.List<? extends hxgm30.dice.pb.api.DiceRollOrBuilder> 
          getResultsOrBuilderList() {
       if (resultsBuilder_ != null) {
         return resultsBuilder_.getMessageOrBuilderList();
@@ -683,33 +683,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRolls.Builder addResultsBuilder() {
+    public hxgm30.dice.pb.api.DiceRoll.Builder addResultsBuilder() {
       return getResultsFieldBuilder().addBuilder(
-          hxgm30.dice.pb.api.DiceRolls.getDefaultInstance());
+          hxgm30.dice.pb.api.DiceRoll.getDefaultInstance());
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRolls.Builder addResultsBuilder(
+    public hxgm30.dice.pb.api.DiceRoll.Builder addResultsBuilder(
         int index) {
       return getResultsFieldBuilder().addBuilder(
-          index, hxgm30.dice.pb.api.DiceRolls.getDefaultInstance());
+          index, hxgm30.dice.pb.api.DiceRoll.getDefaultInstance());
     }
     /**
-     * <code>repeated .api.DiceRolls results = 1;</code>
+     * <code>repeated .api.DiceRoll results = 1;</code>
      */
-    public java.util.List<hxgm30.dice.pb.api.DiceRolls.Builder> 
+    public java.util.List<hxgm30.dice.pb.api.DiceRoll.Builder> 
          getResultsBuilderList() {
       return getResultsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        hxgm30.dice.pb.api.DiceRolls, hxgm30.dice.pb.api.DiceRolls.Builder, hxgm30.dice.pb.api.DiceRollsOrBuilder> 
+        hxgm30.dice.pb.api.DiceRoll, hxgm30.dice.pb.api.DiceRoll.Builder, hxgm30.dice.pb.api.DiceRollOrBuilder> 
         getResultsFieldBuilder() {
       if (resultsBuilder_ == null) {
         resultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            hxgm30.dice.pb.api.DiceRolls, hxgm30.dice.pb.api.DiceRolls.Builder, hxgm30.dice.pb.api.DiceRollsOrBuilder>(
+            hxgm30.dice.pb.api.DiceRoll, hxgm30.dice.pb.api.DiceRoll.Builder, hxgm30.dice.pb.api.DiceRollOrBuilder>(
                 results_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
@@ -731,41 +731,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:api.VariousDiceRolls)
+    // @@protoc_insertion_point(builder_scope:api.DiceVariousRolls)
   }
 
-  // @@protoc_insertion_point(class_scope:api.VariousDiceRolls)
-  private static final hxgm30.dice.pb.api.VariousDiceRolls DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:api.DiceVariousRolls)
+  private static final hxgm30.dice.pb.api.DiceVariousRolls DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new hxgm30.dice.pb.api.VariousDiceRolls();
+    DEFAULT_INSTANCE = new hxgm30.dice.pb.api.DiceVariousRolls();
   }
 
-  public static hxgm30.dice.pb.api.VariousDiceRolls getDefaultInstance() {
+  public static hxgm30.dice.pb.api.DiceVariousRolls getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VariousDiceRolls>
-      PARSER = new com.google.protobuf.AbstractParser<VariousDiceRolls>() {
+  private static final com.google.protobuf.Parser<DiceVariousRolls>
+      PARSER = new com.google.protobuf.AbstractParser<DiceVariousRolls>() {
     @java.lang.Override
-    public VariousDiceRolls parsePartialFrom(
+    public DiceVariousRolls parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VariousDiceRolls(input, extensionRegistry);
+      return new DiceVariousRolls(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VariousDiceRolls> parser() {
+  public static com.google.protobuf.Parser<DiceVariousRolls> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VariousDiceRolls> getParserForType() {
+  public com.google.protobuf.Parser<DiceVariousRolls> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public hxgm30.dice.pb.api.VariousDiceRolls getDefaultInstanceForType() {
+  public hxgm30.dice.pb.api.DiceVariousRolls getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

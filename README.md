@@ -16,7 +16,12 @@ suitable for use in powering in-game economic computations.
 
 ## Usage
 
-### From the command line
+### CLI
+
+This project specifically offers a secure random service as well as various
+core functionalities that utilize this service, in particular, the dice-rolling
+service. The CLI support of thre service has been moved to the repository for
+the `hxgm30` CLI executable. For dice roller usage, see
 
 In order to use the roller from the command line, you'll need use the `hxgm30`
 command-line interface tool. That is actually a [separate project][hxgm30-cli],
@@ -183,7 +188,7 @@ For larger roll counts, the `stats` function maybe be useful:
 The stats may also be returned when doing multiple roles with the
 `metaroll` function:
 ```clj
-[hxgm30.dice.repl] λ=> (roller/metaroll (system) {:d4 20 :d6 12 :d8 18 :d20 1})
+[hxgm30.dice.repl] λ=> (roller/roll-meta (system) {:d4 20 :d6 12 :d8 18 :d20 1})
 [{:rolls [1 1 1 2 2 1 3 2 2 2 3 4 2 3 4 2 3 4 2 4]
   :stats {:avg 2.4 :high 4 :low 1 :sum 48}}
  {:rolls [1 5 3 6 4 2 1 5 5 2 5 1]
