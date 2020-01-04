@@ -27,29 +27,29 @@ public final class ServiceAPIGrpc {
   public static final String SERVICE_NAME = "api.ServiceAPI";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<hxgm30.dice.pb.api.PingRequest,
-      hxgm30.dice.pb.api.PingReply> getPingMethod;
+  private static volatile io.grpc.MethodDescriptor<hxgm30.proto.buf.common.PingRequest,
+      hxgm30.proto.buf.common.PingReply> getPingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Ping",
-      requestType = hxgm30.dice.pb.api.PingRequest.class,
-      responseType = hxgm30.dice.pb.api.PingReply.class,
+      requestType = hxgm30.proto.buf.common.PingRequest.class,
+      responseType = hxgm30.proto.buf.common.PingReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<hxgm30.dice.pb.api.PingRequest,
-      hxgm30.dice.pb.api.PingReply> getPingMethod() {
-    io.grpc.MethodDescriptor<hxgm30.dice.pb.api.PingRequest, hxgm30.dice.pb.api.PingReply> getPingMethod;
+  public static io.grpc.MethodDescriptor<hxgm30.proto.buf.common.PingRequest,
+      hxgm30.proto.buf.common.PingReply> getPingMethod() {
+    io.grpc.MethodDescriptor<hxgm30.proto.buf.common.PingRequest, hxgm30.proto.buf.common.PingReply> getPingMethod;
     if ((getPingMethod = ServiceAPIGrpc.getPingMethod) == null) {
       synchronized (ServiceAPIGrpc.class) {
         if ((getPingMethod = ServiceAPIGrpc.getPingMethod) == null) {
           ServiceAPIGrpc.getPingMethod = getPingMethod =
-              io.grpc.MethodDescriptor.<hxgm30.dice.pb.api.PingRequest, hxgm30.dice.pb.api.PingReply>newBuilder()
+              io.grpc.MethodDescriptor.<hxgm30.proto.buf.common.PingRequest, hxgm30.proto.buf.common.PingReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  hxgm30.dice.pb.api.PingRequest.getDefaultInstance()))
+                  hxgm30.proto.buf.common.PingRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  hxgm30.dice.pb.api.PingReply.getDefaultInstance()))
+                  hxgm30.proto.buf.common.PingReply.getDefaultInstance()))
               .setSchemaDescriptor(new ServiceAPIMethodDescriptorSupplier("Ping"))
               .build();
         }
@@ -213,29 +213,29 @@ public final class ServiceAPIGrpc {
     return getRollMetaVariousMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<hxgm30.dice.pb.api.VersionRequest,
-      hxgm30.dice.pb.api.VersionReply> getVersionMethod;
+  private static volatile io.grpc.MethodDescriptor<hxgm30.proto.buf.common.VersionRequest,
+      hxgm30.proto.buf.common.VersionReply> getVersionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Version",
-      requestType = hxgm30.dice.pb.api.VersionRequest.class,
-      responseType = hxgm30.dice.pb.api.VersionReply.class,
+      requestType = hxgm30.proto.buf.common.VersionRequest.class,
+      responseType = hxgm30.proto.buf.common.VersionReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<hxgm30.dice.pb.api.VersionRequest,
-      hxgm30.dice.pb.api.VersionReply> getVersionMethod() {
-    io.grpc.MethodDescriptor<hxgm30.dice.pb.api.VersionRequest, hxgm30.dice.pb.api.VersionReply> getVersionMethod;
+  public static io.grpc.MethodDescriptor<hxgm30.proto.buf.common.VersionRequest,
+      hxgm30.proto.buf.common.VersionReply> getVersionMethod() {
+    io.grpc.MethodDescriptor<hxgm30.proto.buf.common.VersionRequest, hxgm30.proto.buf.common.VersionReply> getVersionMethod;
     if ((getVersionMethod = ServiceAPIGrpc.getVersionMethod) == null) {
       synchronized (ServiceAPIGrpc.class) {
         if ((getVersionMethod = ServiceAPIGrpc.getVersionMethod) == null) {
           ServiceAPIGrpc.getVersionMethod = getVersionMethod =
-              io.grpc.MethodDescriptor.<hxgm30.dice.pb.api.VersionRequest, hxgm30.dice.pb.api.VersionReply>newBuilder()
+              io.grpc.MethodDescriptor.<hxgm30.proto.buf.common.VersionRequest, hxgm30.proto.buf.common.VersionReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Version"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  hxgm30.dice.pb.api.VersionRequest.getDefaultInstance()))
+                  hxgm30.proto.buf.common.VersionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  hxgm30.dice.pb.api.VersionReply.getDefaultInstance()))
+                  hxgm30.proto.buf.common.VersionReply.getDefaultInstance()))
               .setSchemaDescriptor(new ServiceAPIMethodDescriptorSupplier("Version"))
               .build();
         }
@@ -297,8 +297,8 @@ public final class ServiceAPIGrpc {
      * Return "pong" for "ping"
      * </pre>
      */
-    public void ping(hxgm30.dice.pb.api.PingRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.PingReply> responseObserver) {
+    public void ping(hxgm30.proto.buf.common.PingRequest request,
+        io.grpc.stub.StreamObserver<hxgm30.proto.buf.common.PingReply> responseObserver) {
       asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
     }
 
@@ -352,8 +352,8 @@ public final class ServiceAPIGrpc {
      * Get version data
      * </pre>
      */
-    public void version(hxgm30.dice.pb.api.VersionRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.VersionReply> responseObserver) {
+    public void version(hxgm30.proto.buf.common.VersionRequest request,
+        io.grpc.stub.StreamObserver<hxgm30.proto.buf.common.VersionReply> responseObserver) {
       asyncUnimplementedUnaryCall(getVersionMethod(), responseObserver);
     }
 
@@ -363,8 +363,8 @@ public final class ServiceAPIGrpc {
             getPingMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                hxgm30.dice.pb.api.PingRequest,
-                hxgm30.dice.pb.api.PingReply>(
+                hxgm30.proto.buf.common.PingRequest,
+                hxgm30.proto.buf.common.PingReply>(
                   this, METHODID_PING)))
           .addMethod(
             getRollOnceMethod(),
@@ -405,8 +405,8 @@ public final class ServiceAPIGrpc {
             getVersionMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                hxgm30.dice.pb.api.VersionRequest,
-                hxgm30.dice.pb.api.VersionReply>(
+                hxgm30.proto.buf.common.VersionRequest,
+                hxgm30.proto.buf.common.VersionReply>(
                   this, METHODID_VERSION)))
           .build();
     }
@@ -431,8 +431,8 @@ public final class ServiceAPIGrpc {
      * Return "pong" for "ping"
      * </pre>
      */
-    public void ping(hxgm30.dice.pb.api.PingRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.PingReply> responseObserver) {
+    public void ping(hxgm30.proto.buf.common.PingRequest request,
+        io.grpc.stub.StreamObserver<hxgm30.proto.buf.common.PingReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
     }
@@ -492,8 +492,8 @@ public final class ServiceAPIGrpc {
      * Get version data
      * </pre>
      */
-    public void version(hxgm30.dice.pb.api.VersionRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.VersionReply> responseObserver) {
+    public void version(hxgm30.proto.buf.common.VersionRequest request,
+        io.grpc.stub.StreamObserver<hxgm30.proto.buf.common.VersionReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getVersionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -518,7 +518,7 @@ public final class ServiceAPIGrpc {
      * Return "pong" for "ping"
      * </pre>
      */
-    public hxgm30.dice.pb.api.PingReply ping(hxgm30.dice.pb.api.PingRequest request) {
+    public hxgm30.proto.buf.common.PingReply ping(hxgm30.proto.buf.common.PingRequest request) {
       return blockingUnaryCall(
           getChannel(), getPingMethod(), getCallOptions(), request);
     }
@@ -573,7 +573,7 @@ public final class ServiceAPIGrpc {
      * Get version data
      * </pre>
      */
-    public hxgm30.dice.pb.api.VersionReply version(hxgm30.dice.pb.api.VersionRequest request) {
+    public hxgm30.proto.buf.common.VersionReply version(hxgm30.proto.buf.common.VersionRequest request) {
       return blockingUnaryCall(
           getChannel(), getVersionMethod(), getCallOptions(), request);
     }
@@ -598,8 +598,8 @@ public final class ServiceAPIGrpc {
      * Return "pong" for "ping"
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<hxgm30.dice.pb.api.PingReply> ping(
-        hxgm30.dice.pb.api.PingRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<hxgm30.proto.buf.common.PingReply> ping(
+        hxgm30.proto.buf.common.PingRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getPingMethod(), getCallOptions()), request);
     }
@@ -659,8 +659,8 @@ public final class ServiceAPIGrpc {
      * Get version data
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<hxgm30.dice.pb.api.VersionReply> version(
-        hxgm30.dice.pb.api.VersionRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<hxgm30.proto.buf.common.VersionReply> version(
+        hxgm30.proto.buf.common.VersionRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getVersionMethod(), getCallOptions()), request);
     }
@@ -692,8 +692,8 @@ public final class ServiceAPIGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_PING:
-          serviceImpl.ping((hxgm30.dice.pb.api.PingRequest) request,
-              (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.PingReply>) responseObserver);
+          serviceImpl.ping((hxgm30.proto.buf.common.PingRequest) request,
+              (io.grpc.stub.StreamObserver<hxgm30.proto.buf.common.PingReply>) responseObserver);
           break;
         case METHODID_ROLL_ONCE:
           serviceImpl.rollOnce((hxgm30.dice.pb.api.RollRequest) request,
@@ -716,8 +716,8 @@ public final class ServiceAPIGrpc {
               (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.MetaRolls>) responseObserver);
           break;
         case METHODID_VERSION:
-          serviceImpl.version((hxgm30.dice.pb.api.VersionRequest) request,
-              (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.VersionReply>) responseObserver);
+          serviceImpl.version((hxgm30.proto.buf.common.VersionRequest) request,
+              (io.grpc.stub.StreamObserver<hxgm30.proto.buf.common.VersionReply>) responseObserver);
           break;
         default:
           throw new AssertionError();

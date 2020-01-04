@@ -1,28 +1,21 @@
 (ns hxgm30.dice.cli.util
   (:require
-    [clojure.string :as string])
-  (:refer-clojure :exclude [slurp]))
-
-(defmacro slurp [file]
-  (clojure.core/slurp file))
+    [clojure.string :as string]))
 
 (defn display
   ([]
     (display ""))
   ([str-data]
-    #?(:clj (println str-data))
-    #?(:cljs (print str-data))))
+    (println str-data)))
 
 (defn str->int
   [val]
-  #?(:clj (Integer/parseInt val))
-  #?(:cljs (js/parseInt val)))
+  (Integer/parseInt val))
 
 (defn args->data
   [raw-args]
   (let [args-str (string/replace
-                   #?(:clj raw-args)
-                   #?(:cljs (str raw-args))
+                   raw-args
                    #"[^0-9A-Za-z ]" "")
         args (string/split args-str #" ")]
     (->> args

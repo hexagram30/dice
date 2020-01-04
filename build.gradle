@@ -44,7 +44,8 @@ protobuf {
 sourceSets {
   main {
     proto {
-      srcDir 'src/proto'
+      srcDirs 'src/proto'
+      srcDirs 'vendor'
     }
   }
 }

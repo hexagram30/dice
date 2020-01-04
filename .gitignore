@@ -12,3 +12,4 @@ pom.*
 .classpath
 .project
 .settings
+/vendor

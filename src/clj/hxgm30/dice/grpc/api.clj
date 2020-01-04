@@ -10,16 +10,16 @@
                        DiceRolls
                        MetaRoll
                        MetaRolls
-                       PingReply
-                       PingRequest
                        RollRequest
                        RollsRequest
                        RollVariousRequest
                        ServiceAPIGrpc
                        ServiceAPIGrpc$ServiceAPIImplBase
-                       VariousDiceRolls
-                       VersionReply
-                       VersionRequest)
+                       VariousDiceRolls)
+   (hxgm30.proto.buf.common PingReply
+                            PingRequest
+                            VersionReply
+                            VersionRequest)
    (io.grpc Server ServerBuilder)))
 
 (def PONG "PONG")
