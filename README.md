@@ -21,54 +21,19 @@ suitable for use in powering in-game economic computations.
 This project specifically offers a secure random service as well as various
 core functionalities that utilize this service, in particular, the dice-rolling
 service. The CLI support of thre service has been moved to the repository for
-the `hxgm30` CLI executable. For dice roller usage, see
-
-In order to use the roller from the command line, you'll need use the `hxgm30`
-command-line interface tool. That is actually a [separate project][hxgm30-cli],
-but we'll go over the dice-roll specifics here :-)
-
-For installation or build of the `hxgm30` CLI tool, see the project page linked
-above, but here are some usage examles:
-
-```
-$ ./bin/hxgm30 roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
-```
-```
-d10:
-    39 15 [9 8 5 5]
-d20:
-    [13 5 3 19 14]
-d4:
-    [4 2 3 4 2 4]
-d8:
-    [5 8]
-d100:
-    84
-d12:
-    [9 4 2]
-
-```
-
-Note that the results are grouped by dice type, with results given in the order
-first seen.
-
-
-If, for whatever reason, you want to use the JVM with the CLI, you can do so
-with the `lein` alias:
-
-```
-$ lein roll d10 2 d20 5 d4 6 d8 2 d10 2 d10 4 d100 1 d12 3
-```
-
+the `hxgm30` CLI executable. For dice roller usage, see the 
+[hxgm30 README](https://github.com/hexagram30/cli#dice-roller).
 
 ### From the REPL
 
 First, we need to start the system:
+
 ```clj
 [hxgm30.dice.repl] λ=> (startup)
 ```
 
 With the standard output of:
+
 ```
 2020-01-01T02:13:18.902 [nREPL-worker-0] INFO hxgm30.dice.components.config:61 - Starting config component ...
 2020-01-01T02:13:18.970 [nREPL-worker-0] INFO hxgm30.dice.components.logging:22 - Starting logging component ...
