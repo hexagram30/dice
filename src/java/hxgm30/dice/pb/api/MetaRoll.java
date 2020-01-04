@@ -66,11 +66,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            hxgm30.dice.pb.api.DiceRolls.Builder subBuilder = null;
+            hxgm30.dice.pb.api.DiceRepeatedRolls.Builder subBuilder = null;
             if (rolls_ != null) {
               subBuilder = rolls_.toBuilder();
             }
-            rolls_ = input.readMessage(hxgm30.dice.pb.api.DiceRolls.parser(), extensionRegistry);
+            rolls_ = input.readMessage(hxgm30.dice.pb.api.DiceRepeatedRolls.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(rolls_);
               rolls_ = subBuilder.buildPartial();
@@ -147,25 +147,25 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLLS_FIELD_NUMBER = 2;
-  private hxgm30.dice.pb.api.DiceRolls rolls_;
+  private hxgm30.dice.pb.api.DiceRepeatedRolls rolls_;
   /**
-   * <code>.api.DiceRolls rolls = 2;</code>
+   * <code>.api.DiceRepeatedRolls rolls = 2;</code>
    * @return Whether the rolls field is set.
    */
   public boolean hasRolls() {
     return rolls_ != null;
   }
   /**
-   * <code>.api.DiceRolls rolls = 2;</code>
+   * <code>.api.DiceRepeatedRolls rolls = 2;</code>
    * @return The rolls.
    */
-  public hxgm30.dice.pb.api.DiceRolls getRolls() {
-    return rolls_ == null ? hxgm30.dice.pb.api.DiceRolls.getDefaultInstance() : rolls_;
+  public hxgm30.dice.pb.api.DiceRepeatedRolls getRolls() {
+    return rolls_ == null ? hxgm30.dice.pb.api.DiceRepeatedRolls.getDefaultInstance() : rolls_;
   }
   /**
-   * <code>.api.DiceRolls rolls = 2;</code>
+   * <code>.api.DiceRepeatedRolls rolls = 2;</code>
    */
-  public hxgm30.dice.pb.api.DiceRollsOrBuilder getRollsOrBuilder() {
+  public hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder getRollsOrBuilder() {
     return getRolls();
   }
 
@@ -690,31 +690,31 @@ private static final long serialVersionUID = 0L;
       return rollBuilder_;
     }
 
-    private hxgm30.dice.pb.api.DiceRolls rolls_;
+    private hxgm30.dice.pb.api.DiceRepeatedRolls rolls_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        hxgm30.dice.pb.api.DiceRolls, hxgm30.dice.pb.api.DiceRolls.Builder, hxgm30.dice.pb.api.DiceRollsOrBuilder> rollsBuilder_;
+        hxgm30.dice.pb.api.DiceRepeatedRolls, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder, hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> rollsBuilder_;
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      * @return Whether the rolls field is set.
      */
     public boolean hasRolls() {
       return rollsBuilder_ != null || rolls_ != null;
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      * @return The rolls.
      */
-    public hxgm30.dice.pb.api.DiceRolls getRolls() {
+    public hxgm30.dice.pb.api.DiceRepeatedRolls getRolls() {
       if (rollsBuilder_ == null) {
-        return rolls_ == null ? hxgm30.dice.pb.api.DiceRolls.getDefaultInstance() : rolls_;
+        return rolls_ == null ? hxgm30.dice.pb.api.DiceRepeatedRolls.getDefaultInstance() : rolls_;
       } else {
         return rollsBuilder_.getMessage();
       }
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
-    public Builder setRolls(hxgm30.dice.pb.api.DiceRolls value) {
+    public Builder setRolls(hxgm30.dice.pb.api.DiceRepeatedRolls value) {
       if (rollsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -728,10 +728,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
     public Builder setRolls(
-        hxgm30.dice.pb.api.DiceRolls.Builder builderForValue) {
+        hxgm30.dice.pb.api.DiceRepeatedRolls.Builder builderForValue) {
       if (rollsBuilder_ == null) {
         rolls_ = builderForValue.build();
         onChanged();
@@ -742,13 +742,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
-    public Builder mergeRolls(hxgm30.dice.pb.api.DiceRolls value) {
+    public Builder mergeRolls(hxgm30.dice.pb.api.DiceRepeatedRolls value) {
       if (rollsBuilder_ == null) {
         if (rolls_ != null) {
           rolls_ =
-            hxgm30.dice.pb.api.DiceRolls.newBuilder(rolls_).mergeFrom(value).buildPartial();
+            hxgm30.dice.pb.api.DiceRepeatedRolls.newBuilder(rolls_).mergeFrom(value).buildPartial();
         } else {
           rolls_ = value;
         }
@@ -760,7 +760,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
     public Builder clearRolls() {
       if (rollsBuilder_ == null) {
@@ -774,33 +774,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
-    public hxgm30.dice.pb.api.DiceRolls.Builder getRollsBuilder() {
+    public hxgm30.dice.pb.api.DiceRepeatedRolls.Builder getRollsBuilder() {
       
       onChanged();
       return getRollsFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
-    public hxgm30.dice.pb.api.DiceRollsOrBuilder getRollsOrBuilder() {
+    public hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder getRollsOrBuilder() {
       if (rollsBuilder_ != null) {
         return rollsBuilder_.getMessageOrBuilder();
       } else {
         return rolls_ == null ?
-            hxgm30.dice.pb.api.DiceRolls.getDefaultInstance() : rolls_;
+            hxgm30.dice.pb.api.DiceRepeatedRolls.getDefaultInstance() : rolls_;
       }
     }
     /**
-     * <code>.api.DiceRolls rolls = 2;</code>
+     * <code>.api.DiceRepeatedRolls rolls = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        hxgm30.dice.pb.api.DiceRolls, hxgm30.dice.pb.api.DiceRolls.Builder, hxgm30.dice.pb.api.DiceRollsOrBuilder> 
+        hxgm30.dice.pb.api.DiceRepeatedRolls, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder, hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> 
         getRollsFieldBuilder() {
       if (rollsBuilder_ == null) {
         rollsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            hxgm30.dice.pb.api.DiceRolls, hxgm30.dice.pb.api.DiceRolls.Builder, hxgm30.dice.pb.api.DiceRollsOrBuilder>(
+            hxgm30.dice.pb.api.DiceRepeatedRolls, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder, hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder>(
                 getRolls(),
                 getParentForChildren(),
                 isClean());

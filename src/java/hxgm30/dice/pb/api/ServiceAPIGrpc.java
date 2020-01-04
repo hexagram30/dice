@@ -90,28 +90,28 @@ public final class ServiceAPIGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollsRequest,
-      hxgm30.dice.pb.api.DiceRolls> getRollRepeatedMethod;
+      hxgm30.dice.pb.api.DiceRepeatedRolls> getRollRepeatedMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RollRepeated",
       requestType = hxgm30.dice.pb.api.RollsRequest.class,
-      responseType = hxgm30.dice.pb.api.DiceRolls.class,
+      responseType = hxgm30.dice.pb.api.DiceRepeatedRolls.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollsRequest,
-      hxgm30.dice.pb.api.DiceRolls> getRollRepeatedMethod() {
-    io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollsRequest, hxgm30.dice.pb.api.DiceRolls> getRollRepeatedMethod;
+      hxgm30.dice.pb.api.DiceRepeatedRolls> getRollRepeatedMethod() {
+    io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollsRequest, hxgm30.dice.pb.api.DiceRepeatedRolls> getRollRepeatedMethod;
     if ((getRollRepeatedMethod = ServiceAPIGrpc.getRollRepeatedMethod) == null) {
       synchronized (ServiceAPIGrpc.class) {
         if ((getRollRepeatedMethod = ServiceAPIGrpc.getRollRepeatedMethod) == null) {
           ServiceAPIGrpc.getRollRepeatedMethod = getRollRepeatedMethod =
-              io.grpc.MethodDescriptor.<hxgm30.dice.pb.api.RollsRequest, hxgm30.dice.pb.api.DiceRolls>newBuilder()
+              io.grpc.MethodDescriptor.<hxgm30.dice.pb.api.RollsRequest, hxgm30.dice.pb.api.DiceRepeatedRolls>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RollRepeated"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   hxgm30.dice.pb.api.RollsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  hxgm30.dice.pb.api.DiceRolls.getDefaultInstance()))
+                  hxgm30.dice.pb.api.DiceRepeatedRolls.getDefaultInstance()))
               .setSchemaDescriptor(new ServiceAPIMethodDescriptorSupplier("RollRepeated"))
               .build();
         }
@@ -121,28 +121,28 @@ public final class ServiceAPIGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollVariousRequest,
-      hxgm30.dice.pb.api.VariousDiceRolls> getRollVariousMethod;
+      hxgm30.dice.pb.api.DiceVariousRolls> getRollVariousMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RollVarious",
       requestType = hxgm30.dice.pb.api.RollVariousRequest.class,
-      responseType = hxgm30.dice.pb.api.VariousDiceRolls.class,
+      responseType = hxgm30.dice.pb.api.DiceVariousRolls.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollVariousRequest,
-      hxgm30.dice.pb.api.VariousDiceRolls> getRollVariousMethod() {
-    io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollVariousRequest, hxgm30.dice.pb.api.VariousDiceRolls> getRollVariousMethod;
+      hxgm30.dice.pb.api.DiceVariousRolls> getRollVariousMethod() {
+    io.grpc.MethodDescriptor<hxgm30.dice.pb.api.RollVariousRequest, hxgm30.dice.pb.api.DiceVariousRolls> getRollVariousMethod;
     if ((getRollVariousMethod = ServiceAPIGrpc.getRollVariousMethod) == null) {
       synchronized (ServiceAPIGrpc.class) {
         if ((getRollVariousMethod = ServiceAPIGrpc.getRollVariousMethod) == null) {
           ServiceAPIGrpc.getRollVariousMethod = getRollVariousMethod =
-              io.grpc.MethodDescriptor.<hxgm30.dice.pb.api.RollVariousRequest, hxgm30.dice.pb.api.VariousDiceRolls>newBuilder()
+              io.grpc.MethodDescriptor.<hxgm30.dice.pb.api.RollVariousRequest, hxgm30.dice.pb.api.DiceVariousRolls>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RollVarious"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   hxgm30.dice.pb.api.RollVariousRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  hxgm30.dice.pb.api.VariousDiceRolls.getDefaultInstance()))
+                  hxgm30.dice.pb.api.DiceVariousRolls.getDefaultInstance()))
               .setSchemaDescriptor(new ServiceAPIMethodDescriptorSupplier("RollVarious"))
               .build();
         }
@@ -322,14 +322,14 @@ public final class ServiceAPIGrpc {
     /**
      */
     public void rollRepeated(hxgm30.dice.pb.api.RollsRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceRolls> responseObserver) {
+        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceRepeatedRolls> responseObserver) {
       asyncUnimplementedUnaryCall(getRollRepeatedMethod(), responseObserver);
     }
 
     /**
      */
     public void rollVarious(hxgm30.dice.pb.api.RollVariousRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.VariousDiceRolls> responseObserver) {
+        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceVariousRolls> responseObserver) {
       asyncUnimplementedUnaryCall(getRollVariousMethod(), responseObserver);
     }
 
@@ -378,14 +378,14 @@ public final class ServiceAPIGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 hxgm30.dice.pb.api.RollsRequest,
-                hxgm30.dice.pb.api.DiceRolls>(
+                hxgm30.dice.pb.api.DiceRepeatedRolls>(
                   this, METHODID_ROLL_REPEATED)))
           .addMethod(
             getRollVariousMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 hxgm30.dice.pb.api.RollVariousRequest,
-                hxgm30.dice.pb.api.VariousDiceRolls>(
+                hxgm30.dice.pb.api.DiceVariousRolls>(
                   this, METHODID_ROLL_VARIOUS)))
           .addMethod(
             getRollMetaRepeatedMethod(),
@@ -458,7 +458,7 @@ public final class ServiceAPIGrpc {
     /**
      */
     public void rollRepeated(hxgm30.dice.pb.api.RollsRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceRolls> responseObserver) {
+        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceRepeatedRolls> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRollRepeatedMethod(), getCallOptions()), request, responseObserver);
     }
@@ -466,7 +466,7 @@ public final class ServiceAPIGrpc {
     /**
      */
     public void rollVarious(hxgm30.dice.pb.api.RollVariousRequest request,
-        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.VariousDiceRolls> responseObserver) {
+        io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceVariousRolls> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRollVariousMethod(), getCallOptions()), request, responseObserver);
     }
@@ -542,14 +542,14 @@ public final class ServiceAPIGrpc {
 
     /**
      */
-    public hxgm30.dice.pb.api.DiceRolls rollRepeated(hxgm30.dice.pb.api.RollsRequest request) {
+    public hxgm30.dice.pb.api.DiceRepeatedRolls rollRepeated(hxgm30.dice.pb.api.RollsRequest request) {
       return blockingUnaryCall(
           getChannel(), getRollRepeatedMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public hxgm30.dice.pb.api.VariousDiceRolls rollVarious(hxgm30.dice.pb.api.RollVariousRequest request) {
+    public hxgm30.dice.pb.api.DiceVariousRolls rollVarious(hxgm30.dice.pb.api.RollVariousRequest request) {
       return blockingUnaryCall(
           getChannel(), getRollVariousMethod(), getCallOptions(), request);
     }
@@ -624,7 +624,7 @@ public final class ServiceAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<hxgm30.dice.pb.api.DiceRolls> rollRepeated(
+    public com.google.common.util.concurrent.ListenableFuture<hxgm30.dice.pb.api.DiceRepeatedRolls> rollRepeated(
         hxgm30.dice.pb.api.RollsRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getRollRepeatedMethod(), getCallOptions()), request);
@@ -632,7 +632,7 @@ public final class ServiceAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<hxgm30.dice.pb.api.VariousDiceRolls> rollVarious(
+    public com.google.common.util.concurrent.ListenableFuture<hxgm30.dice.pb.api.DiceVariousRolls> rollVarious(
         hxgm30.dice.pb.api.RollVariousRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getRollVariousMethod(), getCallOptions()), request);
@@ -701,11 +701,11 @@ public final class ServiceAPIGrpc {
           break;
         case METHODID_ROLL_REPEATED:
           serviceImpl.rollRepeated((hxgm30.dice.pb.api.RollsRequest) request,
-              (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceRolls>) responseObserver);
+              (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceRepeatedRolls>) responseObserver);
           break;
         case METHODID_ROLL_VARIOUS:
           serviceImpl.rollVarious((hxgm30.dice.pb.api.RollVariousRequest) request,
-              (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.VariousDiceRolls>) responseObserver);
+              (io.grpc.stub.StreamObserver<hxgm30.dice.pb.api.DiceVariousRolls>) responseObserver);
           break;
         case METHODID_ROLL_META_REPEATED:
           serviceImpl.rollMetaRepeated((hxgm30.dice.pb.api.RollsRequest) request,

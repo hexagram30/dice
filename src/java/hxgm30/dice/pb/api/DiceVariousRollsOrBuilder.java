@@ -3,8 +3,8 @@
 
 package hxgm30.dice.pb.api;
 
-public interface DiceRollsOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:api.DiceRolls)
+public interface DiceVariousRollsOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:api.DiceVariousRolls)
     com.google.protobuf.MessageOrBuilder {
 
   /**

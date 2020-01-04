@@ -1,11 +1,13 @@
 VERSION = $(lastword $(subst ",, $(shell grep defproject project.clj)))
 
-default: jvm
+default: clojure
 
-jvm: clojure-version
+clojure: clojure-version
 	@lein build
 
-all: clean protoc-gen lint test build jvm
+jvm: protoc-gen-java clojure
+
+all: clean protoc-gen-go lint test build jvm
 
 #############################################################################
 ###   Clojure Support   #####################################################
@@ -53,6 +55,7 @@ PROTO_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/$(PROTOBUF_SRC)
 GOLANG_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/src/golang/common
 fix-pb-go-import:
 	@sed -i.bak 's|$(PROTO_DEP_IMPORT)|$(GOLANG_DEP_IMPORT)|g' $(PROTOBUF_GO)/*.go && \
+	sed -i.bak 's|json:"diceType|json:"dice-type|g' $(PROTOBUF_GO)/*.go && \
 	rm $(PROTOBUF_GO)/*.go.bak
 
 protoc-gen-java: java-deps

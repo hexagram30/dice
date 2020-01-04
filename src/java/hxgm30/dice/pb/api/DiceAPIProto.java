@@ -35,15 +35,15 @@ public final class DiceAPIProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_api_DiceRoll_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_api_DiceRolls_descriptor;
+    internal_static_api_DiceRepeatedRolls_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_api_DiceRolls_fieldAccessorTable;
+      internal_static_api_DiceRepeatedRolls_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_api_VariousDiceRolls_descriptor;
+    internal_static_api_DiceVariousRolls_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_api_VariousDiceRolls_fieldAccessorTable;
+      internal_static_api_DiceVariousRolls_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_api_DiceRollStats_descriptor;
   static final 
@@ -74,26 +74,27 @@ public final class DiceAPIProto {
       "st\022\020\n\010diceType\030\001 \001(\t\022\021\n\trollCount\030\002 \001(\005\"" +
       "6\n\022RollVariousRequest\022 \n\005rolls\030\001 \003(\0132\021.a" +
       "pi.RollsRequest\",\n\010DiceRoll\022\020\n\010diceType\030" +
-      "\001 \001(\t\022\016\n\006result\030\002 \001(\005\"+\n\tDiceRolls\022\036\n\007re" +
-      "sults\030\001 \003(\0132\r.api.DiceRoll\"3\n\020VariousDic" +
-      "eRolls\022\037\n\007results\030\001 \003(\0132\016.api.DiceRolls\"" +
-      "H\n\rDiceRollStats\022\017\n\007average\030\001 \001(\002\022\014\n\004hig" +
-      "h\030\002 \001(\005\022\013\n\003low\030\003 \001(\005\022\013\n\003sum\030\004 \001(\005\"i\n\010Met" +
-      "aRoll\022\033\n\004roll\030\001 \001(\0132\r.api.DiceRoll\022\035\n\005ro" +
-      "lls\030\002 \001(\0132\016.api.DiceRolls\022!\n\005stats\030\003 \001(\013" +
-      "2\022.api.DiceRollStats\"+\n\tMetaRolls\022\036\n\007res" +
-      "ults\030\001 \003(\0132\r.api.MetaRoll2\224\003\n\nServiceAPI" +
-      "\0220\n\004Ping\022\023.common.PingRequest\032\021.common.P" +
-      "ingReply\"\000\022-\n\010RollOnce\022\020.api.RollRequest" +
-      "\032\r.api.DiceRoll\"\000\0223\n\014RollRepeated\022\021.api." +
-      "RollsRequest\032\016.api.DiceRolls\"\000\022?\n\013RollVa" +
-      "rious\022\027.api.RollVariousRequest\032\025.api.Var" +
-      "iousDiceRolls\"\000\0226\n\020RollMetaRepeated\022\021.ap" +
-      "i.RollsRequest\032\r.api.MetaRoll\"\000\022<\n\017RollM" +
-      "etaVarious\022\027.api.RollVariousRequest\032\016.ap" +
-      "i.MetaRolls\"\000\0229\n\007Version\022\026.common.Versio" +
-      "nRequest\032\024.common.VersionReply\"\000B$\n\022hxgm" +
-      "30.dice.pb.apiB\014DiceAPIProtoP\001b\006proto3"
+      "\001 \001(\t\022\016\n\006result\030\002 \001(\005\"6\n\021DiceRepeatedRol" +
+      "ls\022\020\n\010diceType\030\001 \001(\t\022\017\n\007results\030\002 \003(\005\"2\n" +
+      "\020DiceVariousRolls\022\036\n\007results\030\001 \003(\0132\r.api" +
+      ".DiceRoll\"H\n\rDiceRollStats\022\017\n\007average\030\001 " +
+      "\001(\002\022\014\n\004high\030\002 \001(\005\022\013\n\003low\030\003 \001(\005\022\013\n\003sum\030\004 " +
+      "\001(\005\"q\n\010MetaRoll\022\033\n\004roll\030\001 \001(\0132\r.api.Dice" +
+      "Roll\022%\n\005rolls\030\002 \001(\0132\026.api.DiceRepeatedRo" +
+      "lls\022!\n\005stats\030\003 \001(\0132\022.api.DiceRollStats\"+" +
+      "\n\tMetaRolls\022\036\n\007results\030\001 \003(\0132\r.api.MetaR" +
+      "oll2\234\003\n\nServiceAPI\0220\n\004Ping\022\023.common.Ping" +
+      "Request\032\021.common.PingReply\"\000\022-\n\010RollOnce" +
+      "\022\020.api.RollRequest\032\r.api.DiceRoll\"\000\022;\n\014R" +
+      "ollRepeated\022\021.api.RollsRequest\032\026.api.Dic" +
+      "eRepeatedRolls\"\000\022?\n\013RollVarious\022\027.api.Ro" +
+      "llVariousRequest\032\025.api.DiceVariousRolls\"" +
+      "\000\0226\n\020RollMetaRepeated\022\021.api.RollsRequest" +
+      "\032\r.api.MetaRoll\"\000\022<\n\017RollMetaVarious\022\027.a" +
+      "pi.RollVariousRequest\032\016.api.MetaRolls\"\000\022" +
+      "9\n\007Version\022\026.common.VersionRequest\032\024.com" +
+      "mon.VersionReply\"\000B$\n\022hxgm30.dice.pb.api" +
+      "B\014DiceAPIProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -124,17 +125,17 @@ public final class DiceAPIProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_DiceRoll_descriptor,
         new java.lang.String[] { "DiceType", "Result", });
-    internal_static_api_DiceRolls_descriptor =
+    internal_static_api_DiceRepeatedRolls_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_api_DiceRolls_fieldAccessorTable = new
+    internal_static_api_DiceRepeatedRolls_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_api_DiceRolls_descriptor,
-        new java.lang.String[] { "Results", });
-    internal_static_api_VariousDiceRolls_descriptor =
+        internal_static_api_DiceRepeatedRolls_descriptor,
+        new java.lang.String[] { "DiceType", "Results", });
+    internal_static_api_DiceVariousRolls_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_api_VariousDiceRolls_fieldAccessorTable = new
+    internal_static_api_DiceVariousRolls_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_api_VariousDiceRolls_descriptor,
+        internal_static_api_DiceVariousRolls_descriptor,
         new java.lang.String[] { "Results", });
     internal_static_api_DiceRollStats_descriptor =
       getDescriptor().getMessageTypes().get(6);
