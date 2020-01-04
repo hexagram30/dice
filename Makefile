@@ -1,9 +1,11 @@
 VERSION = $(lastword $(subst ",, $(shell grep defproject project.clj)))
 
-default: all
+default: jvm
 
-all: lint test build clojure-version
+jvm: clojure-version
 	@lein build
+
+all: clean protoc-gen lint test build jvm
 
 #############################################################################
 ###   Clojure Support   #####################################################
@@ -22,36 +24,58 @@ PROTOBUF_JAVA = src/java/
 GRADLE_GRPC_DIR = $(PROTOBUF_JAVA)/main
 GRADLE_JAVA_DIR = $(GRADLE_GRPC_DIR)/java
 GRADLE_BUILD_DIR = ./build
+THIRD_PARTY = ./vendor
+PROTO_HXGM30_BASE = github.com/hexagram30
+PROTO_HXGM30_COMMON = https://$(PROTO_HXGM30_BASE)/protocols.git
 
 # export GOPATH=~/go
 # export GOBIN=~/go/bin
 # export PATH=$PATH:$GOBIN
 
+$(THIRD_PARTY):
+	@mkdir -p $(THIRD_PARTY)/$(PROTO_HXGM30_BASE)
+
+proto-deps: $(THIRD_PARTY)
+	@-cd $(THIRD_PARTY)/$(PROTO_HXGM30_BASE) && git clone $(PROTO_HXGM30_COMMON)
+
+protoc-gen: clean-protobuf proto-deps protoc-gen-go protoc-gen-java
+
 go-deps:
 	@GO111MODULE=off $(GO) get github.com/golang/protobuf/protoc-gen-go
 	@GO111MODULE=off $(GO) install github.com/golang/protobuf/protoc-gen-go
+
+protoc-gen-go: go-deps $(PROTOBUF_GO)/*.pb.go fix-pb-go-import
+
+$(PROTOBUF_GO)/%.pb.go: $(PROTOBUF_SRC)/%.proto
+	@protoc -I $(PROTOBUF_SRC) -I $(THIRD_PARTY) --go_out=plugins=grpc:$(PROTOBUF_GO) $<
+
+PROTO_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/$(PROTOBUF_SRC)
+GOLANG_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/src/golang/common
+fix-pb-go-import:
+	sed -i.bak 's|$(PROTO_DEP_IMPORT)|$(GOLANG_DEP_IMPORT)|g' $(PROTOBUF_GO)/*.go && \
+	rm $(PROTOBUF_GO)/*.go.bak
+
+protoc-gen-java: java-deps
+	@./gradlew build
+	@cp -r $(GRADLE_GRPC_DIR)/* $(PROTOBUF_JAVA)/
+	@cp -r $(GRADLE_JAVA_DIR)/* $(PROTOBUF_JAVA)/
+	@rm -rf $(GRADLE_JAVA_DIR) $(GRADLE_GRPC_DIR) \
+		$(PROTOBUF_JAVA)/test $(GRADLE_BUILD_DIR) $(PROTOBUF_JAVA)/java \
+		$(PROTOBUF_JAVA)/hxgm30/proto/ 
+	
 
 java-deps:
 	@brew install gradle
 	@gradle wrapper --gradle-version 6.0.1
 
-protoc-gen: clean-protobuf protoc-gen-go protoc-gen-java
-
-protoc-gen-go: go-deps $(PROTOBUF_GO)/*.pb.go
-protoc-gen-java: java-deps
-	@./gradlew build
-	@cp -r $(GRADLE_GRPC_DIR)/* $(PROTOBUF_JAVA)/
-	@cp -r $(GRADLE_JAVA_DIR)/* $(PROTOBUF_JAVA)/
-	@rm -rf $(GRADLE_JAVA_DIR) $(GRADLE_GRPC_DIR) $(PROTOBUF_JAVA)/test $(GRADLE_BUILD_DIR) $(PROTOBUF_JAVA)/java
-
-$(PROTOBUF_GO)/%.pb.go: $(PROTOBUF_SRC)/%.proto
-	@protoc -I $(PROTOBUF_SRC) --go_out=plugins=grpc:$(PROTOBUF_GO) $<
-
 $(PROTOBUF_JAVA)/%.java: $(PROTOBUF_SRC)/%.proto
 	@mkdir -p $(PROTOBUF_JAVA)
-	@protoc -I $(PROTOBUF_SRC) \
+	@protoc -I $(PROTOBUF_SRC) -I $(THIRD_PARTY) \
 		--plugin=protoc-gen-grpc-java=~/.m2/repository/io/grpc/protoc-gen-grpc-java/1.26.0 \
 		--java_out=$(PROTOBUF_JAVA) $<
+
+clean: clean-protobuf
+	@lein clean
 
 clean-protobuf:
 	@rm -f $(PROTOBUF_JAVA)/*.java $(PROTOBUF_GO)/*.pb.go
@@ -103,7 +127,7 @@ GODOC=godoc -index -links=true -notes="BUG|TODO|XXX|ISSUE"
 
 build:
 	@echo ">> Compiling Go libraries ..."
-	@$(GO) build ./...
+	@GO111MODULE=on $(GO) build ./...
 
 #############################################################################
 ###   Golang Custom Installs   ##############################################
@@ -150,7 +174,7 @@ lint-silent: $(GOLANGCI_LINT)
 	--enable=lll \
 	--enable=goconst \
 	--out-format=colored-line-number \
-	run ./...
+	run ./src/golang/...
 
 lint-simple-silent: $(GOLANGCI_LINT)
 	@$(GOLANGCI_LINT) \
@@ -158,7 +182,7 @@ lint-simple-silent: $(GOLANGCI_LINT)
 
 lint:
 	@echo '>> Linting source code'
-	@GO111MODULE=on $(MAKE) lint-silent
+	@GO111MODULE=on $(GO) vet ./...
 
 lint-simple:
 	@echo '>> Linting source code'

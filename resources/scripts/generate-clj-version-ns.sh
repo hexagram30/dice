@@ -9,7 +9,7 @@ GITSUMMARY=$(git describe --tags --dirty --always)
 IN_FILE=resources/templates/version.tmpl.clj
 OUT_FILE=src/clj/hxgm30/dice/version.clj
 
-echo "Updating '$OUT_FILE' ..."
+echo ">> Updating '$OUT_FILE' ..."
 
 cat $IN_FILE | \
         sed -e "s|%%VERSION%%|$VERSION|" \

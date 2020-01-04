@@ -7,6 +7,7 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	proto1 "github.com/hexagram30/protocols/src/golang/common"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -24,86 +25,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// PingRequest ...
-type PingRequest struct {
-	Data                 string   `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *PingRequest) Reset()         { *m = PingRequest{} }
-func (m *PingRequest) String() string { return proto.CompactTextString(m) }
-func (*PingRequest) ProtoMessage()    {}
-func (*PingRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{0}
-}
-
-func (m *PingRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PingRequest.Unmarshal(m, b)
-}
-func (m *PingRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PingRequest.Marshal(b, m, deterministic)
-}
-func (m *PingRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PingRequest.Merge(m, src)
-}
-func (m *PingRequest) XXX_Size() int {
-	return xxx_messageInfo_PingRequest.Size(m)
-}
-func (m *PingRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_PingRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PingRequest proto.InternalMessageInfo
-
-func (m *PingRequest) GetData() string {
-	if m != nil {
-		return m.Data
-	}
-	return ""
-}
-
-// PingReply ...
-type PingReply struct {
-	Data                 string   `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *PingReply) Reset()         { *m = PingReply{} }
-func (m *PingReply) String() string { return proto.CompactTextString(m) }
-func (*PingReply) ProtoMessage()    {}
-func (*PingReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{1}
-}
-
-func (m *PingReply) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PingReply.Unmarshal(m, b)
-}
-func (m *PingReply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PingReply.Marshal(b, m, deterministic)
-}
-func (m *PingReply) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PingReply.Merge(m, src)
-}
-func (m *PingReply) XXX_Size() int {
-	return xxx_messageInfo_PingReply.Size(m)
-}
-func (m *PingReply) XXX_DiscardUnknown() {
-	xxx_messageInfo_PingReply.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PingReply proto.InternalMessageInfo
-
-func (m *PingReply) GetData() string {
-	if m != nil {
-		return m.Data
-	}
-	return ""
-}
-
 // RollRequest
 type RollRequest struct {
 	DiceType             string   `protobuf:"bytes,1,opt,name=diceType,proto3" json:"diceType,omitempty"`
@@ -116,7 +37,7 @@ func (m *RollRequest) Reset()         { *m = RollRequest{} }
 func (m *RollRequest) String() string { return proto.CompactTextString(m) }
 func (*RollRequest) ProtoMessage()    {}
 func (*RollRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{2}
+	return fileDescriptor_b290fdc790cf24c0, []int{0}
 }
 
 func (m *RollRequest) XXX_Unmarshal(b []byte) error {
@@ -157,7 +78,7 @@ func (m *RollsRequest) Reset()         { *m = RollsRequest{} }
 func (m *RollsRequest) String() string { return proto.CompactTextString(m) }
 func (*RollsRequest) ProtoMessage()    {}
 func (*RollsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{3}
+	return fileDescriptor_b290fdc790cf24c0, []int{1}
 }
 
 func (m *RollsRequest) XXX_Unmarshal(b []byte) error {
@@ -204,7 +125,7 @@ func (m *RollVariousRequest) Reset()         { *m = RollVariousRequest{} }
 func (m *RollVariousRequest) String() string { return proto.CompactTextString(m) }
 func (*RollVariousRequest) ProtoMessage()    {}
 func (*RollVariousRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{4}
+	return fileDescriptor_b290fdc790cf24c0, []int{2}
 }
 
 func (m *RollVariousRequest) XXX_Unmarshal(b []byte) error {
@@ -245,7 +166,7 @@ func (m *DiceRoll) Reset()         { *m = DiceRoll{} }
 func (m *DiceRoll) String() string { return proto.CompactTextString(m) }
 func (*DiceRoll) ProtoMessage()    {}
 func (*DiceRoll) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{5}
+	return fileDescriptor_b290fdc790cf24c0, []int{3}
 }
 
 func (m *DiceRoll) XXX_Unmarshal(b []byte) error {
@@ -292,7 +213,7 @@ func (m *DiceRolls) Reset()         { *m = DiceRolls{} }
 func (m *DiceRolls) String() string { return proto.CompactTextString(m) }
 func (*DiceRolls) ProtoMessage()    {}
 func (*DiceRolls) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{6}
+	return fileDescriptor_b290fdc790cf24c0, []int{4}
 }
 
 func (m *DiceRolls) XXX_Unmarshal(b []byte) error {
@@ -332,7 +253,7 @@ func (m *VariousDiceRolls) Reset()         { *m = VariousDiceRolls{} }
 func (m *VariousDiceRolls) String() string { return proto.CompactTextString(m) }
 func (*VariousDiceRolls) ProtoMessage()    {}
 func (*VariousDiceRolls) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{7}
+	return fileDescriptor_b290fdc790cf24c0, []int{5}
 }
 
 func (m *VariousDiceRolls) XXX_Unmarshal(b []byte) error {
@@ -375,7 +296,7 @@ func (m *DiceRollStats) Reset()         { *m = DiceRollStats{} }
 func (m *DiceRollStats) String() string { return proto.CompactTextString(m) }
 func (*DiceRollStats) ProtoMessage()    {}
 func (*DiceRollStats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{8}
+	return fileDescriptor_b290fdc790cf24c0, []int{6}
 }
 
 func (m *DiceRollStats) XXX_Unmarshal(b []byte) error {
@@ -438,7 +359,7 @@ func (m *MetaRoll) Reset()         { *m = MetaRoll{} }
 func (m *MetaRoll) String() string { return proto.CompactTextString(m) }
 func (*MetaRoll) ProtoMessage()    {}
 func (*MetaRoll) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{9}
+	return fileDescriptor_b290fdc790cf24c0, []int{7}
 }
 
 func (m *MetaRoll) XXX_Unmarshal(b []byte) error {
@@ -492,7 +413,7 @@ func (m *MetaRolls) Reset()         { *m = MetaRolls{} }
 func (m *MetaRolls) String() string { return proto.CompactTextString(m) }
 func (*MetaRolls) ProtoMessage()    {}
 func (*MetaRolls) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{10}
+	return fileDescriptor_b290fdc790cf24c0, []int{8}
 }
 
 func (m *MetaRolls) XXX_Unmarshal(b []byte) error {
@@ -520,121 +441,7 @@ func (m *MetaRolls) GetResults() []*MetaRoll {
 	return nil
 }
 
-// VersionRequest ...
-type VersionRequest struct {
-	Data                 string   `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *VersionRequest) Reset()         { *m = VersionRequest{} }
-func (m *VersionRequest) String() string { return proto.CompactTextString(m) }
-func (*VersionRequest) ProtoMessage()    {}
-func (*VersionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{11}
-}
-
-func (m *VersionRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_VersionRequest.Unmarshal(m, b)
-}
-func (m *VersionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_VersionRequest.Marshal(b, m, deterministic)
-}
-func (m *VersionRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_VersionRequest.Merge(m, src)
-}
-func (m *VersionRequest) XXX_Size() int {
-	return xxx_messageInfo_VersionRequest.Size(m)
-}
-func (m *VersionRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_VersionRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_VersionRequest proto.InternalMessageInfo
-
-func (m *VersionRequest) GetData() string {
-	if m != nil {
-		return m.Data
-	}
-	return ""
-}
-
-// VersionReply ...
-type VersionReply struct {
-	Version              string   `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
-	BuildDate            string   `protobuf:"bytes,2,opt,name=buildDate,proto3" json:"buildDate,omitempty"`
-	GitCommit            string   `protobuf:"bytes,3,opt,name=gitCommit,proto3" json:"gitCommit,omitempty"`
-	GitBranch            string   `protobuf:"bytes,4,opt,name=gitBranch,proto3" json:"gitBranch,omitempty"`
-	GitSummary           string   `protobuf:"bytes,5,opt,name=gitSummary,proto3" json:"gitSummary,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *VersionReply) Reset()         { *m = VersionReply{} }
-func (m *VersionReply) String() string { return proto.CompactTextString(m) }
-func (*VersionReply) ProtoMessage()    {}
-func (*VersionReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b290fdc790cf24c0, []int{12}
-}
-
-func (m *VersionReply) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_VersionReply.Unmarshal(m, b)
-}
-func (m *VersionReply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_VersionReply.Marshal(b, m, deterministic)
-}
-func (m *VersionReply) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_VersionReply.Merge(m, src)
-}
-func (m *VersionReply) XXX_Size() int {
-	return xxx_messageInfo_VersionReply.Size(m)
-}
-func (m *VersionReply) XXX_DiscardUnknown() {
-	xxx_messageInfo_VersionReply.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_VersionReply proto.InternalMessageInfo
-
-func (m *VersionReply) GetVersion() string {
-	if m != nil {
-		return m.Version
-	}
-	return ""
-}
-
-func (m *VersionReply) GetBuildDate() string {
-	if m != nil {
-		return m.BuildDate
-	}
-	return ""
-}
-
-func (m *VersionReply) GetGitCommit() string {
-	if m != nil {
-		return m.GitCommit
-	}
-	return ""
-}
-
-func (m *VersionReply) GetGitBranch() string {
-	if m != nil {
-		return m.GitBranch
-	}
-	return ""
-}
-
-func (m *VersionReply) GetGitSummary() string {
-	if m != nil {
-		return m.GitSummary
-	}
-	return ""
-}
-
 func init() {
-	proto.RegisterType((*PingRequest)(nil), "api.PingRequest")
-	proto.RegisterType((*PingReply)(nil), "api.PingReply")
 	proto.RegisterType((*RollRequest)(nil), "api.RollRequest")
 	proto.RegisterType((*RollsRequest)(nil), "api.RollsRequest")
 	proto.RegisterType((*RollVariousRequest)(nil), "api.RollVariousRequest")
@@ -644,51 +451,45 @@ func init() {
 	proto.RegisterType((*DiceRollStats)(nil), "api.DiceRollStats")
 	proto.RegisterType((*MetaRoll)(nil), "api.MetaRoll")
 	proto.RegisterType((*MetaRolls)(nil), "api.MetaRolls")
-	proto.RegisterType((*VersionRequest)(nil), "api.VersionRequest")
-	proto.RegisterType((*VersionReply)(nil), "api.VersionReply")
 }
 
 func init() { proto.RegisterFile("dice.proto", fileDescriptor_b290fdc790cf24c0) }
 
 var fileDescriptor_b290fdc790cf24c0 = []byte{
-	// 588 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0xcf, 0x6f, 0xd3, 0x30,
-	0x14, 0x6e, 0xd6, 0x76, 0x6d, 0x5e, 0xb7, 0xd2, 0x3d, 0x04, 0x44, 0x11, 0x82, 0xcd, 0x9a, 0xb4,
-	0x82, 0x44, 0x85, 0x36, 0xc4, 0x69, 0x80, 0xe8, 0x7a, 0x80, 0x03, 0xa2, 0x4a, 0xd1, 0xee, 0x6e,
-	0x6b, 0xa5, 0x96, 0x92, 0x26, 0xc4, 0x4e, 0xa1, 0x07, 0xee, 0xfc, 0x1d, 0xfc, 0xa5, 0xc8, 0x76,
-	0xdc, 0x34, 0x1d, 0x14, 0x6e, 0xf6, 0xf7, 0x7d, 0xcf, 0xef, 0xb7, 0x01, 0xe6, 0x7c, 0xc6, 0x06,
-	0x69, 0x96, 0xc8, 0x04, 0xeb, 0x34, 0xe5, 0xe4, 0x0c, 0x3a, 0x63, 0xbe, 0x0c, 0x03, 0xf6, 0x35,
-	0x67, 0x42, 0x22, 0x42, 0x63, 0x4e, 0x25, 0xf5, 0x9c, 0x53, 0xa7, 0xef, 0x06, 0xfa, 0x4c, 0x9e,
-	0x82, 0x6b, 0x24, 0x69, 0xb4, 0xfe, 0xa3, 0xe0, 0x19, 0x74, 0x82, 0x24, 0x8a, 0xec, 0x1b, 0x3e,
-	0xb4, 0x95, 0x97, 0x2f, 0xeb, 0x94, 0x15, 0xb2, 0xcd, 0x9d, 0x7c, 0x80, 0x23, 0x25, 0x15, 0xff,
-	0xa1, 0xc5, 0xc7, 0xe0, 0x66, 0x49, 0x14, 0xdd, 0x24, 0xf9, 0x52, 0x7a, 0x07, 0xa7, 0x4e, 0xbf,
-	0x19, 0x94, 0x00, 0x79, 0x03, 0xa8, 0x5e, 0xba, 0xa5, 0x19, 0x4f, 0xf2, 0xcd, 0x7b, 0x17, 0xd0,
-	0x54, 0x12, 0xe1, 0x39, 0xa7, 0xf5, 0x7e, 0xe7, 0xf2, 0x64, 0x40, 0x53, 0x3e, 0xd8, 0xf6, 0x18,
-	0x18, 0x9e, 0xbc, 0x85, 0xf6, 0x88, 0xcf, 0x98, 0xa2, 0xf6, 0x06, 0xf1, 0x10, 0x0e, 0x33, 0x26,
-	0xf2, 0xc8, 0x46, 0x50, 0xdc, 0xc8, 0x2b, 0x70, 0xad, 0xbd, 0xc0, 0x0b, 0x68, 0x19, 0xd8, 0xfa,
-	0x3d, 0xd6, 0x7e, 0xad, 0x20, 0xb0, 0x2c, 0xb9, 0x86, 0x5e, 0x11, 0x70, 0x69, 0xdc, 0xdf, 0x35,
-	0xee, 0x56, 0x8c, 0x45, 0x69, 0x4d, 0xe1, 0xd8, 0xa2, 0x13, 0x49, 0xa5, 0x40, 0x0f, 0x5a, 0x74,
-	0xc5, 0x32, 0x1a, 0x9a, 0xb8, 0x0f, 0x02, 0x7b, 0x55, 0x6d, 0x5a, 0xf0, 0x70, 0x51, 0x04, 0xad,
-	0xcf, 0xd8, 0x83, 0x7a, 0x94, 0x7c, 0xf3, 0xea, 0x1a, 0x52, 0x47, 0x85, 0x88, 0x3c, 0xf6, 0x1a,
-	0x06, 0x11, 0x79, 0x4c, 0x7e, 0x40, 0xfb, 0x13, 0x93, 0x54, 0x97, 0xe5, 0x0c, 0x1a, 0xaa, 0x56,
-	0xfa, 0xe9, 0x3b, 0x29, 0x69, 0x0a, 0xcf, 0x6d, 0xb9, 0x0f, 0xb4, 0x66, 0x37, 0x72, 0x43, 0x62,
-	0x1f, 0x9a, 0x42, 0xc5, 0xab, 0x5d, 0x77, 0x2e, 0xb1, 0xa2, 0xd2, 0x99, 0x04, 0x46, 0xa0, 0xaa,
-	0x6a, 0xdd, 0xff, 0xb5, 0xaa, 0x56, 0x50, 0xd6, 0xe5, 0x1c, 0xba, 0xb7, 0x2c, 0x13, 0x3c, 0x59,
-	0xee, 0x1b, 0xe3, 0x5f, 0x0e, 0x1c, 0x6d, 0x64, 0x6a, 0x94, 0x3d, 0x68, 0xad, 0xcc, 0xbd, 0xd0,
-	0xd9, 0xab, 0x9a, 0xbc, 0x69, 0xce, 0xa3, 0xf9, 0x88, 0x4a, 0xa6, 0x53, 0x73, 0x83, 0x12, 0x50,
-	0x6c, 0xc8, 0xe5, 0x4d, 0x12, 0xc7, 0x5c, 0xea, 0x94, 0xdc, 0xa0, 0x04, 0x0a, 0x76, 0x98, 0xd1,
-	0xe5, 0x6c, 0xa1, 0x2b, 0x6b, 0x58, 0x03, 0xe0, 0x13, 0x80, 0x90, 0xcb, 0x49, 0x1e, 0xc7, 0x34,
-	0x5b, 0x7b, 0x4d, 0x4d, 0x6f, 0x21, 0x97, 0x3f, 0xeb, 0x00, 0x13, 0x96, 0xad, 0xf8, 0x8c, 0xbd,
-	0x1f, 0x7f, 0xc4, 0xe7, 0xd0, 0x50, 0xab, 0x87, 0x3d, 0x9d, 0xf9, 0xd6, 0xa2, 0xfa, 0xdd, 0x2d,
-	0x24, 0x8d, 0xd6, 0xa4, 0x86, 0x2f, 0xa0, 0xad, 0xca, 0xf2, 0x79, 0x39, 0x63, 0x85, 0x7e, 0x6b,
-	0x29, 0xfd, 0x6a, 0xfb, 0x48, 0x0d, 0xaf, 0xcc, 0x26, 0x06, 0x2c, 0x65, 0x54, 0xb2, 0x39, 0xde,
-	0x5d, 0x15, 0x7f, 0xa7, 0x9d, 0xa4, 0x86, 0xef, 0xcc, 0xa6, 0x17, 0x33, 0x8c, 0x8f, 0x36, 0x36,
-	0xd5, 0x35, 0xf4, 0x1f, 0x68, 0x62, 0x77, 0xd4, 0x49, 0x0d, 0x5f, 0x43, 0x4f, 0x1d, 0x75, 0x0f,
-	0xf7, 0x78, 0xae, 0x76, 0x9a, 0xd4, 0xf0, 0x1a, 0xee, 0x59, 0xbb, 0x7f, 0x3a, 0xef, 0x56, 0x8c,
-	0x85, 0xce, 0xb5, 0x55, 0x74, 0x1e, 0xef, 0x9b, 0xc8, 0x2a, 0xe3, 0xe2, 0x9f, 0x54, 0x41, 0x5d,
-	0xcf, 0xe1, 0x39, 0xe0, 0xe2, 0x7b, 0x18, 0x5f, 0xbd, 0x1c, 0x98, 0x3f, 0x73, 0xaa, 0x44, 0xc3,
-	0xa3, 0x91, 0x69, 0xcd, 0x58, 0x7d, 0xa1, 0x63, 0x67, 0x7a, 0xa8, 0xff, 0xd2, 0xab, 0xdf, 0x01,
-	0x00, 0x00, 0xff, 0xff, 0x61, 0xfb, 0x13, 0xe2, 0x59, 0x05, 0x00, 0x00,
+	// 528 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0x4d, 0x6f, 0xd3, 0x40,
+	0x10, 0xcd, 0x67, 0x93, 0x4c, 0xda, 0x92, 0x0e, 0x50, 0xac, 0x88, 0x43, 0x58, 0x55, 0x6a, 0x38,
+	0xe0, 0x44, 0x09, 0xaa, 0x84, 0x54, 0x40, 0x94, 0x1e, 0xe0, 0x80, 0x88, 0x5c, 0xd4, 0xfb, 0xc6,
+	0x5d, 0xd9, 0x2b, 0xd9, 0x5e, 0xe3, 0xb5, 0x4b, 0x7b, 0xe0, 0x5f, 0xf0, 0x83, 0xd1, 0xee, 0x7a,
+	0x1d, 0x9c, 0x88, 0xc2, 0xcd, 0xf3, 0xe6, 0xbd, 0x99, 0xd9, 0xb7, 0xe3, 0x05, 0xb8, 0xe1, 0x3e,
+	0x73, 0xd3, 0x4c, 0xe4, 0x02, 0xdb, 0x34, 0xe5, 0xe3, 0xb3, 0x80, 0xe7, 0x61, 0xb1, 0x76, 0x7d,
+	0x11, 0xcf, 0x42, 0x76, 0x47, 0x83, 0x8c, 0xc6, 0xcb, 0xf9, 0x4c, 0x33, 0x7c, 0x11, 0xc9, 0x99,
+	0xcc, 0x7c, 0x13, 0xcd, 0x7c, 0x11, 0xc7, 0x22, 0x31, 0x62, 0xf2, 0x12, 0x86, 0x9e, 0x88, 0x22,
+	0x8f, 0x7d, 0x2f, 0x98, 0xcc, 0x71, 0x0c, 0x7d, 0x55, 0xf9, 0xdb, 0x7d, 0xca, 0x9c, 0xe6, 0xa4,
+	0x39, 0x1d, 0x78, 0x55, 0x4c, 0x3e, 0xc1, 0xbe, 0xa2, 0xca, 0xff, 0xe0, 0xe2, 0x73, 0x18, 0x64,
+	0x22, 0x8a, 0x3e, 0x8a, 0x22, 0xc9, 0x9d, 0xd6, 0xa4, 0x39, 0xed, 0x7a, 0x1b, 0x80, 0xbc, 0x05,
+	0x54, 0x95, 0xae, 0x69, 0xc6, 0x45, 0x51, 0xd5, 0x3b, 0x85, 0xae, 0xa2, 0x48, 0xa7, 0x39, 0x69,
+	0x4f, 0x87, 0x8b, 0x23, 0x97, 0xa6, 0xdc, 0xfd, 0xb3, 0xa3, 0x67, 0xf2, 0xe4, 0x1d, 0xf4, 0x2f,
+	0xb9, 0xcf, 0x54, 0xea, 0xc1, 0x21, 0x8e, 0x61, 0x2f, 0x63, 0xb2, 0x88, 0xec, 0x04, 0x65, 0x44,
+	0x5e, 0xc3, 0xc0, 0xea, 0x25, 0x9e, 0x42, 0xcf, 0xc0, 0xb6, 0xef, 0x81, 0xee, 0x6b, 0x09, 0x9e,
+	0xcd, 0x92, 0x73, 0x18, 0x95, 0x03, 0x6f, 0xc4, 0xd3, 0x6d, 0xf1, 0x61, 0x4d, 0x2c, 0x37, 0x6a,
+	0x0a, 0x07, 0x16, 0xbd, 0xca, 0x69, 0x2e, 0xd1, 0x81, 0x1e, 0xbd, 0x65, 0x19, 0x0d, 0xcc, 0xdc,
+	0x2d, 0xcf, 0x86, 0x88, 0xd0, 0x09, 0x79, 0x10, 0x96, 0x43, 0xeb, 0x6f, 0x1c, 0x41, 0x3b, 0x12,
+	0x3f, 0x9c, 0xb6, 0x86, 0xd4, 0xa7, 0x42, 0x64, 0x11, 0x3b, 0x1d, 0x83, 0xc8, 0x22, 0x26, 0x3f,
+	0xa1, 0xff, 0x85, 0xe5, 0x54, 0xdb, 0xf2, 0x02, 0x3a, 0xca, 0x2b, 0x5d, 0x7a, 0xe7, 0x48, 0x3a,
+	0x85, 0x27, 0xd6, 0xee, 0x96, 0xe6, 0x6c, 0x4f, 0x6e, 0x92, 0x38, 0x85, 0xae, 0x54, 0xf3, 0xea,
+	0xd6, 0xc3, 0x05, 0xd6, 0x58, 0xfa, 0x24, 0x9e, 0x21, 0x28, 0x57, 0x6d, 0xfb, 0xbf, 0xba, 0x6a,
+	0x09, 0x95, 0x2f, 0x8b, 0x5f, 0x6d, 0x80, 0x2b, 0x96, 0xdd, 0x72, 0x9f, 0x7d, 0x58, 0x7d, 0xc6,
+	0x39, 0x74, 0x56, 0x3c, 0x09, 0xf0, 0xb1, 0x5b, 0x6e, 0xa9, 0x8a, 0xca, 0xeb, 0x1f, 0x1f, 0xd5,
+	0xc1, 0x34, 0xba, 0x27, 0x0d, 0x7c, 0x05, 0x7d, 0x55, 0xf1, 0x6b, 0xe2, 0x33, 0x1c, 0x55, 0x2b,
+	0x63, 0x25, 0xf5, 0x93, 0x93, 0x06, 0x2e, 0xcd, 0x12, 0x7b, 0x2c, 0x65, 0x34, 0x67, 0x37, 0xb8,
+	0xbb, 0x65, 0xe3, 0x2d, 0x27, 0x48, 0x03, 0xdf, 0x9b, 0x9f, 0xa4, 0xbc, 0x7e, 0x7c, 0x56, 0x69,
+	0xea, 0x1b, 0x3c, 0x7e, 0xaa, 0x13, 0xdb, 0x5b, 0x42, 0x1a, 0x78, 0x06, 0x23, 0xf5, 0xa9, 0x8f,
+	0xff, 0x40, 0xe7, 0xba, 0x49, 0xa4, 0x81, 0xe7, 0xf0, 0xc8, 0xea, 0xfe, 0xd9, 0xfc, 0xb0, 0x26,
+	0x56, 0x5d, 0xdf, 0x40, 0xef, 0x9a, 0x65, 0x92, 0x8b, 0x04, 0x8f, 0xad, 0x75, 0x25, 0x60, 0x45,
+	0x4f, 0x76, 0x70, 0xed, 0xea, 0xc5, 0x09, 0x60, 0x78, 0x17, 0xc4, 0xcb, 0xb9, 0x6b, 0x1e, 0x9a,
+	0xb5, 0x2a, 0x7e, 0xb1, 0x7f, 0x69, 0xae, 0x69, 0xa5, 0x9e, 0x8e, 0x55, 0x73, 0xbd, 0xa7, 0xdf,
+	0x90, 0xe5, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0x56, 0x9d, 0x5d, 0xff, 0x8e, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -704,7 +505,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ServiceAPIClient interface {
 	// Return "pong" for "ping"
-	Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error)
+	Ping(ctx context.Context, in *proto1.PingRequest, opts ...grpc.CallOption) (*proto1.PingReply, error)
 	// Dice-rolling API: some notes on the API methods:
 	// * Roll - a single roll
 	// * RollN - multiple roles of a single type of dice
@@ -719,7 +520,7 @@ type ServiceAPIClient interface {
 	RollMetaRepeated(ctx context.Context, in *RollsRequest, opts ...grpc.CallOption) (*MetaRoll, error)
 	RollMetaVarious(ctx context.Context, in *RollVariousRequest, opts ...grpc.CallOption) (*MetaRolls, error)
 	// Get version data
-	Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionReply, error)
+	Version(ctx context.Context, in *proto1.VersionRequest, opts ...grpc.CallOption) (*proto1.VersionReply, error)
 }
 
 type serviceAPIClient struct {
@@ -730,8 +531,8 @@ func NewServiceAPIClient(cc *grpc.ClientConn) ServiceAPIClient {
 	return &serviceAPIClient{cc}
 }
 
-func (c *serviceAPIClient) Ping(ctx context.Context, in *PingRequest, opts ...grpc.CallOption) (*PingReply, error) {
-	out := new(PingReply)
+func (c *serviceAPIClient) Ping(ctx context.Context, in *proto1.PingRequest, opts ...grpc.CallOption) (*proto1.PingReply, error) {
+	out := new(proto1.PingReply)
 	err := c.cc.Invoke(ctx, "/api.ServiceAPI/Ping", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -784,8 +585,8 @@ func (c *serviceAPIClient) RollMetaVarious(ctx context.Context, in *RollVariousR
 	return out, nil
 }
 
-func (c *serviceAPIClient) Version(ctx context.Context, in *VersionRequest, opts ...grpc.CallOption) (*VersionReply, error) {
-	out := new(VersionReply)
+func (c *serviceAPIClient) Version(ctx context.Context, in *proto1.VersionRequest, opts ...grpc.CallOption) (*proto1.VersionReply, error) {
+	out := new(proto1.VersionReply)
 	err := c.cc.Invoke(ctx, "/api.ServiceAPI/Version", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -796,7 +597,7 @@ func (c *serviceAPIClient) Version(ctx context.Context, in *VersionRequest, opts
 // ServiceAPIServer is the server API for ServiceAPI service.
 type ServiceAPIServer interface {
 	// Return "pong" for "ping"
-	Ping(context.Context, *PingRequest) (*PingReply, error)
+	Ping(context.Context, *proto1.PingRequest) (*proto1.PingReply, error)
 	// Dice-rolling API: some notes on the API methods:
 	// * Roll - a single roll
 	// * RollN - multiple roles of a single type of dice
@@ -811,14 +612,14 @@ type ServiceAPIServer interface {
 	RollMetaRepeated(context.Context, *RollsRequest) (*MetaRoll, error)
 	RollMetaVarious(context.Context, *RollVariousRequest) (*MetaRolls, error)
 	// Get version data
-	Version(context.Context, *VersionRequest) (*VersionReply, error)
+	Version(context.Context, *proto1.VersionRequest) (*proto1.VersionReply, error)
 }
 
 // UnimplementedServiceAPIServer can be embedded to have forward compatible implementations.
 type UnimplementedServiceAPIServer struct {
 }
 
-func (*UnimplementedServiceAPIServer) Ping(ctx context.Context, req *PingRequest) (*PingReply, error) {
+func (*UnimplementedServiceAPIServer) Ping(ctx context.Context, req *proto1.PingRequest) (*proto1.PingReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 func (*UnimplementedServiceAPIServer) RollOnce(ctx context.Context, req *RollRequest) (*DiceRoll, error) {
@@ -836,7 +637,7 @@ func (*UnimplementedServiceAPIServer) RollMetaRepeated(ctx context.Context, req 
 func (*UnimplementedServiceAPIServer) RollMetaVarious(ctx context.Context, req *RollVariousRequest) (*MetaRolls, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollMetaVarious not implemented")
 }
-func (*UnimplementedServiceAPIServer) Version(ctx context.Context, req *VersionRequest) (*VersionReply, error) {
+func (*UnimplementedServiceAPIServer) Version(ctx context.Context, req *proto1.VersionRequest) (*proto1.VersionReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
 }
 
@@ -845,7 +646,7 @@ func RegisterServiceAPIServer(s *grpc.Server, srv ServiceAPIServer) {
 }
 
 func _ServiceAPI_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PingRequest)
+	in := new(proto1.PingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -857,7 +658,7 @@ func _ServiceAPI_Ping_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/api.ServiceAPI/Ping",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceAPIServer).Ping(ctx, req.(*PingRequest))
+		return srv.(ServiceAPIServer).Ping(ctx, req.(*proto1.PingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -953,7 +754,7 @@ func _ServiceAPI_RollMetaVarious_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _ServiceAPI_Version_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VersionRequest)
+	in := new(proto1.VersionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -965,7 +766,7 @@ func _ServiceAPI_Version_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: "/api.ServiceAPI/Version",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceAPIServer).Version(ctx, req.(*VersionRequest))
+		return srv.(ServiceAPIServer).Version(ctx, req.(*proto1.VersionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

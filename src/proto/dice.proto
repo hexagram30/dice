@@ -1,14 +1,19 @@
 syntax = "proto3";
 
+// option go_package  = "github.com/hexagram30/dice/src/golang";
+// option go_package  = "github.com/hexagram30/protocols/src/proto";
 option java_multiple_files = true;
 option java_package = "hxgm30.dice.pb.api";
 option java_outer_classname = "DiceAPIProto";
+
+// import "github.com/hexagram30/protocols/src/golang/common";
+import "github.com/hexagram30/protocols/src/proto/common.proto";
 
 package api;
 
 service ServiceAPI {
     // Return "pong" for "ping"
-    rpc Ping(PingRequest) returns (PingReply) {}
+    rpc Ping(common.PingRequest) returns (common.PingReply) {}
     // Dice-rolling API: some notes on the API methods:
     // * Roll - a single roll
     // * RollN - multiple roles of a single type of dice
@@ -23,17 +28,7 @@ service ServiceAPI {
     rpc RollMetaRepeated(RollsRequest) returns (MetaRoll) {}
     rpc RollMetaVarious(RollVariousRequest) returns (MetaRolls) {}
     // Get version data
-    rpc Version(VersionRequest) returns (VersionReply) {}
-}
-
-// PingRequest ...
-message PingRequest {
-    string data = 1;
-}
-
-// PingReply ...
-message PingReply {
-    string data = 1;
+    rpc Version(common.VersionRequest) returns (common.VersionReply) {}
 }
 
 // RollRequest
@@ -86,18 +81,4 @@ message MetaRoll {
 // MetaRolls
 message MetaRolls {
     repeated MetaRoll results = 1;
-}
-
-// VersionRequest ...
-message VersionRequest {
-    string data = 1;
-}
-
-// VersionReply ...
-message VersionReply {
-    string version = 1;
-    string buildDate = 2;
-    string gitCommit = 3;
-    string gitBranch = 4;
-    string gitSummary = 5;
 }
