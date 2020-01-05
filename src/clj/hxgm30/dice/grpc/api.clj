@@ -79,11 +79,15 @@
       (.build)))
 
 (defn roll-once-builder
-  [system ^Keyword die]
-  (-> (DiceRoll/newBuilder)
-      (.setResult (roller/roll-once system die))
-      (.setDiceType (name die))
-      (.build)))
+  ([system ^Keyword die ]
+    (roll-once-builder system
+                       die
+                       (roller/roll-once system die)))
+  ([system ^Keyword die roll]
+    (-> (DiceRoll/newBuilder)
+        (.setResult roll)
+        (.setDiceType (name die))
+        (.build))))
 
 (defn roll-repeated-builder
   ([system [die n]]
@@ -98,6 +102,41 @@
         (.build))))
 
 (defn roll-various-builder
+  [system die-counts]
+  (log/debug "Got die-counts:" die-counts)
+  (let [v-rolls (roller/roll-various system die-counts)
+        rolls (mapv (fn [[[die _] rs]] (roll-repeated-builder system die rs))
+                    (partition 2 (interleave die-counts v-rolls)))]
+    (log/trace "Got rolls:" rolls)
+    (-> (DiceVariousRolls/newBuilder)
+        (.addAllResults rolls)
+        (.build))))
+
+(defn rol-stats-builder
+  [system ]
+  )
+
+(defn roll-meta-repeated-builder
+  ([system [die n]]
+   (roll-meta-repeated-builder
+    system
+    die
+    (roller/roll-meta-repeated system die n)))
+  ([system die annotated-rolls]
+    (log/debug "Annotated rolls:" annotated-rolls)
+    (let [roll (:roll annotated-rolls)
+          rolls (:rolls annotated-rolls)
+          stats (:stats annotated-rolls)
+          builder (MetaRoll/newBuilder)]
+      (if roll
+        (-> builder
+            (.setRoll (roll-once-builder system die roll))
+            (.build))
+        (-> builder
+            (.setRolls (roll-repeated-builder system die rolls))
+            (.build))))))
+
+(defn roll-meta-various-builder
   [system die-counts]
   (log/debug "Got die-counts:" die-counts)
   (let [v-rolls (roller/roll-various system die-counts)
@@ -161,11 +200,13 @@
     reply))
 
 (defn -rollMetaRepeated
-  [this]
+  [this ^RollsRequest request ^MetaRoll reply]
+  (log/debug "Got roll-meta-repeated request")
   )
 
 (defn -rollMetaVarious
-  [this]
+  [this ^RollVariousRequest request ^MetaRolls reply]
+  (log/debug "Got roll-meta-various request")
   )
 
 (defn shutdown
