@@ -58,7 +58,7 @@ message DiceRepeatedRolls {
 
 // DiceVariousRolls
 message DiceVariousRolls {
-    repeated DiceRoll results = 1;
+    repeated DiceRepeatedRolls results = 1;
 }
 
 // DiceRollStats

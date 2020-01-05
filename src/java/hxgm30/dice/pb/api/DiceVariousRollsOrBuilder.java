@@ -8,26 +8,26 @@ public interface DiceVariousRollsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  java.util.List<hxgm30.dice.pb.api.DiceRoll> 
+  java.util.List<hxgm30.dice.pb.api.DiceRepeatedRolls> 
       getResultsList();
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  hxgm30.dice.pb.api.DiceRoll getResults(int index);
+  hxgm30.dice.pb.api.DiceRepeatedRolls getResults(int index);
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
   int getResultsCount();
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  java.util.List<? extends hxgm30.dice.pb.api.DiceRollOrBuilder> 
+  java.util.List<? extends hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> 
       getResultsOrBuilderList();
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  hxgm30.dice.pb.api.DiceRollOrBuilder getResultsOrBuilder(
+  hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder getResultsOrBuilder(
       int index);
 }

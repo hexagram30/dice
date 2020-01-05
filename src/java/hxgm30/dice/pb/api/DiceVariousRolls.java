@@ -56,11 +56,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRoll>();
+              results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRepeatedRolls>();
               mutable_bitField0_ |= 0x00000001;
             }
             results_.add(
-                input.readMessage(hxgm30.dice.pb.api.DiceRoll.parser(), extensionRegistry));
+                input.readMessage(hxgm30.dice.pb.api.DiceRepeatedRolls.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -99,36 +99,36 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULTS_FIELD_NUMBER = 1;
-  private java.util.List<hxgm30.dice.pb.api.DiceRoll> results_;
+  private java.util.List<hxgm30.dice.pb.api.DiceRepeatedRolls> results_;
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  public java.util.List<hxgm30.dice.pb.api.DiceRoll> getResultsList() {
+  public java.util.List<hxgm30.dice.pb.api.DiceRepeatedRolls> getResultsList() {
     return results_;
   }
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  public java.util.List<? extends hxgm30.dice.pb.api.DiceRollOrBuilder> 
+  public java.util.List<? extends hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> 
       getResultsOrBuilderList() {
     return results_;
   }
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
   public int getResultsCount() {
     return results_.size();
   }
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  public hxgm30.dice.pb.api.DiceRoll getResults(int index) {
+  public hxgm30.dice.pb.api.DiceRepeatedRolls getResults(int index) {
     return results_.get(index);
   }
   /**
-   * <code>repeated .api.DiceRoll results = 1;</code>
+   * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
    */
-  public hxgm30.dice.pb.api.DiceRollOrBuilder getResultsOrBuilder(
+  public hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder getResultsOrBuilder(
       int index) {
     return results_.get(index);
   }
@@ -479,22 +479,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<hxgm30.dice.pb.api.DiceRoll> results_ =
+    private java.util.List<hxgm30.dice.pb.api.DiceRepeatedRolls> results_ =
       java.util.Collections.emptyList();
     private void ensureResultsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRoll>(results_);
+        results_ = new java.util.ArrayList<hxgm30.dice.pb.api.DiceRepeatedRolls>(results_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        hxgm30.dice.pb.api.DiceRoll, hxgm30.dice.pb.api.DiceRoll.Builder, hxgm30.dice.pb.api.DiceRollOrBuilder> resultsBuilder_;
+        hxgm30.dice.pb.api.DiceRepeatedRolls, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder, hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> resultsBuilder_;
 
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public java.util.List<hxgm30.dice.pb.api.DiceRoll> getResultsList() {
+    public java.util.List<hxgm30.dice.pb.api.DiceRepeatedRolls> getResultsList() {
       if (resultsBuilder_ == null) {
         return java.util.Collections.unmodifiableList(results_);
       } else {
@@ -502,7 +502,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public int getResultsCount() {
       if (resultsBuilder_ == null) {
@@ -512,9 +512,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRoll getResults(int index) {
+    public hxgm30.dice.pb.api.DiceRepeatedRolls getResults(int index) {
       if (resultsBuilder_ == null) {
         return results_.get(index);
       } else {
@@ -522,10 +522,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder setResults(
-        int index, hxgm30.dice.pb.api.DiceRoll value) {
+        int index, hxgm30.dice.pb.api.DiceRepeatedRolls value) {
       if (resultsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -539,10 +539,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder setResults(
-        int index, hxgm30.dice.pb.api.DiceRoll.Builder builderForValue) {
+        int index, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder builderForValue) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         results_.set(index, builderForValue.build());
@@ -553,9 +553,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public Builder addResults(hxgm30.dice.pb.api.DiceRoll value) {
+    public Builder addResults(hxgm30.dice.pb.api.DiceRepeatedRolls value) {
       if (resultsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -569,10 +569,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder addResults(
-        int index, hxgm30.dice.pb.api.DiceRoll value) {
+        int index, hxgm30.dice.pb.api.DiceRepeatedRolls value) {
       if (resultsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -586,10 +586,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder addResults(
-        hxgm30.dice.pb.api.DiceRoll.Builder builderForValue) {
+        hxgm30.dice.pb.api.DiceRepeatedRolls.Builder builderForValue) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         results_.add(builderForValue.build());
@@ -600,10 +600,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder addResults(
-        int index, hxgm30.dice.pb.api.DiceRoll.Builder builderForValue) {
+        int index, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder builderForValue) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         results_.add(index, builderForValue.build());
@@ -614,10 +614,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder addAllResults(
-        java.lang.Iterable<? extends hxgm30.dice.pb.api.DiceRoll> values) {
+        java.lang.Iterable<? extends hxgm30.dice.pb.api.DiceRepeatedRolls> values) {
       if (resultsBuilder_ == null) {
         ensureResultsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -629,7 +629,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder clearResults() {
       if (resultsBuilder_ == null) {
@@ -642,7 +642,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
     public Builder removeResults(int index) {
       if (resultsBuilder_ == null) {
@@ -655,16 +655,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRoll.Builder getResultsBuilder(
+    public hxgm30.dice.pb.api.DiceRepeatedRolls.Builder getResultsBuilder(
         int index) {
       return getResultsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRollOrBuilder getResultsOrBuilder(
+    public hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder getResultsOrBuilder(
         int index) {
       if (resultsBuilder_ == null) {
         return results_.get(index);  } else {
@@ -672,9 +672,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public java.util.List<? extends hxgm30.dice.pb.api.DiceRollOrBuilder> 
+    public java.util.List<? extends hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> 
          getResultsOrBuilderList() {
       if (resultsBuilder_ != null) {
         return resultsBuilder_.getMessageOrBuilderList();
@@ -683,33 +683,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRoll.Builder addResultsBuilder() {
+    public hxgm30.dice.pb.api.DiceRepeatedRolls.Builder addResultsBuilder() {
       return getResultsFieldBuilder().addBuilder(
-          hxgm30.dice.pb.api.DiceRoll.getDefaultInstance());
+          hxgm30.dice.pb.api.DiceRepeatedRolls.getDefaultInstance());
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public hxgm30.dice.pb.api.DiceRoll.Builder addResultsBuilder(
+    public hxgm30.dice.pb.api.DiceRepeatedRolls.Builder addResultsBuilder(
         int index) {
       return getResultsFieldBuilder().addBuilder(
-          index, hxgm30.dice.pb.api.DiceRoll.getDefaultInstance());
+          index, hxgm30.dice.pb.api.DiceRepeatedRolls.getDefaultInstance());
     }
     /**
-     * <code>repeated .api.DiceRoll results = 1;</code>
+     * <code>repeated .api.DiceRepeatedRolls results = 1;</code>
      */
-    public java.util.List<hxgm30.dice.pb.api.DiceRoll.Builder> 
+    public java.util.List<hxgm30.dice.pb.api.DiceRepeatedRolls.Builder> 
          getResultsBuilderList() {
       return getResultsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        hxgm30.dice.pb.api.DiceRoll, hxgm30.dice.pb.api.DiceRoll.Builder, hxgm30.dice.pb.api.DiceRollOrBuilder> 
+        hxgm30.dice.pb.api.DiceRepeatedRolls, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder, hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder> 
         getResultsFieldBuilder() {
       if (resultsBuilder_ == null) {
         resultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            hxgm30.dice.pb.api.DiceRoll, hxgm30.dice.pb.api.DiceRoll.Builder, hxgm30.dice.pb.api.DiceRollOrBuilder>(
+            hxgm30.dice.pb.api.DiceRepeatedRolls, hxgm30.dice.pb.api.DiceRepeatedRolls.Builder, hxgm30.dice.pb.api.DiceRepeatedRollsOrBuilder>(
                 results_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),

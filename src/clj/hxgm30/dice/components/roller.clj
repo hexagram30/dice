@@ -112,17 +112,18 @@
   [system ^Keyword die n]
   (d* system (sides die) n))
 
-(defn roll-many
+(defn roll-various
   [system die-counts]
+  (log/debug "Got die-counts:" die-counts)
   (mapv #(apply d* %) (map (fn [[s r]] [system (sides s) r]) die-counts)))
 
 (defn roll-meta-repeated
   [system ^Keyword die n]
   (add-meta (roll-repeated system die n)))
 
-(defn roll-meta-many
+(defn roll-meta-various
   [system die-counts]
-  (add-meta (roll-many system die-counts)))
+  (add-meta (roll-various system die-counts)))
 
 (defn roll
   "Usage:
@@ -137,7 +138,7 @@
   ([system arg]
     (if (keyword? arg)
       (roll-once system arg)
-      (roll-many system arg)))
+      (roll-various system arg)))
   ([system die n]
     (roll-repeated system die n)))
 
@@ -147,6 +148,6 @@
     (roller/roll-meta (system) {:d4 20 :d6 12 :d8 18 :d20 1})
   "
   ([system die-counts]
-    (roll-meta-many system die-counts))
+    (roll-meta-various system die-counts))
   ([system ^Keyword die n]
     (roll-meta-repeated system die n)))
