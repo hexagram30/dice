@@ -61,7 +61,6 @@ func (c *Client) Ping() string {
 
 // RollOnce ...
 func (c *Client) RollOnce(die string) *api.DiceRoll {
-
 	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
 	defer cancel()
 
@@ -77,12 +76,11 @@ func (c *Client) RollOnce(die string) *api.DiceRoll {
 
 // RollRepeated ...
 func (c *Client) RollRepeated(die string, count int64) *api.DiceRepeatedRolls {
-
 	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
 	defer cancel()
 
 	r, err := c.Client.RollRepeated(ctx, &api.RollsRequest{
-		DiceType: die,
+		DiceType:  die,
 		RollCount: int32(count),
 	})
 	if err != nil {
@@ -93,6 +91,27 @@ func (c *Client) RollRepeated(die string, count int64) *api.DiceRepeatedRolls {
 }
 
 // RollVarious ...
+func (c *Client) RollVarious(dice []string, counts []int64) *api.DiceVariousRolls {
+	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
+	defer cancel()
+
+	var rolls []*api.RollsRequest
+	for i, _ := range dice {
+		rolls = append(rolls, &api.RollsRequest{
+			DiceType:  dice[i],
+			RollCount: int32(counts[i]),
+		})
+	}
+	r, err := c.Client.RollVarious(ctx, &api.RollVariousRequest{
+		Rolls: rolls,
+	})
+	if err != nil {
+		log.Fatalf("Could not get rolls reply: %v", err)
+	}
+
+	return r
+}
+
 // RollMetaRepeated ...
 // RollMetaVarious ...
 
