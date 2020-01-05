@@ -181,7 +181,7 @@ service's ["About" page][libera-about].
 ## License
 
 ```
-Copyright © 2018, Hexagram30 <hexagram30@cnbb.games>
+Copyright © 2018-2020, Hexagram30 <hexagram30@cnbb.games>
 
 Apache License, Version 2.0
 ```
