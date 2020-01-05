@@ -113,7 +113,42 @@ func (c *Client) RollVarious(dice []string, counts []int64) *api.DiceVariousRoll
 }
 
 // RollMetaRepeated ...
+func (c *Client) RollMetaRepeated(die string, count int64) *api.MetaRoll {
+	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
+	defer cancel()
+
+	r, err := c.Client.RollMetaRepeated(ctx, &api.RollsRequest{
+		DiceType:  die,
+		RollCount: int32(count),
+	})
+	if err != nil {
+		log.Fatalf("Could not get meta rolls reply: %v", err)
+	}
+
+	return r
+}
+
 // RollMetaVarious ...
+func (c *Client) RollMetaVarious(dice []string, counts []int64) *api.MetaRolls {
+	ctx, cancel := context.WithTimeout(context.Background(), shortTimeout)
+	defer cancel()
+
+	var rolls []*api.RollsRequest
+	for i, _ := range dice {
+		rolls = append(rolls, &api.RollsRequest{
+			DiceType:  dice[i],
+			RollCount: int32(counts[i]),
+		})
+	}
+	r, err := c.Client.RollMetaVarious(ctx, &api.RollVariousRequest{
+		Rolls: rolls,
+	})
+	if err != nil {
+		log.Fatalf("Could not get rolls reply: %v", err)
+	}
+
+	return r
+}
 
 // Version ...
 func (c *Client) Version() *common.VersionReply {

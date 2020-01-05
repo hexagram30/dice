@@ -72,6 +72,11 @@ private static final long serialVersionUID = 0L;
             sum_ = input.readInt32();
             break;
           }
+          case 40: {
+
+            count_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -112,6 +117,16 @@ private static final long serialVersionUID = 0L;
    */
   public float getAverage() {
     return average_;
+  }
+
+  public static final int COUNT_FIELD_NUMBER = 5;
+  private int count_;
+  /**
+   * <code>int32 count = 5;</code>
+   * @return The count.
+   */
+  public int getCount() {
+    return count_;
   }
 
   public static final int HIGH_FIELD_NUMBER = 2;
@@ -170,6 +185,9 @@ private static final long serialVersionUID = 0L;
     if (sum_ != 0) {
       output.writeInt32(4, sum_);
     }
+    if (count_ != 0) {
+      output.writeInt32(5, count_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -195,6 +213,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, sum_);
     }
+    if (count_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, count_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -213,6 +235,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getAverage())
         != java.lang.Float.floatToIntBits(
             other.getAverage())) return false;
+    if (getCount()
+        != other.getCount()) return false;
     if (getHigh()
         != other.getHigh()) return false;
     if (getLow()
@@ -233,6 +257,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + AVERAGE_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getAverage());
+    hash = (37 * hash) + COUNT_FIELD_NUMBER;
+    hash = (53 * hash) + getCount();
     hash = (37 * hash) + HIGH_FIELD_NUMBER;
     hash = (53 * hash) + getHigh();
     hash = (37 * hash) + LOW_FIELD_NUMBER;
@@ -378,6 +404,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       average_ = 0F;
 
+      count_ = 0;
+
       high_ = 0;
 
       low_ = 0;
@@ -411,6 +439,7 @@ private static final long serialVersionUID = 0L;
     public hxgm30.dice.pb.api.DiceRollStats buildPartial() {
       hxgm30.dice.pb.api.DiceRollStats result = new hxgm30.dice.pb.api.DiceRollStats(this);
       result.average_ = average_;
+      result.count_ = count_;
       result.high_ = high_;
       result.low_ = low_;
       result.sum_ = sum_;
@@ -464,6 +493,9 @@ private static final long serialVersionUID = 0L;
       if (other == hxgm30.dice.pb.api.DiceRollStats.getDefaultInstance()) return this;
       if (other.getAverage() != 0F) {
         setAverage(other.getAverage());
+      }
+      if (other.getCount() != 0) {
+        setCount(other.getCount());
       }
       if (other.getHigh() != 0) {
         setHigh(other.getHigh());
@@ -529,6 +561,36 @@ private static final long serialVersionUID = 0L;
     public Builder clearAverage() {
       
       average_ = 0F;
+      onChanged();
+      return this;
+    }
+
+    private int count_ ;
+    /**
+     * <code>int32 count = 5;</code>
+     * @return The count.
+     */
+    public int getCount() {
+      return count_;
+    }
+    /**
+     * <code>int32 count = 5;</code>
+     * @param value The count to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCount(int value) {
+      
+      count_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 count = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCount() {
+      
+      count_ = 0;
       onChanged();
       return this;
     }

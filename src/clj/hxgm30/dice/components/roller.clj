@@ -119,7 +119,7 @@
 
 (defn roll-meta-repeated
   [system ^Keyword die n]
-  (add-meta (roll-repeated system die n)))
+  (add-meta [(roll-repeated system die n)]))
 
 (defn roll-meta-various
   [system die-counts]
