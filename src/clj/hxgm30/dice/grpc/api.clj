@@ -86,11 +86,20 @@
       (.build)))
 
 (defn roll-repeated-builder
-  [system ^Keyword die n]
+  [system [die n]]
   (let [rolls (mapv int (roller/roll-repeated system die n))]
     (-> (DiceRepeatedRolls/newBuilder)
         (.addAllResults rolls)
         (.setDiceType (name die))
+        (.build))))
+
+(defn roll-various-builder
+  [system die-counts]
+  (log/debug "Got die-counts:" die-counts)
+  (let [rolls (mapv #(roll-repeated-builder system %)
+                    (roller/roll-various system die-counts))]
+    (-> (DiceVariousRolls/newBuilder)
+        (.addAllResults rolls)
         (.build))))
 
 (defn version-builder
@@ -102,6 +111,15 @@
       (.setGitBranch version/git-branch)
       (.setGitSummary version/git-summary)
       (.build)))
+
+(defn die-count
+  [request]
+  [(keyword (.getDiceType request))
+   (.getRollCount request)])
+
+(defn die-counts
+  [request]
+  (mapv die-count (.getRollsList request)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;   Java API   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -116,7 +134,7 @@
   [this ^RollRequest request ^DiceRoll reply]
   (log/debug "Got roll-once request")
   (built->reply
-    (roll-once-builder (system this) 
+    (roll-once-builder (system this)
                        (keyword (.getDiceType request)))
     reply))
 
@@ -124,14 +142,17 @@
   [this ^RollsRequest request ^DiceRepeatedRolls reply]
   (log/debug "Got roll-repeated request")
   (built->reply
-    (roll-repeated-builder (system this) 
-                           (keyword (.getDiceType request))
-                           (.getRollCount request))
+    (roll-repeated-builder (system this)
+                           (die-count request))
     reply))
 
 (defn -rollVarious
-  [this]
-  )
+  [this ^RollVariousRequest request ^DiceVariousRolls reply]
+  (log/debug "Got roll-various request")
+  (built->reply
+    (roll-various-builder (system this)
+                          (die-counts request))
+    reply))
 
 (defn -rollMetaRepeated
   [this]

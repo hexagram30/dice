@@ -1,10 +1,10 @@
 (ns hxgm30.dice.version)
 
-(def version "0.1.6-SNAPSHOT")
-(def build-date "2020-01-04T20:03:46Z")
-(def git-commit "04295ac")
+(def version "0.1.10-SNAPSHOT")
+(def build-date "2020-01-05T04:50:09Z")
+(def git-commit "9b9f1a6")
 (def git-branch "feature/9/dice-roll-api")
-(def git-summary "v0.1.6-SNAPSHOT-dirty")
+(def git-summary "v0.1.9-SNAPSHOT-dirty")
 
 (defn build-info
   []

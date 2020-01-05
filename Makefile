@@ -7,7 +7,7 @@ clojure: clojure-version
 
 jvm: protoc-gen-java clojure
 
-all: clean protoc-gen-go lint test build jvm
+all: clean clean-protobuf proto-deps protoc-gen-go lint test build jvm
 
 #############################################################################
 ###   Clojure Support   #####################################################
@@ -53,6 +53,7 @@ $(PROTOBUF_GO)/%.pb.go: $(PROTOBUF_SRC)/%.proto
 
 PROTO_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/$(PROTOBUF_SRC)
 GOLANG_DEP_IMPORT = $(PROTO_HXGM30_BASE)/protocols/src/golang/common
+
 fix-pb-go-import:
 	@sed -i.bak 's|$(PROTO_DEP_IMPORT)|$(GOLANG_DEP_IMPORT)|g' $(PROTOBUF_GO)/*.go && \
 	sed -i.bak 's|json:"diceType|json:"dice-type|g' $(PROTOBUF_GO)/*.go && \
@@ -64,8 +65,7 @@ protoc-gen-java: java-deps
 	@cp -r $(GRADLE_JAVA_DIR)/* $(PROTOBUF_JAVA)/
 	@rm -rf $(GRADLE_JAVA_DIR) $(GRADLE_GRPC_DIR) \
 		$(PROTOBUF_JAVA)/test $(GRADLE_BUILD_DIR) $(PROTOBUF_JAVA)/java \
-		$(PROTOBUF_JAVA)/hxgm30/proto/ 
-	
+		$(PROTOBUF_JAVA)/hxgm30/proto/
 
 java-deps:
 	@brew install gradle
