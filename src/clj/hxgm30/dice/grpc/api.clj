@@ -69,7 +69,7 @@
   (:system (.state this)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;   Builder Wrappers   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;   Java Builder Wrappers   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn ping-builder
@@ -79,11 +79,15 @@
       (.build)))
 
 (defn roll-once-builder
-  [system ^Keyword die]
-  (-> (DiceRoll/newBuilder)
-      (.setResult (roller/roll-once system die))
-      (.setDiceType (name die))
-      (.build)))
+  ([system ^Keyword die ]
+    (roll-once-builder system
+                       die
+                       (roller/roll-once system die)))
+  ([system ^Keyword die roll]
+    (-> (DiceRoll/newBuilder)
+        (.setResult roll)
+        (.setDiceType (name die))
+        (.build))))
 
 (defn roll-repeated-builder
   ([system [die n]]
@@ -105,6 +109,62 @@
                     (partition 2 (interleave die-counts v-rolls)))]
     (log/trace "Got rolls:" rolls)
     (-> (DiceVariousRolls/newBuilder)
+        (.addAllResults rolls)
+        (.build))))
+
+(defn roll-stats-builder
+  [system stats]
+  (-> (DiceRollStats/newBuilder)
+      (.setAverage (:avg stats))
+      (.setCount (:count stats))
+      (.setHigh (:high stats))
+      (.setLow (:low stats))
+      (.setSum (:sum stats))
+      (.build)))
+
+(defn get-repeated-roll
+  [annotated-rolls]
+  (let [raw-roll (:roll annotated-rolls)]
+    (if (coll? raw-roll)
+      (seq (vec (remove nil? (:roll annotated-rolls))))
+      raw-roll)))
+
+(defn roll-meta-repeated-builder
+  ([system [die n]]
+   (roll-meta-repeated-builder
+    system
+    die
+    (roller/roll-meta-repeated system die n)))
+  ([system die [annotated-rolls & other-rolls]]
+    (when other-rolls
+      (log/error (str "Something has gone wrong; there should noy be more "
+                      "than one repeated set of rolls")))
+    (log/trace "Annotated rolls:" annotated-rolls)
+    (let [roll (get-repeated-roll annotated-rolls)
+          rolls (:rolls annotated-rolls)
+          stats (:stats annotated-rolls)
+          builder (MetaRoll/newBuilder)]
+      (log/trace "Got roll:" roll)
+      (log/trace "Got rolls:" rolls)
+      (log/trace "Got stats:" stats)
+      (if roll
+        (-> builder
+            (.setRoll (roll-once-builder system die roll))
+            (.build))
+        (-> builder
+            (.setRolls (roll-repeated-builder system die rolls))
+            (.setStats (roll-stats-builder system stats))
+            (.build))))))
+
+(defn roll-meta-various-builder
+  [system die-counts]
+  (log/trace "Got die-counts:" die-counts)
+  (let [v-rolls (roller/roll-meta-various system die-counts)
+        grouped (vec (partition 2 (interleave die-counts v-rolls)))
+        rolls (mapv (fn [[[die _] rs]] (roll-meta-repeated-builder system die [rs]))
+                    grouped)]
+    (log/trace "Got rolls:" rolls)
+    (-> (MetaRolls/newBuilder)
         (.addAllResults rolls)
         (.build))))
 
@@ -161,12 +221,20 @@
     reply))
 
 (defn -rollMetaRepeated
-  [this]
-  )
+  [this ^RollsRequest request ^MetaRoll reply]
+  (log/debug "Got roll-meta-repeated request")
+  (built->reply
+    (roll-meta-repeated-builder (system this)
+                                (die-count request))
+    reply))
 
 (defn -rollMetaVarious
-  [this]
-  )
+  [this ^RollVariousRequest request ^MetaRolls reply]
+  (log/debug "Got roll-meta-various request")
+  (built->reply
+    (roll-meta-various-builder (system this)
+                               (die-counts request))
+    reply))
 
 (defn shutdown
   [this]

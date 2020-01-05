@@ -18,7 +18,7 @@
     (log/infof "Starting dice gRPC server component on port %s..." 
                (api/port dice-server))
     (api/start dice-server)
-    (log/debug "Started dice UDP CLI server component.")
+    (log/debug "Started dice gRPC server component.")
     (assoc this :server dice-server)))
 
 (defn stop

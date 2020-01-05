@@ -14,6 +14,12 @@ public interface DiceRollStatsOrBuilder extends
   float getAverage();
 
   /**
+   * <code>int32 count = 5;</code>
+   * @return The count.
+   */
+  int getCount();
+
+  /**
    * <code>int32 high = 2;</code>
    * @return The high.
    */

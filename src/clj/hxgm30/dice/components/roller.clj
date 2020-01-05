@@ -114,12 +114,12 @@
 
 (defn roll-various
   [system die-counts]
-  (log/debug "Got die-counts:" die-counts)
+  (log/trace "Got die-counts:" die-counts)
   (mapv #(apply d* %) (map (fn [[s r]] [system (sides s) r]) die-counts)))
 
 (defn roll-meta-repeated
   [system ^Keyword die n]
-  (add-meta (roll-repeated system die n)))
+  (add-meta [(roll-repeated system die n)]))
 
 (defn roll-meta-various
   [system die-counts]
