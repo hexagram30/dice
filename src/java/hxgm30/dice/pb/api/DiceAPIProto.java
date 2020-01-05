@@ -77,24 +77,25 @@ public final class DiceAPIProto {
       "\001 \001(\t\022\016\n\006result\030\002 \001(\005\"6\n\021DiceRepeatedRol" +
       "ls\022\020\n\010diceType\030\001 \001(\t\022\017\n\007results\030\002 \003(\005\";\n" +
       "\020DiceVariousRolls\022\'\n\007results\030\001 \003(\0132\026.api" +
-      ".DiceRepeatedRolls\"H\n\rDiceRollStats\022\017\n\007a" +
-      "verage\030\001 \001(\002\022\014\n\004high\030\002 \001(\005\022\013\n\003low\030\003 \001(\005\022" +
-      "\013\n\003sum\030\004 \001(\005\"q\n\010MetaRoll\022\033\n\004roll\030\001 \001(\0132\r" +
-      ".api.DiceRoll\022%\n\005rolls\030\002 \001(\0132\026.api.DiceR" +
-      "epeatedRolls\022!\n\005stats\030\003 \001(\0132\022.api.DiceRo" +
-      "llStats\"+\n\tMetaRolls\022\036\n\007results\030\001 \003(\0132\r." +
-      "api.MetaRoll2\234\003\n\nServiceAPI\0220\n\004Ping\022\023.co" +
-      "mmon.PingRequest\032\021.common.PingReply\"\000\022-\n" +
-      "\010RollOnce\022\020.api.RollRequest\032\r.api.DiceRo" +
-      "ll\"\000\022;\n\014RollRepeated\022\021.api.RollsRequest\032" +
-      "\026.api.DiceRepeatedRolls\"\000\022?\n\013RollVarious" +
-      "\022\027.api.RollVariousRequest\032\025.api.DiceVari" +
-      "ousRolls\"\000\0226\n\020RollMetaRepeated\022\021.api.Rol" +
-      "lsRequest\032\r.api.MetaRoll\"\000\022<\n\017RollMetaVa" +
-      "rious\022\027.api.RollVariousRequest\032\016.api.Met" +
-      "aRolls\"\000\0229\n\007Version\022\026.common.VersionRequ" +
-      "est\032\024.common.VersionReply\"\000B$\n\022hxgm30.di" +
-      "ce.pb.apiB\014DiceAPIProtoP\001b\006proto3"
+      ".DiceRepeatedRolls\"W\n\rDiceRollStats\022\017\n\007a" +
+      "verage\030\001 \001(\002\022\r\n\005count\030\005 \001(\005\022\014\n\004high\030\002 \001(" +
+      "\005\022\013\n\003low\030\003 \001(\005\022\013\n\003sum\030\004 \001(\005\"q\n\010MetaRoll\022" +
+      "\033\n\004roll\030\001 \001(\0132\r.api.DiceRoll\022%\n\005rolls\030\002 " +
+      "\001(\0132\026.api.DiceRepeatedRolls\022!\n\005stats\030\003 \001" +
+      "(\0132\022.api.DiceRollStats\"+\n\tMetaRolls\022\036\n\007r" +
+      "esults\030\001 \003(\0132\r.api.MetaRoll2\234\003\n\nServiceA" +
+      "PI\0220\n\004Ping\022\023.common.PingRequest\032\021.common" +
+      ".PingReply\"\000\022-\n\010RollOnce\022\020.api.RollReque" +
+      "st\032\r.api.DiceRoll\"\000\022;\n\014RollRepeated\022\021.ap" +
+      "i.RollsRequest\032\026.api.DiceRepeatedRolls\"\000" +
+      "\022?\n\013RollVarious\022\027.api.RollVariousRequest" +
+      "\032\025.api.DiceVariousRolls\"\000\0226\n\020RollMetaRep" +
+      "eated\022\021.api.RollsRequest\032\r.api.MetaRoll\"" +
+      "\000\022<\n\017RollMetaVarious\022\027.api.RollVariousRe" +
+      "quest\032\016.api.MetaRolls\"\000\0229\n\007Version\022\026.com" +
+      "mon.VersionRequest\032\024.common.VersionReply" +
+      "\"\000B$\n\022hxgm30.dice.pb.apiB\014DiceAPIProtoP\001" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -142,7 +143,7 @@ public final class DiceAPIProto {
     internal_static_api_DiceRollStats_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_api_DiceRollStats_descriptor,
-        new java.lang.String[] { "Average", "High", "Low", "Sum", });
+        new java.lang.String[] { "Average", "Count", "High", "Low", "Sum", });
     internal_static_api_MetaRoll_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_api_MetaRoll_fieldAccessorTable = new

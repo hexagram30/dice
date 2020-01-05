@@ -64,6 +64,7 @@ message DiceVariousRolls {
 // DiceRollStats
 message DiceRollStats {
     float average = 1;
+    int32 count = 5;
     int32 high = 2;
     int32 low = 3;
     int32 sum = 4;
