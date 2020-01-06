@@ -15,7 +15,7 @@
        ns
        "\u001B[35m]\u001B[33m λ\u001B[m=> "))
 
-(defproject hexagram30/dice "0.2.0"
+(defproject hexagram30/dice "0.2.0-SNAPSHOT"
   :description "An entropy manager, random number generator/seed tracker, and dice-roller for hexagram30 projects"
   :url "https://github.com/hexagram30/dice"
   :license {
@@ -34,8 +34,8 @@
     [clojusc/system-manager "0.3.0"]
     [clojusc/twig "0.4.1"]
     [com.google.protobuf/protobuf-java-util "3.11.1"]
-    [hexagram30/common "0.1.0-SNAPSHOT"]
-    [hexagram30/protocols "0.1.1-SNAPSHOT"]
+    [hexagram30/common "0.2.1"]
+    [hexagram30/protocols "0.2.0"]
     [io.grpc/grpc-netty "1.26.0"]
     [io.grpc/grpc-protobuf "1.26.0"]
     [io.grpc/grpc-stub "1.26.0"]
