@@ -71,12 +71,6 @@ java-deps:
 	@brew install gradle
 	@gradle wrapper --gradle-version 6.0.1
 
-$(PROTOBUF_JAVA)/%.java: $(PROTOBUF_SRC)/%.proto
-	@mkdir -p $(PROTOBUF_JAVA)
-	@protoc -I $(PROTOBUF_SRC) -I $(THIRD_PARTY) \
-		--plugin=protoc-gen-grpc-java=~/.m2/repository/io/grpc/protoc-gen-grpc-java/1.26.0 \
-		--java_out=$(PROTOBUF_JAVA) $<
-
 clean: clean-protobuf
 	@lein clean
 
